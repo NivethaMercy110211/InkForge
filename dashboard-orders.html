@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders — InkForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div><aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar"><i class="fa-solid fa-chevron-left"></i></button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info"><div class="user-name">Luna Patel</div><div class="user-role">Creator</div></div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link active"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside><main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <a href="dashboard-upload.html" class="btn-ink btn-primary-ink btn-ink-sm"><i class="fa-solid fa-plus"></i> Upload Design</a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+  <div class="dash-content">
+    <!-- Stats -->
+    <div class="stats-grid stats-grid-4" style="margin-bottom:var(--sp-4)">
+      <div class="stat-card"><div class="stat-icon" style="background:#EEF2FF;color:#5546D7"><i class="fa-solid fa-bag-shopping"></i></div><div class="stat-label">Total Orders</div><div class="stat-value">342</div></div>
+      <div class="stat-card"><div class="stat-icon" style="background:#E8F5E9;color:#2E7D32"><i class="fa-solid fa-check"></i></div><div class="stat-label">Fulfilled</div><div class="stat-value">318</div></div>
+      <div class="stat-card"><div class="stat-icon" style="background:#FFF3E0;color:#E65100"><i class="fa-solid fa-truck"></i></div><div class="stat-label">Shipped</div><div class="stat-value">18</div></div>
+      <div class="stat-card"><div class="stat-icon" style="background:#FCE4EC;color:#C62828"><i class="fa-solid fa-clock"></i></div><div class="stat-label">Pending</div><div class="stat-value">6</div></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="d-flex gap-3 mb-4 flex-wrap align-items-center">
+      <div class="search-bar" style="max-width:280px"><i class="fa-solid fa-magnifying-glass search-icon"></i><input type="search" class="ink-input" placeholder="Search orders..." aria-label="Search orders"></div>
+      <select class="ink-select" style="min-width:160px" aria-label="Filter by status"><option>All Statuses</option><option>Pending</option><option>Processing</option><option>Shipped</option><option>Fulfilled</option></select>
+      <select class="ink-select" style="min-width:160px" aria-label="Filter by product"><option>All Products</option><option>T-Shirts</option><option>Mugs</option><option>Hoodies</option><option>Totes</option></select>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="dash-panel">
+      <div class="ink-table-wrap">
+        <table class="ink-table">
+          <thead>
+            <tr><th>Order ID</th><th>Date</th><th>Product</th><th>Customer</th><th>Amount</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="td-order-id">#INK-0091</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 2, 2026</td>
+              <td><div class="td-product"><div class="td-product-img"><img src="assets/images/categories/tshirts.jpg" alt=""></div><div class="td-product-info"><div class="prod-name">Midnight Botanica Tee</div><div class="prod-meta">Size: M · Color: Indigo</div></div></div></td>
+              <td style="font-size:0.875rem">Sarah M.</td>
+              <td><strong>.49</strong></td>
+              <td><span class="ink-status status-fulfilled">Fulfilled</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm">View</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0090</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 1, 2026</td>
+              <td><div class="td-product"><div class="td-product-img"><img src="assets/images/categories/mugs.jpg" alt=""></div><div class="td-product-info"><div class="prod-name">Abstract Orbit Mug</div><div class="prod-meta">11oz White</div></div></div></td>
+              <td style="font-size:0.875rem">James K.</td>
+              <td><strong>.99</strong></td>
+              <td><span class="ink-status status-shipped">Shipped</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm">View</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0089</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 1, 2026</td>
+              <td><div class="td-product"><div class="td-product-img"><img src="assets/images/categories/hoodies.jpg" alt=""></div><div class="td-product-info"><div class="prod-name">Minimal Form Hoodie</div><div class="prod-meta">Size: L · Charcoal</div></div></div></td>
+              <td style="font-size:0.875rem">Riya P.</td>
+              <td><strong>.99</strong></td>
+              <td><span class="ink-status status-pending">Pending</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm">View</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0088</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 31, 2026</td>
+              <td><div class="td-product"><div class="td-product-img"><img src="assets/images/categories/cases.jpg" alt=""></div><div class="td-product-info"><div class="prod-name">Retro Wave Phone Case</div><div class="prod-meta">iPhone 15 Pro</div></div></div></td>
+              <td style="font-size:0.875rem">Marco T.</td>
+              <td><strong>.49</strong></td>
+              <td><span class="ink-status status-fulfilled">Fulfilled</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm">View</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0087</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 30, 2026</td>
+              <td><div class="td-product"><div class="td-product-img"><img src="assets/images/categories/totes.jpg" alt=""></div><div class="td-product-info"><div class="prod-name">Urban Lines Tote</div><div class="prod-meta">Natural Canvas</div></div></div></td>
+              <td style="font-size:0.875rem">Emma J.</td>
+              <td><strong>.99</strong></td>
+              <td><span class="ink-status status-fulfilled">Fulfilled</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+/* =========================================================
+   InkForge — forms.css
+   Input fields, selects, checkboxes, radio, file upload, etc.
+   ========================================================= */
+
+/* ----- Base Input ----- */
+.ink-input,
+.ink-select,
+.ink-textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 15px;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--heading);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  box-shadow: 0 1px 2px rgba(32, 32, 38, 0.04);
+  transition: border-color var(--trans-fast), box-shadow var(--trans-fast), background var(--trans-fast), transform var(--trans-fast);
+  line-height: 1.5;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ink-input::placeholder,
+.ink-textarea::placeholder {
+  color: var(--muted);
+}
+
+.ink-input:focus,
+.ink-select:focus,
+.ink-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(85,70,215,0.12), 0 2px 6px rgba(32,32,38,0.06);
+}
+
+.ink-input:hover,
+.ink-select:hover,
+.ink-textarea:hover {
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+}
+
+.ink-input.error,
+.ink-select.error,
+.ink-textarea.error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(201,59,59,0.10);
+}
+
+.ink-input.success,
+.ink-select.success,
+.ink-textarea.success {
+  border-color: var(--success);
+}
+
+/* ----- Select ----- */
+.ink-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23686872' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* ----- Textarea ----- */
+.ink-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.65;
+}
+
+/* ----- Form Group ----- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 6px;
+  font-family: var(--font-body);
+}
+
+.form-label .required {
+  color: var(--danger);
+  margin-left: 3px;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--danger);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ----- Input with icon ----- */
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.input-icon-wrap .ink-input {
+  padding-left: 40px;
+}
+
+.input-icon-wrap .input-icon-right {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+}
+
+.input-icon-wrap .input-icon-right:hover {
+  color: var(--primary);
+}
+
+/* ----- Checkbox & Radio ----- */
+.ink-check-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.ink-check-wrap input[type="checkbox"],
+.ink-check-wrap input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.ink-check-wrap .check-label {
+  font-size: 0.9rem;
+  color: var(--body);
+  line-height: 1.5;
+}
+
+.ink-check-wrap .check-label a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ----- Custom Checkbox ----- */
+.custom-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-check input {
+  display: none;
+}
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--trans-fast), background var(--trans-fast);
+}
+
+.check-box i {
+  color: #fff;
+  font-size: 0.65rem;
+  opacity: 0;
+  transition: opacity var(--trans-fast);
+}
+
+.custom-check input:checked + .check-box {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.custom-check input:checked + .check-box i {
+  opacity: 1;
+}
+
+/* ----- Switch ----- */
+.ink-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ink-switch input {
+  display: none;
+}
+
+.switch-track {
+  width: 42px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 999px;
+  position: relative;
+  transition: background var(--trans-base);
+  flex-shrink: 0;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: left var(--trans-base);
+}
+
+.ink-switch input:checked ~ .switch-track {
+  background: var(--primary);
+}
+
+.ink-switch input:checked ~ .switch-track .switch-thumb {
+  left: 21px;
+}
+
+.switch-label {
+  font-size: 0.9rem;
+  color: var(--body);
+}
+
+/* ----- Range input ----- */
+.ink-range {
+  width: 100%;
+  accent-color: var(--primary);
+  height: 4px;
+  cursor: pointer;
+}
+
+/* ----- File Upload ----- */
+.file-drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--trans-base), background var(--trans-base);
+  position: relative;
+  background: var(--white);
+}
+
+.file-drop-zone:hover,
+.file-drop-zone.dragover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.file-drop-zone .drop-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.file-drop-zone .drop-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-bottom: 6px;
+}
+
+.file-drop-zone .drop-hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.file-drop-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-drop-zone .format-pills {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.format-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ----- Upload Progress ----- */
+.upload-progress-wrap {
+  margin-top: 16px;
+}
+
+.upload-progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.upload-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.upload-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ----- Form Section Divider ----- */
+.form-section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--heading);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+/* ----- Search Input ----- */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar .ink-input {
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 576px) {
+  .ink-input,
+  .ink-select,
+  .ink-textarea {
+    min-height: 50px;
+    font-size: 1rem;
+  }
+}
+
+.search-bar .search-clear {
+  position: absolute;
+  right: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  transition: color var(--trans-fast);
+}
+
+.search-bar .search-clear:hover {
+  color: var(--heading);
+}
+
+/* ----- Color Swatch Picker ----- */
+.color-swatches {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--trans-fast), border-color var(--trans-fast);
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.active {
+  border-color: var(--heading);
+}
+
+.color-swatch.active::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+
+/* ----- Size Selector ----- */
+.size-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.size-option {
+  min-width: 42px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--body);
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--trans-fast), color var(--trans-fast), background var(--trans-fast);
+  user-select: none;
+}
+
+.size-option:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.size-option.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.size-option.unavailable {
+  opacity: 0.35;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.size-option.unavailable::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    rgba(0,0,0,0.1) 4px,
+    rgba(0,0,0,0.1) 5px
+  );
+}
+
+/* ----- Quantity ----- */
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  width: fit-content;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--soft);
+  border: none;
+  cursor: pointer;
+  color: var(--heading);
+  font-size: 0.9rem;
+  transition: background var(--trans-fast), color var(--trans-fast);
+  flex-shrink: 0;
+}
+
+.qty-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.qty-val {
+  min-width: 44px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--heading);
+  border: none;
+  outline: none;
+  background: var(--white);
+  font-family: var(--font-body);
+  border-left: 1.5px solid var(--border);
+  border-right: 1.5px solid var(--border);
+}
+
+/* ----- Tag input ----- */
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  min-height: 46px;
+  align-items: center;
+  cursor: text;
+}
+
+.tag-wrap:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(85,70,215,0.12);
+}
+
+.ink-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.ink-tag .remove-tag {
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 0.7rem;
+  transition: opacity var(--trans-fast);
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+}
+
+.ink-tag .remove-tag:hover {
+  opacity: 1;
+}
+
+.tag-input {
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: var(--heading);
+  background: transparent;
+  font-family: var(--font-body);
+  flex: 1;
+  min-width: 100px;
+}
+
+.tag-input::placeholder {
+  color: var(--muted);
+}

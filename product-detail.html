@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail — Midnight Botanica Tee — InkForge</title>
+  <meta name="description" content="Midnight Botanica Tee by Luna Patel. Botanical illustration on premium organic cotton. Available in 5 colors and 6 sizes. Free returns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav class="ink-navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="ink-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" role="navigation">
+    <a href="index.html" class="mobile-nav-link">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="products.html" class="mobile-nav-link active">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls">
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <div class="mobile-utility-row">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="section" aria-label="Product detail">
+  <div class="ink-container">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="ink-breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="products.html?cat=tshirts">T-Shirts</a></li>
+        <li>Midnight Botanica Tee</li>
+      </ol>
+    </nav>
+
+    <div class="product-detail-layout">
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div class="gallery-thumbs">
+          <button class="gallery-thumb active" onclick="setMainImg(this)" data-img="assets/images/categories/tshirts.jpg">
+            <img src="assets/images/categories/tshirts.jpg" alt="Front view">
+          </button>
+          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/categories/mugs.jpg">
+            <img src="assets/images/categories/mugs.jpg" alt="Design closeup">
+          </button>
+          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/categories/totes.jpg">
+            <img src="assets/images/categories/totes.jpg" alt="Lifestyle photo">
+          </button>
+          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/hero/hero-home1.jpg">
+            <img src="assets/images/hero/hero-home1.jpg" alt="Flat lay">
+          </button>
+        </div>
+        <div class="gallery-main">
+          <img src="assets/images/categories/tshirts.jpg" alt="Midnight Botanica Tee — front view" id="gallery-main-img">
+          <div class="gallery-zoom-btn"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          <div class="gallery-main-badge">
+            <span class="ink-badge badge-new">Bestseller</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <div class="product-info-category"><a href="products.html?cat=tshirts">T-Shirts</a></div>
+        <h1 class="product-info-title" data-product-name>Midnight Botanica Tee</h1>
+        <div class="product-info-creator">
+          Designed by <a href="creator-profile.html" class="creator-link">
+            <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar" style="width:24px;height:24px;border-radius:50%">
+            Luna Patel
+          </a>
+        </div>
+        <div class="product-info-rating">
+          <div class="star-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            <span>4.8</span>
+          </div>
+          <a href="#reviews-section" class="reviews-count">342 reviews</a>
+        </div>
+        <div class="product-info-price" data-product-price>$29.99</div>
+
+        <!-- Color Picker -->
+        <div class="product-option-group">
+          <div class="option-label">Color: <span class="option-val" id="selected-color">Indigo</span></div>
+          <div class="color-swatch-group">
+            <button class="color-swatch active" style="background:#1A1A2E" title="Indigo" onclick="selectColor(this,'Indigo')"></button>
+            <button class="color-swatch" style="background:#4A4A6A" title="Slate" onclick="selectColor(this,'Slate')"></button>
+            <button class="color-swatch" style="background:#F8F7F4;border:1.5px solid #E4E2E7" title="Natural" onclick="selectColor(this,'Natural')"></button>
+            <button class="color-swatch" style="background:#2C4A2E" title="Forest" onclick="selectColor(this,'Forest')"></button>
+            <button class="color-swatch" style="background:#8B4513" title="Terracotta" onclick="selectColor(this,'Terracotta')"></button>
+          </div>
+        </div>
+
+        <!-- Size Picker -->
+        <div class="product-option-group">
+          <div class="option-label">Size: <span class="option-val" id="selected-size">M</span></div>
+          <div class="size-swatch-group">
+            <button class="size-option" onclick="selectSize(this)">XS</button>
+            <button class="size-option" onclick="selectSize(this)">S</button>
+            <button class="size-option active" onclick="selectSize(this)">M</button>
+            <button class="size-option" onclick="selectSize(this)">L</button>
+            <button class="size-option" onclick="selectSize(this)">XL</button>
+            <button class="size-option" onclick="selectSize(this)">2XL</button>
+          </div>
+          <a href="#size-guide" class="size-guide-link"><i class="fa-solid fa-ruler-horizontal"></i> Size Guide</a>
+        </div>
+
+        <!-- Quantity -->
+        <div class="product-option-group">
+          <div class="option-label">Quantity</div>
+          <div class="qty-control">
+            <button class="qty-btn" id="qty-minus"><i class="fa-solid fa-minus"></i></button>
+            <input class="qty-val" type="number" id="product-qty" value="1" min="1" max="99" readonly>
+            <button class="qty-btn" id="qty-plus"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="d-flex gap-3 flex-wrap">
+          <button class="btn-ink btn-primary-ink btn-ink-lg flex-grow-1" data-add-cart="1" id="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+          </button>
+          <button class="btn-ink btn-secondary-ink btn-ink-lg wishlist-btn" title="Add to wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+
+        <!-- Shipping info strip -->
+        <div class="product-shipping-strip">
+          <div class="ship-item"><i class="fa-solid fa-truck-fast"></i> Ships in 3–5 days</div>
+          <div class="ship-item"><i class="fa-solid fa-rotate-left"></i> Free returns within 30 days</div>
+          <div class="ship-item"><i class="fa-solid fa-shield-halved"></i> Secure checkout</div>
+        </div>
+
+        <!-- Description -->
+        <div class="product-description" id="product-description">
+          <h2 class="product-desc-title">About This Product</h2>
+          <p>The Midnight Botanica Tee features an original botanical illustration by Luna Patel — intricate plant forms rendered in a bold, graphic style on a deep indigo base. Printed using direct-to-garment technology for vibrant, long-lasting color.</p>
+          <ul>
+            <li>100% organic ring-spun cotton (180g)</li>
+            <li>Direct-to-garment print — washes well, won't crack or fade</li>
+            <li>Relaxed unisex fit — true to size</li>
+            <li>Pre-washed to minimize shrinkage</li>
+            <li>Tear-away label for comfort</li>
+          </ul>
+          <p><em>Care:</em> Machine wash cold, gentle cycle. Tumble dry low. Do not iron directly on print.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div id="reviews-section" style="margin-top:var(--sp-7)">
+      <h2 class="section-title" style="margin-bottom:var(--sp-4)">Customer Reviews</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="review-summary-card">
+            <div class="review-avg">4.8</div>
+            <div class="star-rating mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+            <div style="color:var(--muted);font-size:0.9rem">Based on 342 reviews</div>
+            <div class="review-bars">
+              <div class="review-bar-row"><span>5</span><div class="rbar"><div class="rbar-fill" style="width:78%"></div></div><span>78%</span></div>
+              <div class="review-bar-row"><span>4</span><div class="rbar"><div class="rbar-fill" style="width:15%"></div></div><span>15%</span></div>
+              <div class="review-bar-row"><span>3</span><div class="rbar"><div class="rbar-fill" style="width:5%"></div></div><span>5%</span></div>
+              <div class="review-bar-row"><span>2</span><div class="rbar"><div class="rbar-fill" style="width:1%"></div></div><span>1%</span></div>
+              <div class="review-bar-row"><span>1</span><div class="rbar"><div class="rbar-fill" style="width:1%"></div></div><span>1%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="d-flex flex-column gap-3">
+            <div class="review-card">
+              <div class="review-header">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="review-avatar">S</div>
+                  <div><strong style="font-size:0.9rem;color:var(--heading)">Sarah M.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
+                </div>
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              </div>
+              <p class="review-text">"Even better in person than in the photos. The print is incredibly sharp and the fabric feels premium. I've already ordered two more designs from Luna."</p>
+              <div style="font-size:0.78rem;color:var(--muted)">Size: M · Color: Indigo · September 2026</div>
+            </div>
+            <div class="review-card">
+              <div class="review-header">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="review-avatar" style="background:#E8F5E9;color:#2E7D32">J</div>
+                  <div><strong style="font-size:0.9rem;color:var(--heading)">James K.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
+                </div>
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              </div>
+              <p class="review-text">"Ordered as a birthday gift. My friend absolutely loved it. The tee is great quality and the design washes beautifully after multiple machine cycles."</p>
+              <div style="font-size:0.78rem;color:var(--muted)">Size: L · Color: Natural · August 2026</div>
+            </div>
+            <div class="review-card">
+              <div class="review-header">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="review-avatar" style="background:#FFF3E0;color:#E65100">R</div>
+                  <div><strong style="font-size:0.9rem;color:var(--heading)">Riya P.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
+                </div>
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+              </div>
+              <p class="review-text">"Beautiful design and great fit. The Midnight Botanica really stands out. One star off because the shipping took a day longer than estimated, but the product itself is perfect."</p>
+              <div style="font-size:0.78rem;color:var(--muted)">Size: S · Color: Indigo · August 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div style="margin-top:var(--sp-7)">
+      <h2 class="section-title" style="margin-bottom:var(--sp-5)">More From Luna Patel</h2>
+      <div class="arrivals-strip">
+        <div class="product-card">
+          <div class="card-img-wrap"><img src="assets/images/categories/mugs.jpg" alt="Abstract Orbit Mug" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
+          <div class="card-body-ink">
+            <div class="card-category">Mugs</div>
+            <div class="card-title">Abstract Orbit Mug</div>
+            <div class="card-footer-ink"><div class="card-price">$18.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="card-img-wrap"><img src="assets/images/categories/posters.jpg" alt="Wild Bloom Poster" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
+          <div class="card-body-ink">
+            <div class="card-category">Posters</div>
+            <div class="card-title">Wild Bloom Poster</div>
+            <div class="card-footer-ink"><div class="card-price">$14.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="card-img-wrap"><img src="assets/images/categories/totes.jpg" alt="Urban Lines Tote" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
+          <div class="card-body-ink">
+            <div class="card-category">Tote Bags</div>
+            <div class="card-title">Urban Lines Tote</div>
+            <div class="card-footer-ink"><div class="card-price">$22.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="card-img-wrap"><img src="assets/images/categories/hoodies.jpg" alt="Minimal Form Hoodie" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
+          <div class="card-body-ink">
+            <div class="card-category">Hoodies</div>
+            <div class="card-title">Minimal Form Hoodie</div>
+            <div class="card-footer-ink"><div class="card-price">$52.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <a href="index.html" class="footer-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+        <p class="footer-tagline">Your Art. Your Merch. Your Store.</p>
+        <ul class="footer-social"><li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li><li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li><li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a></li></ul>
+      </div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="products.html">All Products</a></li><li><a href="products.html?cat=tshirts">T-Shirts</a></li><li><a href="products.html?cat=mugs">Mugs</a></li></ul></div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="how-to-order.html">How to Order</a></li><li><a href="contact.html">Contact</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="col-lg-3"><div class="footer-col-title">Newsletter</div><div class="footer-newsletter"><p>Get new drops and exclusive deals.</p><div class="footer-newsletter-form"><input type="email" placeholder="Your email" aria-label="Newsletter"><button type="button">Subscribe</button></div></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="ink-container"><div class="inner"><p class="copy">&copy; 2026 InkForge. All rights reserved.</p><ul class="legal-links"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div></div></div>
+</footer>
+
+<button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+<script>
+  function setMainImg(btn) {
+    document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('gallery-main-img').src = btn.dataset.img;
+  }
+
+  function selectColor(btn, name) {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('selected-color').textContent = name;
+  }
+
+  function selectSize(btn) {
+    document.querySelectorAll('.size-option').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('selected-size').textContent = btn.textContent;
+  }
+
+  document.getElementById('qty-minus').addEventListener('click', () => {
+    const inp = document.getElementById('product-qty');
+    if (parseInt(inp.value) > 1) inp.value = parseInt(inp.value) - 1;
+  });
+
+  document.getElementById('qty-plus').addEventListener('click', () => {
+    const inp = document.getElementById('product-qty');
+    inp.value = parseInt(inp.value) + 1;
+  });
+
+  document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+    const size = document.getElementById('selected-size').textContent;
+    const color = document.getElementById('selected-color').textContent;
+    const qty = parseInt(document.getElementById('product-qty').value);
+    if (typeof InkCart !== 'undefined') {
+      InkCart.add({
+        id: 1,
+        name: 'Midnight Botanica Tee',
+        price: 29.99,
+        size,
+        color,
+        qty,
+        category: 'T-Shirts',
+        creator: 'Luna Patel',
+        img: 'assets/images/categories/tshirts.jpg'
+      });
+    }
+  });
+</script>
+</body>
+</html>

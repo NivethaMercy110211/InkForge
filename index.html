@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkForge — Original Designs. Made to Be Worn.</title>
+  <meta name="description" content="Discover custom merchandise created by independent artists. Shop unique graphic tees, mugs, tote bags, phone cases, and more. Print-on-demand, delivered to your door.">
+  <meta property="og:title" content="InkForge — Original Designs. Made to Be Worn.">
+  <meta property="og:description" content="Discover custom merchandise created by independent artists.">
+  <meta name="theme-color" content="#5546D7">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- InkForge CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/creators.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ----- Hero Home 1 ----- */
+    .hero-h1 {
+      position: relative;
+      min-height: clamp(700px, calc(100vh - 72px), 840px);
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    /* Left text panel */
+    .hero-h1 .hero-text-panel {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: var(--sp-10) 0;
+      background: linear-gradient(135deg, var(--white) 0%, var(--soft) 100%);
+    }
+
+    /* Right banner image panel */
+    .hero-h1 .hero-banner-panel {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-h1 .hero-banner-img {
+      position: absolute;
+      inset: 20px 0 0;
+      width: 100%;
+      height: calc(100% - 20px);
+      object-fit: contain;
+      object-position: center;
+      padding: 16px;
+      transform: none;
+    }
+
+    /* Clean divider between the content and image panels */
+    .hero-h1 .hero-banner-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to right, rgba(85,70,215,0.08), transparent 18%);
+      pointer-events: none;
+    }
+
+    .hero-h1 .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .motion-enabled .hero-h1 .hero-banner-panel.motion-reveal {
+      transform: translate3d(28px, 0, 0) scale(1.015);
+    }
+
+    .motion-enabled .hero-h1 .hero-banner-panel.motion-reveal.in-view {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .hero-h1 .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      border: 1px solid rgba(85,70,215,0.12);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-h1 .hero-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--heading);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--body);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-h1 .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-h1 .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-trust-item .val {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.375rem;
+      color: var(--heading);
+    }
+
+    .hero-trust-item .lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-trust-sep {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+    }
+
+    .float-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--heading);
+      white-space: nowrap;
+      animation: float-y 3s ease-in-out infinite;
+    }
+
+    .float-badge.fb1 { top: 96px; left: 24px; }
+    .float-badge.fb2 { bottom: 80px; right: 24px; }
+
+    .float-badge .badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    @keyframes float-y {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ----- How POD Works ----- */
+    .pod-steps-list {
+      display: grid;
+      grid-auto-rows: 1fr;
+      gap: 8px;
+    }
+
+    .pod-step {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      transition: background var(--trans-base), box-shadow var(--trans-base);
+    }
+
+    .pod-step:hover {
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pod-step-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .pod-step-content {
+      min-width: 0;
+    }
+
+    .pod-step-content .step-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+
+    .pod-step-content .step-desc {
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    @media (min-width: 992px) {
+      .pod-step-content .step-desc {
+        width: 58ch;
+        max-width: 100%;
+        min-height: 3.2em;
+      }
+    }
+
+    /* ----- POD Process Image ----- */
+    .pod-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      transition: transform var(--trans-base), box-shadow var(--trans-base);
+    }
+
+    .pod-image-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pod-process-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .pod-image-wrapper:hover .pod-process-img {
+      transform: scale(1.03);
+    }
+
+    .pod-image-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(15, 12, 26, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #FFFFFF;
+      z-index: 2;
+    }
+
+    .pod-image-badge i {
+      font-size: 1.25rem;
+      color: #FFB800;
+      flex-shrink: 0;
+    }
+
+    .pod-image-badge .badge-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .pod-image-badge .badge-sub {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.75);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ----- Why Shop Cards with Real Images ----- */
+    .why-shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--trans-base), transform var(--trans-base), border-color var(--trans-base);
+    }
+
+    .why-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+      border-color: rgba(85, 70, 215, 0.25);
+    }
+
+    .why-card-img-wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    .why-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .why-card:hover .why-card-img {
+      transform: scale(1.05);
+    }
+
+    .why-icon-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: var(--primary);
+      transition: background var(--trans-base), color var(--trans-base), transform var(--trans-base);
+      z-index: 2;
+    }
+
+    .why-card:hover .why-icon-badge {
+      background: var(--primary);
+      color: #FFFFFF;
+      transform: scale(1.08);
+    }
+
+    .why-card-body {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .why-card .why-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+
+    .why-card .why-desc {
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    /* Testimonial Cards with Real Images */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow var(--trans-base), transform var(--trans-base), border-color var(--trans-base);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: rgba(85, 70, 215, 0.25);
+    }
+
+    .testimonial-verified {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--success);
+      background: var(--success-bg);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--body);
+      margin-bottom: 20px;
+      font-style: normal;
+    }
+
+    .testimonial-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .testimonial-author {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--heading);
+      line-height: 1.2;
+    }
+
+    .testimonial-loc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .testimonial-product-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--heading);
+      align-self: flex-start;
+    }
+
+    .testimonial-product-pill .product-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @media (min-width: 1101px) {
+      .hero-h1 {
+        min-height: auto;
+      }
+
+      .hero-h1 > .container-fluid {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+      .hero-h1 .hero-text-panel {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .hero-h1 .hero-banner-img {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .hero-h1 .hero-sub { max-width: 100%; }
+      .why-shop-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 576px) {
+      .why-shop-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-h1 { min-height: auto; }
+    }
+
+    [data-theme="dark"] .why-card { background: var(--white); border-color: var(--border); }
+    [data-theme="dark"] .why-icon-badge { background: #25252D; color: var(--primary-light); }
+    [data-theme="dark"] .testimonial-card { background: var(--white); border-color: var(--border); }
+    [data-theme="dark"] .testimonial-product-pill { background: var(--bg); }
+    [data-theme="dark"] .pod-step:hover { background: var(--white); }
+    [data-theme="dark"] .float-badge { background: #25252D; color: var(--heading); }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="ink-navbar" id="main-nav" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a href="index.html" class="ink-logo" aria-label="InkForge Home">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html" class="active" aria-current="page">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Controls -->
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn" id="cart-nav-btn" title="Cart" aria-label="View cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" style="display:none">0</span>
+      </a>
+      <button class="rtl-toggle-btn" id="rtl-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" id="theme-btn" title="Toggle dark mode" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login" id="creator-signup-nav">
+        <i class="fa-solid fa-palette"></i> Creator Signup
+      </a>
+      <a href="dashboard.html" class="btn-dashboard" id="seller-dashboard-nav">
+        <i class="fa-solid fa-gauge-high"></i> Dashboard
+      </a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-nav-link active">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls">
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <div class="mobile-utility-row">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero-h1" aria-label="Hero section">
+  <div class="container-fluid p-0 h-100 d-flex" style="min-height:inherit">
+
+    <!-- Left: Text content -->
+    <div class="col-lg-6 col-12 hero-text-panel px-4 px-lg-5">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+          Over 2,400 Independent Designers
+        </div>
+        <h1 class="hero-heading">Original Designs.<br>Made to Be Worn.</h1>
+        <p class="hero-sub">Discover one-of-a-kind merchandise created by independent artists. Every purchase supports a creator and is printed on demand — just for you.</p>
+        <div class="hero-ctas">
+          <a href="products.html" class="btn-ink btn-primary-ink btn-ink-lg">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Bestsellers
+          </a>
+          <a href="creator-signup.html" class="btn-ink btn-secondary-ink btn-ink-lg">
+            <i class="fa-solid fa-palette"></i> Start Selling
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><span class="val">50K+</span><span class="lbl">Designs</span></div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><span class="val">2,400+</span><span class="lbl">Creators</span></div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><span class="val">180K+</span><span class="lbl">Orders Shipped</span></div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><span class="val">4.8★</span><span class="lbl">Average Rating</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Banner image -->
+    <div class="col-lg-6 d-none d-lg-flex hero-banner-panel">
+      <img
+        src="assets/images/hero/home1-banner.png"
+        alt="InkForge merchandise — t-shirts, mugs, tote bags and phone cases"
+        class="hero-banner-img"
+        loading="eager"
+      >
+      <!-- Floating badges on top of image -->
+      <div class="float-badge fb1" style="z-index:2">
+        <div class="badge-icon"><i class="fa-solid fa-star"></i></div>
+        <div>
+          <div style="font-size:0.7rem;color:var(--muted);font-weight:500">Bestseller</div>
+          <div>Midnight Botanica Tee</div>
+        </div>
+      </div>
+      <div class="float-badge fb2" style="animation-delay:1.5s;z-index:2">
+        <div class="badge-icon"><i class="fa-solid fa-truck"></i></div>
+        <div>
+          <div style="font-size:0.7rem;color:var(--muted);font-weight:500">Just delivered</div>
+          <div>Order #INK-0091</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SHOP BY CATEGORY ===== -->
+<section class="section" aria-labelledby="categories-heading">
+  <div class="ink-container">
+    <div class="section-header d-flex align-items-end justify-content-between mb-0" style="margin-bottom:var(--sp-5)!important">
+      <div>
+        <div class="section-label">Browse by Category</div>
+        <h2 class="section-title" id="categories-heading">Shop by Category</h2>
+        <p class="section-subtitle">Every category, every product — printed with your chosen design.</p>
+      </div>
+      <a href="products.html" class="view-all-link d-none d-md-flex">All Products <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="assets/images/products/tshirts.png" alt="T-Shirts category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">T-Shirts</div>
+          <div class="cat-desc">Graphic tees with original artist designs</div>
+          <div class="cat-count">12,400+ designs</div>
+          <a href="products.html?cat=tshirts" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/products/mugs.png" alt="Mugs category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Mugs</div>
+          <div class="cat-desc">Ceramic mugs with unique printed art</div>
+          <div class="cat-count">4,200+ designs</div>
+          <a href="products.html?cat=mugs" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/products/tote.png" alt="Tote Bags category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Tote Bags</div>
+          <div class="cat-desc">Canvas totes with contemporary artwork</div>
+          <div class="cat-count">3,100+ designs</div>
+          <a href="products.html?cat=totes" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/products/case.png" alt="Phone Cases category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Phone Cases</div>
+          <div class="cat-desc">Premium printed cases for your device</div>
+          <div class="cat-count">6,800+ designs</div>
+          <a href="products.html?cat=cases" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/categories/hoodies.jpg" alt="Hoodies category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Hoodies</div>
+          <div class="cat-desc">Cosy pullover hoodies with artist prints</div>
+          <div class="cat-count">2,900+ designs</div>
+          <a href="products.html?cat=hoodies" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/categories/posters.jpg" alt="Posters category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Posters</div>
+          <div class="cat-desc">Gallery-quality art prints for your space</div>
+          <div class="cat-count">8,700+ designs</div>
+          <a href="products.html?cat=posters" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card">
+        <img src="assets/images/categories/caps.jpg" alt="Caps category">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">Caps</div>
+          <div class="cat-desc">Embroidered and printed headwear</div>
+          <div class="cat-count">1,400+ designs</div>
+          <a href="products.html?cat=caps" class="cat-cta">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="category-card category-card--all">
+        <img src="assets/images/products/all_product.png" alt="Complete InkForge product collection">
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="cat-name">All Products</div>
+          <div class="cat-desc">Browse the full collection of 50,000+ designs</div>
+          <div class="cat-count">50,000+ designs</div>
+          <a href="products.html" class="cat-cta" style="opacity:1;transform:none;">Browse All <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 d-md-none">
+      <a href="products.html" class="view-all-link">All Products <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BESTSELLING DESIGNS ===== -->
+<section class="section bg-soft" aria-labelledby="bestsellers-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">Top Picks</div>
+      <h2 class="section-title" id="bestsellers-heading">Bestselling Designs</h2>
+      <p class="section-subtitle">Designs that customers keep coming back to — explore what's popular right now.</p>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div class="d-flex gap-2 flex-wrap justify-content-center mb-4">
+      <button class="ink-chip active" data-chip-cat="all" id="chip-all">All</button>
+      <button class="ink-chip" data-chip-cat="tshirts">T-Shirts</button>
+      <button class="ink-chip" data-chip-cat="mugs">Mugs</button>
+      <button class="ink-chip" data-chip-cat="totes">Tote Bags</button>
+      <button class="ink-chip" data-chip-cat="cases">Phone Cases</button>
+      <button class="ink-chip" data-chip-cat="hoodies">Hoodies</button>
+    </div>
+
+    <div class="bestsellers-grid" id="bestsellers-display">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-1.jpg" alt="Midnight Botanica Tee" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">T-Shirts</div>
+          <div class="card-title">Midnight Botanica Tee</div>
+          <div class="card-creator">by <a href="creator-profile.html">Luna Patel</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.8</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(342)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#1A1A2E"></span>
+            <span class="variant-dot" style="background:#4A4A6A"></span>
+            <span class="variant-dot" style="background:#F8F7F4"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$29.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-2.jpg" alt="Abstract Orbit Mug" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Mugs</div>
+          <div class="card-title">Abstract Orbit Mug</div>
+          <div class="card-creator">by <a href="creator-profile.html">Kai Nakamura</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.6</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(218)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#FFFFFF;border:1px solid #E4E2E7"></span>
+            <span class="variant-dot" style="background:#1A1A2E"></span>
+            <span class="variant-dot" style="background:#D9C3A5"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$18.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-3.jpg" alt="Urban Lines Tote" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-active">New</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Tote Bags</div>
+          <div class="card-title">Urban Lines Tote</div>
+          <div class="card-creator">by <a href="creator-profile.html">Zoe Wright</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(94)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#E8E2D5"></span>
+            <span class="variant-dot" style="background:#1A1A2E"></span>
+            <span class="variant-dot" style="background:#7B6F55"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$22.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-4.jpg" alt="Retro Wave Phone Case" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Phone Cases</div>
+          <div class="card-title">Retro Wave Phone Case</div>
+          <div class="card-creator">by <a href="creator-profile.html">Marco Silva</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.5</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(167)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#FF6B6B"></span>
+            <span class="variant-dot" style="background:#4ECDC4"></span>
+            <span class="variant-dot" style="background:#1A1A2E"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$16.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-5.jpg" alt="Minimal Form Hoodie" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Hoodies</div>
+          <div class="card-title">Minimal Form Hoodie</div>
+          <div class="card-creator">by <a href="creator-profile.html">Anika Jensen</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.9</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(521)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#2C2C3E"></span>
+            <span class="variant-dot" style="background:#E8E2D5"></span>
+            <span class="variant-dot" style="background:#8B8B9E"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$52.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 6 -->
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-6.jpg" alt="Wild Bloom Poster" loading="lazy">
+          <div class="card-badge"><span class="ink-badge badge-active">New</span></div>
+          <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="card-quick-view">
+            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button>
+          </div>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Posters</div>
+          <div class="card-title">Wild Bloom Poster</div>
+          <div class="card-creator">by <a href="creator-profile.html">Luna Patel</a></div>
+          <div class="card-rating">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>4.4</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(76)</span>
+          </div>
+          <div class="card-variants">
+            <span class="variant-dot" style="background:#FFFFFF;border:1px solid #E4E2E7"></span>
+            <span class="variant-dot" style="background:#D8C6A5"></span>
+            <span class="variant-dot" style="background:#1A1A2E"></span>
+          </div>
+          <div class="card-footer-ink">
+            <div class="card-price">$14.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="products.html" class="btn-ink btn-primary-ink btn-ink-lg">
+        <i class="fa-solid fa-grid-2"></i> Browse All Designs
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRENDING THIS WEEK ===== -->
+<section class="section bg-white-section" aria-labelledby="trending-heading">
+  <div class="ink-container">
+    <div class="section-header d-flex align-items-end justify-content-between mb-0" style="margin-bottom:var(--sp-5)!important">
+      <div>
+        <div class="section-label">Hot Right Now</div>
+        <h2 class="section-title" id="trending-heading">Trending This Week</h2>
+        <p class="section-subtitle">Designs gaining momentum — discover what's resonating with shoppers.</p>
+      </div>
+      <a href="products.html?sort=newest" class="view-all-link d-none d-md-flex">See All <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="arrivals-strip">
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-8.jpg" alt="Skyline Cap" loading="lazy">
+          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Caps</div>
+          <div class="card-title">Skyline Cap</div>
+          <div class="card-creator">by <a href="creator-profile.html">Kai Nakamura</a></div>
+          <div class="card-footer-ink">
+            <div class="card-price">$24.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-9.jpg" alt="Cosmos Dream Tee" loading="lazy">
+          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">T-Shirts</div>
+          <div class="card-title">Cosmos Dream Tee</div>
+          <div class="card-creator">by <a href="creator-profile.html">Marco Silva</a></div>
+          <div class="card-footer-ink">
+            <div class="card-price">$31.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-10.jpg" alt="Brushstroke Tote" loading="lazy">
+          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Tote Bags</div>
+          <div class="card-title">Brushstroke Tote</div>
+          <div class="card-creator">by <a href="creator-profile.html">Anika Jensen</a></div>
+          <div class="card-footer-ink">
+            <div class="card-price">$21.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-11.jpg" alt="Forest Walk Mug" loading="lazy">
+          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Mugs</div>
+          <div class="card-title">Forest Walk Mug</div>
+          <div class="card-creator">by <a href="creator-profile.html">Luna Patel</a></div>
+          <div class="card-footer-ink">
+            <div class="card-price">$17.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img-wrap">
+          <img src="assets/images/products/product-12.jpg" alt="Framed Botanical Print" loading="lazy">
+          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="card-body-ink">
+          <div class="card-category">Posters</div>
+          <div class="card-title">Framed Botanical Print</div>
+          <div class="card-creator">by <a href="creator-profile.html">Zoe Wright</a></div>
+          <div class="card-footer-ink">
+            <div class="card-price">$14.99</div>
+            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEET THE CREATORS ===== -->
+<section class="section bg-soft" aria-labelledby="creators-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">The People Behind the Designs</div>
+      <h2 class="section-title" id="creators-heading">Meet the Creators</h2>
+      <p class="section-subtitle">Independent artists from around the world — each bringing their unique perspective to merchandise.</p>
+    </div>
+
+    <div class="creators-grid">
+      <!-- Creator 1 -->
+      <div class="creator-card">
+        <div class="creator-card-img">
+          <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel">
+          <span class="creator-badge"><i class="fa-solid fa-check"></i> Verified</span>
+        </div>
+        <div class="creator-card-body">
+          <div class="creator-card-header">
+            <h3 class="creator-name">Luna Patel</h3>
+            <div class="creator-handle">@lunapatel</div>
+          </div>
+          <p class="creator-specialty">Botanical illustrations, organic forms, and nature-inspired abstract design.</p>
+          <div class="creator-stats">
+            <div class="creator-stat"><span class="creator-stat-val">124</span><span class="creator-stat-lbl">Designs</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">3.2K</span><span class="creator-stat-lbl">Sales</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">4.9★</span><span class="creator-stat-lbl">Rating</span></div>
+          </div>
+          <div class="creator-mini-products">
+            <div class="creator-mini-product"><img src="assets/images/categories/tshirts.jpg" alt="T-Shirts"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/mugs.jpg" alt="Mugs"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/totes.jpg" alt="Totes"></div>
+          </div>
+          <div class="creator-card-footer">
+            <a href="creator-profile.html" class="view-collection-btn">View Collection <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 2 -->
+      <div class="creator-card">
+        <div class="creator-card-img">
+          <img src="assets/images/creators/creator-2.jpg" alt="Kai Nakamura">
+          <span class="creator-badge"><i class="fa-solid fa-check"></i> Verified</span>
+        </div>
+        <div class="creator-card-body">
+          <div class="creator-card-header">
+            <h3 class="creator-name">Kai Nakamura</h3>
+            <div class="creator-handle">@kai.makes</div>
+          </div>
+          <p class="creator-specialty">Geometric minimalism, clean lines, and modern abstract compositions.</p>
+          <div class="creator-stats">
+            <div class="creator-stat"><span class="creator-stat-val">87</span><span class="creator-stat-lbl">Designs</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">1.8K</span><span class="creator-stat-lbl">Sales</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">4.7★</span><span class="creator-stat-lbl">Rating</span></div>
+          </div>
+          <div class="creator-mini-products">
+            <div class="creator-mini-product"><img src="assets/images/categories/hoodies.jpg" alt="Hoodies"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/caps.jpg" alt="Caps"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/cases.jpg" alt="Cases"></div>
+          </div>
+          <div class="creator-card-footer">
+            <a href="creator-profile.html" class="view-collection-btn">View Collection <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 3 -->
+      <div class="creator-card">
+        <div class="creator-card-img">
+          <img src="assets/images/creators/creator-3.jpg" alt="Zoe Wright">
+          <span class="creator-badge"><i class="fa-solid fa-check"></i> Featured</span>
+        </div>
+        <div class="creator-card-body">
+          <div class="creator-card-header">
+            <h3 class="creator-name">Zoe Wright</h3>
+            <div class="creator-handle">@zoewright.art</div>
+          </div>
+          <p class="creator-specialty">Bold color illustrations, cultural art, and expressive poster prints.</p>
+          <div class="creator-stats">
+            <div class="creator-stat"><span class="creator-stat-val">203</span><span class="creator-stat-lbl">Designs</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">5.1K</span><span class="creator-stat-lbl">Sales</span></div>
+            <div class="creator-stat"><span class="creator-stat-val">4.8★</span><span class="creator-stat-lbl">Rating</span></div>
+          </div>
+          <div class="creator-mini-products">
+            <div class="creator-mini-product"><img src="assets/images/categories/posters.jpg" alt="Posters"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/totes.jpg" alt="Totes"></div>
+            <div class="creator-mini-product"><img src="assets/images/categories/mugs.jpg" alt="Mugs"></div>
+          </div>
+          <div class="creator-card-footer">
+            <a href="creator-profile.html" class="view-collection-btn">View Collection <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="creators.html" class="btn-ink btn-primary-ink btn-ink-lg">
+        <i class="fa-solid fa-users"></i> Explore All Creators
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW PRINT-ON-DEMAND WORKS ===== -->
+<section class="section bg-white-section" aria-labelledby="pod-heading">
+  <div class="ink-container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="section-label">Simple Process</div>
+        <h2 class="section-title" id="pod-heading">How Print-on-Demand Works</h2>
+        <p class="section-subtitle" style="margin-bottom:var(--sp-4)">No warehouse. No waste. Every item is produced specifically for your order.</p>
+        
+        <div class="pod-image-wrapper mb-4">
+          <img src="assets/images/process.jpg" alt="InkForge print on demand creative process and production" class="pod-process-img">
+          <div class="pod-image-badge">
+            <i class="fa-solid fa-leaf"></i>
+            <div>
+              <span class="badge-title">Eco-Friendly & Zero Waste</span>
+              <span class="badge-sub">Crafted fresh on-demand per order</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="how-to-order.html" class="btn-ink btn-primary-ink btn-ink-md">
+          <i class="fa-solid fa-book-open"></i> Full Ordering Guide
+        </a>
+      </div>
+      <div class="col-lg-7">
+        <div class="pod-steps-list">
+          <div class="pod-step">
+            <div class="pod-step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="pod-step-content">
+              <div class="step-title">Browse & Choose a Design</div>
+              <div class="step-desc">Explore thousands of original designs by independent creators. Find something that speaks to you.</div>
+            </div>
+          </div>
+          <div class="pod-step">
+            <div class="pod-step-icon"><i class="fa-solid fa-shirt"></i></div>
+            <div class="pod-step-content">
+              <div class="step-title">Select Your Product</div>
+              <div class="step-desc">Pick the product type — t-shirt, mug, tote, phone case — and choose your size, color and quantity.</div>
+            </div>
+          </div>
+          <div class="pod-step">
+            <div class="pod-step-icon"><i class="fa-solid fa-credit-card"></i></div>
+            <div class="pod-step-content">
+              <div class="step-title">Place Your Order</div>
+              <div class="step-desc">Checkout securely. Your order is sent directly to our print partners for production.</div>
+            </div>
+          </div>
+          <div class="pod-step">
+            <div class="pod-step-icon"><i class="fa-solid fa-print"></i></div>
+            <div class="pod-step-content">
+              <div class="step-title">We Print It Fresh</div>
+              <div class="step-desc">Each item is printed on demand after your order is placed — no pre-made stock, no waste.</div>
+            </div>
+          </div>
+          <div class="pod-step">
+            <div class="pod-step-icon"><i class="fa-solid fa-truck"></i></div>
+            <div class="pod-step-content">
+              <div class="step-title">Delivered to Your Door</div>
+              <div class="step-desc">Your order ships and arrives within the estimated delivery window. Track every step of the way.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY SHOP INKFORGE ===== -->
+<section class="section bg-soft" aria-labelledby="why-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title" id="why-heading">Why Shop InkForge</h2>
+      <p class="section-subtitle">We connect you directly with the artists behind the designs. Here's what makes InkForge different.</p>
+    </div>
+
+    <div class="why-shop-grid">
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/why/why-artists.jpg" alt="Independent artists creating original designs" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-palette"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Independent Artist Designs</div>
+          <div class="why-desc">Every design is created by a real artist. Your purchase directly supports their creative work and livelihood.</div>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/why/why-pod.jpg" alt="Eco-friendly direct to garment print on demand" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-leaf"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Printed on Demand</div>
+          <div class="why-desc">No overproduction. Each item is made when you order it — reducing waste and zero excess inventory.</div>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/why/why-quality.jpg" alt="Inspecting quality of printed merchandise" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-medal"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Quality Guaranteed</div>
+          <div class="why-desc">We work with vetted print partners to ensure vibrant colors, precise prints, and durable materials.</div>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/why/why-shipping.jpg" alt="Worldwide shipping and eco delivery logistics" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-globe"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Worldwide Shipping</div>
+          <div class="why-desc">InkForge ships to customers across 60+ countries. End-to-end tracking provided for every single order.</div>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/why/why-security.jpg" alt="Secure encrypted checkout and payment protection" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-shield-halved"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Secure Checkout</div>
+          <div class="why-desc">Your payments and personal information are always protected with 256-bit encryption & buyer protection.</div>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-img-wrap">
+          <img src="assets/images/products/return.png" alt="Hassle-free 30 day returns and replacement guarantee" class="why-card-img" loading="lazy">
+          <div class="why-icon-badge"><i class="fa-solid fa-rotate-left"></i></div>
+        </div>
+        <div class="why-card-body">
+          <div class="why-title">Hassle-Free Returns</div>
+          <div class="why-desc">Not 100% satisfied? We make replacements and returns completely straightforward — no hassle.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CUSTOMER FAVORITES ===== -->
+<section class="section bg-white-section" aria-labelledby="reviews-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">Real Customers</div>
+      <h2 class="section-title" id="reviews-heading">Customer Favorites</h2>
+      <p class="section-subtitle">What people are saying about their InkForge orders.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <!-- Review 1 -->
+      <div class="testimonial-card">
+        <div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span class="testimonial-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <p class="testimonial-text">"The Midnight Botanica Tee is even better in person than in the photos. The print is incredibly sharp and the fabric feels premium. I've already ordered two more designs."</p>
+        </div>
+        
+        <div class="testimonial-footer">
+          <div class="d-flex align-items-center gap-3">
+            <img src="assets/images/creators/creator-1.jpg" alt="Sarah M." class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-author">Sarah M.</div>
+              <div class="testimonial-loc"><i class="fa-solid fa-location-dot"></i> London, UK</div>
+            </div>
+          </div>
+          <div class="testimonial-product-pill">
+            <img src="assets/images/products/product-1.jpg" alt="Midnight Botanica Tee" class="product-thumb">
+            <span>Midnight Botanica Tee</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="testimonial-card">
+        <div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span class="testimonial-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <p class="testimonial-text">"I bought the Brushstroke tote as a gift and my friend absolutely loved it. The canvas quality is great and the design looks exactly like the listing. Very happy with InkForge."</p>
+        </div>
+        
+        <div class="testimonial-footer">
+          <div class="d-flex align-items-center gap-3">
+            <img src="assets/images/creators/creator-2.jpg" alt="James K." class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-author">James K.</div>
+              <div class="testimonial-loc"><i class="fa-solid fa-location-dot"></i> Austin, TX</div>
+            </div>
+          </div>
+          <div class="testimonial-product-pill">
+            <img src="assets/images/products/product-10.jpg" alt="Brushstroke Tote" class="product-thumb">
+            <span>Brushstroke Tote</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="testimonial-card">
+        <div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span class="testimonial-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <p class="testimonial-text">"The mugs arrived well-packaged and the ceramic quality is really solid. The abstract print is crisp with no fading after multiple washes. Definitely ordering the matching set."</p>
+        </div>
+        
+        <div class="testimonial-footer">
+          <div class="d-flex align-items-center gap-3">
+            <img src="assets/images/creators/creator-5.jpg" alt="Riya P." class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-author">Riya P.</div>
+              <div class="testimonial-loc"><i class="fa-solid fa-location-dot"></i> Toronto, CA</div>
+            </div>
+          </div>
+          <div class="testimonial-product-pill">
+            <img src="assets/images/products/product-2.jpg" alt="Abstract Orbit Mug" class="product-thumb">
+            <span>Abstract Orbit Mug</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CREATOR CTA ===== -->
+<section class="cta-section" aria-label="Creator call to action">
+  <img src="assets/images/cta/home1-cta.png" alt="" class="cta-bg">
+  <div class="ink-container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:var(--radius-full);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:16px">
+          <i class="fa-solid fa-palette"></i> For Artists & Designers
+        </div>
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(1.75rem,3.5vw,2.75rem);color:#fff;margin-bottom:12px;letter-spacing:-0.02em">Turn Your Art Into a Store</h2>
+        <p style="color:rgba(255,255,255,0.78);font-size:1.0625rem;line-height:1.7;max-width:520px;margin-bottom:0">Upload your designs, choose your products, and start earning. InkForge handles production, fulfillment, and customer support.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end">
+        <div class="d-flex gap-3 flex-wrap justify-content-lg-end">
+          <a href="creator-signup.html" class="btn-ink btn-white-ink btn-ink-lg">
+            <i class="fa-solid fa-palette"></i> Create Your Seller Account
+          </a>
+          <a href="home2.html" class="btn-ink btn-white-outline-ink btn-ink-lg">
+            See How It Works
+          </a>
+        </div>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;margin-top:14px">Free to join. No upfront costs. Earn on every sale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+
+      <!-- Brand Col -->
+      <div class="col-lg-3">
+        <a href="index.html" class="footer-logo" aria-label="InkForge">
+          <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <span class="logo-text">InkForge</span>
+        </a>
+        <p class="footer-tagline">Your Art. Your Merch. Your Store. — An independent creator marketplace where great designs meet print-on-demand production.</p>
+        <ul class="footer-social" aria-label="Social media links">
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a></li>
+          <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+          <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+        </ul>
+        <!-- Trust badges -->
+        <div class="footer-trust">
+          <div class="footer-trust-item"><i class="fa-solid fa-shield-halved"></i> Secure Checkout</div>
+          <div class="footer-trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping</div>
+          <div class="footer-trust-item"><i class="fa-solid fa-rotate-left"></i> Easy Returns</div>
+        </div>
+      </div>
+
+      <!-- Shop Col -->
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html?cat=tshirts">T-Shirts</a></li>
+          <li><a href="products.html?cat=hoodies">Hoodies</a></li>
+          <li><a href="products.html?cat=mugs">Mugs</a></li>
+          <li><a href="products.html?cat=totes">Tote Bags</a></li>
+          <li><a href="products.html?cat=cases">Phone Cases</a></li>
+          <li><a href="products.html?cat=posters">Posters</a></li>
+          <li><a href="products.html?sort=new">New Arrivals</a></li>
+        </ul>
+      </div>
+
+      <!-- Creators Col -->
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Creators</div>
+        <ul class="footer-links">
+          <li><a href="creators.html">Browse Creators</a></li>
+          <li><a href="creator-signup.html">Become a Creator</a></li>
+          <li><a href="dashboard.html">Seller Dashboard</a></li>
+          <li><a href="home2.html">How It Works</a></li>
+          <li><a href="#">Creator Resources</a></li>
+          <li><a href="#">Payout Info</a></li>
+        </ul>
+      </div>
+
+      <!-- Company / Support Col -->
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="how-to-order.html">How to Order</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns &amp; Refunds</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Col -->
+      <div class="col-lg-3">
+        <div class="footer-col-title">Stay Updated</div>
+        <div class="footer-newsletter">
+          <p>Get new design drops, creator spotlights, and exclusive deals straight to your inbox.</p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+            <button type="button" aria-label="Subscribe">Subscribe</button>
+          </div>
+          <p class="footer-newsletter-note"><i class="fa-solid fa-lock"></i> We never share your email. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="ink-container">
+      <div class="inner">
+        <p class="copy">&copy; 2026 InkForge. All rights reserved. Made with <i class="fa-solid fa-heart" style="color:var(--primary);font-size:0.75rem"></i> for creators.</p>
+        <ul class="legal-links" aria-label="Legal links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Seller Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top-btn" id="scroll-top-btn" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- InkForge JS -->
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+
+<!-- Chip filter for bestsellers section -->
+<script>
+  document.querySelectorAll('[data-chip-cat]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('[data-chip-cat]').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

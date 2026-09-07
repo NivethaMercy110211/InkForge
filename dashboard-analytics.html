@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — Seller Dashboard — InkForge</title>
+  <meta name="description" content="View visitor metrics, traffic sources, conversion rates, and audience demographics for your InkForge store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info">
+      <div class="user-name">Luna Patel</div>
+      <div class="user-role">Creator</div>
+    </div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link active" aria-current="page"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <select class="ink-select" style="min-width:140px">
+        <option>Last 30 Days</option>
+        <option>Last 90 Days</option>
+        <option>This Year</option>
+      </select>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <!-- Stat Cards -->
+    <div class="stats-grid stats-grid-4 mb-4">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#EEF2FF;color:#5546D7"><i class="fa-solid fa-users-viewfinder"></i></div>
+        <div class="stat-label">Profile Impressions</div>
+        <div class="stat-value">48.2K</div>
+        <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> 14.2% vs prev period</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#E8F5E9;color:#2E7D32"><i class="fa-solid fa-cart-arrow-down"></i></div>
+        <div class="stat-label">Store Conversion Rate</div>
+        <div class="stat-value">3.4%</div>
+        <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> 0.6% increase</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF3E0;color:#E65100"><i class="fa-solid fa-basket-shopping"></i></div>
+        <div class="stat-label">Avg. Order Value</div>
+        <div class="stat-value">$42.80</div>
+        <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> $3.10 increase</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FCE4EC;color:#C62828"><i class="fa-solid fa-repeat"></i></div>
+        <div class="stat-label">Repeat Customer Rate</div>
+        <div class="stat-value">24.8%</div>
+        <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> 2.1% increase</div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Visitors vs Product Clicks</div>
+              <div class="chart-sub">Daily interaction trends over the past month</div>
+            </div>
+          </div>
+          <div class="chart-wrap" style="height:280px">
+            <canvas id="trafficFunnelChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="chart-card h-100">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Traffic Sources</div>
+              <div class="chart-sub">Where your buyers discover you</div>
+            </div>
+          </div>
+          <div class="chart-wrap" style="height:280px">
+            <canvas id="sourcesDonutChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geography & Top Referrers -->
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="dash-panel h-100">
+          <div class="dash-panel-header">
+            <div class="dash-panel-title">Top Buyer Geographic Regions</div>
+          </div>
+          <div class="d-flex flex-column gap-3">
+            <div>
+              <div class="d-flex justify-content-between mb-1" style="font-size:0.875rem">
+                <span>United States</span>
+                <span style="font-weight:700">52% (178 orders)</span>
+              </div>
+              <div class="rbar" style="height:8px;background:var(--soft);border-radius:4px;overflow:hidden"><div class="rbar-fill" style="width:52%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between mb-1" style="font-size:0.875rem">
+                <span>United Kingdom</span>
+                <span style="font-weight:700">22% (75 orders)</span>
+              </div>
+              <div class="rbar" style="height:8px;background:var(--soft);border-radius:4px;overflow:hidden"><div class="rbar-fill" style="width:22%;height:100%;background:#8B6FE8;border-radius:4px"></div></div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between mb-1" style="font-size:0.875rem">
+                <span>Germany</span>
+                <span style="font-weight:700">11% (38 orders)</span>
+              </div>
+              <div class="rbar" style="height:8px;background:var(--soft);border-radius:4px;overflow:hidden"><div class="rbar-fill" style="width:11%;height:100%;background:#4ECDC4;border-radius:4px"></div></div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between mb-1" style="font-size:0.875rem">
+                <span>Canada</span>
+                <span style="font-weight:700">8% (27 orders)</span>
+              </div>
+              <div class="rbar" style="height:8px;background:var(--soft);border-radius:4px;overflow:hidden"><div class="rbar-fill" style="width:8%;height:100%;background:#FF6B6B;border-radius:4px"></div></div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between mb-1" style="font-size:0.875rem">
+                <span>Australia</span>
+                <span style="font-weight:700">7% (24 orders)</span>
+              </div>
+              <div class="rbar" style="height:8px;background:var(--soft);border-radius:4px;overflow:hidden"><div class="rbar-fill" style="width:7%;height:100%;background:#F39C12;border-radius:4px"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="dash-panel h-100">
+          <div class="dash-panel-header">
+            <div class="dash-panel-title">Top External Referral Channels</div>
+          </div>
+          <div class="ink-table-wrap">
+            <table class="ink-table">
+              <thead>
+                <tr>
+                  <th>Channel</th>
+                  <th>Visitors</th>
+                  <th>Sales</th>
+                  <th>Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="fa-brands fa-instagram" style="color:#E1306C;margin-right:8px"></i> Instagram Bio Link</td>
+                  <td>14,280</td>
+                  <td>142</td>
+                  <td><strong>$3,840</strong></td>
+                </tr>
+                <tr>
+                  <td><i class="fa-brands fa-pinterest" style="color:#BD081C;margin-right:8px"></i> Pinterest Pins</td>
+                  <td>8,920</td>
+                  <td>84</td>
+                  <td><strong>$2,120</strong></td>
+                </tr>
+                <tr>
+                  <td><i class="fa-brands fa-tiktok" style="margin-right:8px"></i> TikTok Shop Link</td>
+                  <td>6,410</td>
+                  <td>61</td>
+                  <td><strong>$1,480</strong></td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-magnifying-glass" style="color:var(--primary);margin-right:8px"></i> InkForge Search</td>
+                  <td>18,590</td>
+                  <td>55</td>
+                  <td><strong>$806</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Funnel chart
+    const ctx1 = document.getElementById('trafficFunnelChart');
+    if (ctx1) {
+      new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: ['W1', 'W2', 'W3', 'W4'],
+          datasets: [
+            { label: 'Store Visitors', data: [9800, 11200, 12400, 14800], backgroundColor: 'rgba(85, 70, 215, 0.4)', borderRadius: 6 },
+            { label: 'Product Page Views', data: [4200, 5100, 5800, 6900], backgroundColor: '#5546D7', borderRadius: 6 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'top' } },
+          scales: { x: { grid: { display: false } }, y: { grid: { color: 'rgba(0,0,0,0.05)' } } }
+        }
+      });
+    }
+
+    // Sources donut
+    const ctx2 = document.getElementById('sourcesDonutChart');
+    if (ctx2) {
+      new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['Instagram', 'Pinterest', 'Direct', 'Marketplace', 'TikTok'],
+          datasets: [{
+            data: [42, 24, 15, 12, 7],
+            backgroundColor: ['#E1306C', '#BD081C', '#5546D7', '#2E7D32', '#16161B']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

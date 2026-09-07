@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About InkForge — Our Story, Mission, and Team</title>
+  <meta name="description" content="Learn about InkForge — the print-on-demand marketplace connecting independent creators with customers worldwide. Our mission, values, and how we got started.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .mission-img-wrap { border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);position:relative; }
+    .mission-img-wrap img { width:100%;height:auto;display:block; }
+    .mission-float-chip { position:absolute;bottom:24px;left:24px;background:#fff;border-radius:var(--radius-lg);padding:14px 20px;box-shadow:0 8px 32px rgba(0,0,0,.18);display:flex;align-items:center;gap:12px; }
+    .mission-float-chip .chip-icon { width:40px;height:40px;border-radius:var(--radius-md);background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--primary);flex-shrink:0; }
+    .mission-float-chip .chip-val { font-family:var(--font-heading);font-weight:800;font-size:1.25rem;color:var(--heading);line-height:1; }
+    .mission-float-chip .chip-lbl { font-size:.78rem;color:var(--muted);margin-top:2px; }
+    .about-stat-row { display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--white); }
+    .about-stat-item { padding:40px 28px;text-align:center;border-right:1px solid var(--border);transition:background .2s; }
+    .about-stat-item:last-child { border-right:none; }
+    .about-stat-item:hover { background:var(--soft); }
+    .about-stat-num { font-family:var(--font-heading);font-weight:800;font-size:clamp(2rem,4vw,2.75rem);color:var(--primary);letter-spacing:-.02em;line-height:1;margin-bottom:6px; }
+    .about-stat-lbl { font-size:.875rem;color:var(--muted);font-weight:500; }
+    /* Values Section Image Grid */
+    .values-img-wrap { position:relative;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);border:1px solid var(--border);background:var(--soft);transition:transform var(--trans-base),box-shadow var(--trans-base); }
+    .values-img-wrap:hover { transform:translateY(-4px);box-shadow:var(--shadow-xl); }
+    .values-img { width:100%;height:460px;object-fit:cover;display:block;transition:transform .5s ease; }
+    .values-img-wrap:hover .values-img { transform:scale(1.03); }
+    .values-float-badge { position:absolute;bottom:18px;left:18px;right:18px;background:rgba(15,12,26,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:var(--radius-md);padding:12px 16px;display:flex;align-items:center;gap:12px;color:#FFFFFF;z-index:2; }
+    .values-float-badge i { font-size:1.3rem;color:#FF5A5F;flex-shrink:0; }
+    .values-float-badge .badge-title { font-weight:700;font-size:.88rem;display:block;line-height:1.2; }
+    .values-float-badge .badge-sub { font-size:.76rem;color:rgba(255,255,255,0.78);display:block;margin-top:2px; }
+    .values-grid-2col { display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:20px; }
+    .value-card { background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px 20px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;display:flex;flex-direction:column; }
+    .value-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(85,70,215,0.3); }
+    .value-icon { width:46px;height:46px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--primary-light) 0%,rgba(99,102,241,.08) 100%);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--primary);margin-bottom:14px;flex-shrink:0; }
+    .value-card h3 { font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--heading);margin-bottom:8px; }
+    .value-card p { font-size:.875rem;color:var(--body);line-height:1.6;margin:0;overflow-wrap:anywhere; }
+    @media(min-width:577px){
+      .value-card h3{width:100%;min-height:1.6em;line-height:1.6}
+      .value-card p{width:36ch;max-width:100%;min-height:4.8em}
+    }
+    .timeline { position:relative;padding-left:48px; }
+    .timeline::before { content:'';position:absolute;left:16px;top:12px;bottom:12px;width:2px;background:linear-gradient(to bottom,var(--primary),var(--primary-light)); }
+    .timeline-item { position:relative;padding-bottom:40px; }
+    .timeline-item:last-child { padding-bottom:0; }
+    .timeline-dot { position:absolute;left:-38px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--primary);border:3px solid #fff;box-shadow:0 0 0 3px var(--primary-light); }
+    .timeline-year { display:inline-block;font-family:var(--font-heading);font-weight:700;font-size:.78rem;color:var(--primary);background:var(--primary-light);border-radius:999px;padding:3px 12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px; }
+    .timeline-title { font-family:var(--font-heading);font-weight:700;font-size:1.0625rem;color:var(--heading);margin-bottom:6px; }
+    .timeline-desc { font-size:.9rem;color:var(--body);line-height:1.68; }
+
+    /* Journey Section with our_journey.png background */
+    .journey-bg-section {
+      position: relative;
+      background-image: url('assets/images/about/our_journey.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #FFFFFF;
+      overflow: clip;
+      padding: 100px 0;
+    }
+
+    .journey-intro-sticky {
+      position: sticky;
+      top: 96px;
+      align-self: flex-start;
+    }
+    .journey-bg-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 8, 22, 0.90) 0%,
+        rgba(16, 12, 30, 0.83) 50%,
+        rgba(10, 8, 22, 0.92) 100%
+      );
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .journey-bg-section .ink-container {
+      position: relative;
+      z-index: 2;
+    }
+    .journey-label {
+      background: rgba(168, 85, 247, 0.22) !important;
+      color: #d8b4fe !important;
+      border: 1px solid rgba(168, 85, 247, 0.4) !important;
+      display: inline-flex;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .journey-title {
+      color: #FFFFFF !important;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .journey-desc {
+      color: rgba(255, 255, 255, 0.82) !important;
+      line-height: 1.78;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+    .journey-stat-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    }
+    .journey-stat-num {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: #c4b5fd;
+    }
+    .journey-stat-lbl {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 4px;
+    }
+    .journey-timeline {
+      position: relative;
+      padding-left: 38px;
+    }
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 16px;
+      bottom: 16px;
+      width: 2px;
+      background: linear-gradient(to bottom, #a78bfa, rgba(167, 139, 250, 0.2));
+    }
+    .journey-timeline .timeline-item {
+      position: relative;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .journey-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 20px;
+    }
+    .journey-timeline .timeline-item:hover {
+      transform: translateX(6px);
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(168, 85, 247, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .journey-timeline .timeline-dot {
+      left: -36px;
+      top: 22px;
+      width: 18px;
+      height: 18px;
+      background: #a78bfa;
+      border: 3px solid #100c1e;
+      box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.4);
+    }
+    .journey-timeline .timeline-year {
+      color: #f3e8ff;
+      background: rgba(168, 85, 247, 0.3);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      font-size: 0.76rem;
+      padding: 3px 12px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .journey-timeline .timeline-title {
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .journey-timeline .timeline-desc {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.92rem;
+      line-height: 1.68;
+      margin: 0;
+    }
+
+    .team-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px; }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+    .team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color: rgba(85,70,215,0.3); }
+    .team-card-img { aspect-ratio:3/3.5; overflow:hidden; background: var(--soft); }
+    .team-card-img img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .4s ease; display:block; }
+    .team-card:hover .team-card-img img { transform:scale(1.04); }
+    .team-card-body { padding:22px 20px 24px; text-align:center; flex:1; display:flex; flex-direction:column; align-items:center; }
+    .team-name { font-family:var(--font-heading); font-weight:800; color:var(--heading); font-size:1.125rem; margin-bottom:6px; letter-spacing:-0.01em; }
+    .team-role {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      border: 1px solid rgba(85, 70, 215, 0.18);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .team-bio { font-size:.88rem; color:var(--body); line-height:1.65; margin:0; }
+    @media(min-width:577px){
+      .team-bio{width:100%;max-width:32ch;min-height:4.95em;margin-left:auto;margin-right:auto;text-align:center}
+    }
+    @media(max-width:991px){.values-grid-2col{grid-template-columns:repeat(2,1fr)}.values-img{height:320px}.team-grid{grid-template-columns:repeat(2,1fr)}.about-stat-row{grid-template-columns:repeat(2,1fr)}.about-stat-item:nth-child(2){border-right:none}.about-stat-item:nth-child(3){border-top:1px solid var(--border);border-right:1px solid var(--border)}.about-stat-item:nth-child(4){border-top:1px solid var(--border)}.journey-intro-sticky{position:static}}
+    @media(min-width:768px) and (max-width:1100px){
+      .values-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;margin:0}
+      .values-layout>.col-lg-5,.values-layout>.col-lg-7{width:100%;max-width:100%;padding:0}
+      .values-layout>.col-lg-5{display:flex;flex-direction:column;align-items:center;text-align:center}
+      .values-layout .section-subtitle{max-width:680px;margin-left:auto;margin-right:auto}
+      .values-layout .values-img-wrap{width:100%;max-width:720px;margin-left:auto;margin-right:auto}
+      .values-layout .values-img{height:400px}
+      .values-layout .values-grid-2col{width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+      .team-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    }
+    @media(max-width:576px){
+      .journey-intro-sticky{text-align:center}
+      .journey-label{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;margin-right:auto}
+      .values-grid-2col{grid-template-columns:1fr}
+      .values-img{height:280px}
+      .team-grid{grid-template-columns:1fr}
+      .value-card{width:100%;min-height:240px;padding:28px 24px;align-items:center;justify-content:center;text-align:center}
+      .value-card .value-icon{align-self:center !important;justify-self:center !important;margin-left:auto !important;margin-right:auto !important}
+      .value-card h3,.value-card p{width:100%;max-width:32ch;margin-left:auto;margin-right:auto;text-align:center}
+      .mission-section .mission-img-wrap{width:100%;min-height:280px}
+      .mission-section .mission-img-wrap img{width:100%;height:280px;object-fit:cover;object-position:center}
+      .about-stat-row{grid-template-columns:1fr !important}
+      .about-stat-item,
+      .about-stat-item:nth-child(2),
+      .about-stat-item:nth-child(3),
+      .about-stat-item:nth-child(4){border-right:none;border-top:none;border-bottom:1px solid var(--border)}
+      .about-stat-item:last-child{border-bottom:none}
+    }
+    [data-theme="dark"] .value-card,[data-theme="dark"] .about-stat-row{background:var(--white);border-color:var(--border)}
+    [data-theme="dark"] .team-card {
+      background: #1D1D26 !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+    }
+    [data-theme="dark"] .team-card-img {
+      background: #15151C !important;
+    }
+    [data-theme="dark"] .team-name {
+      color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .team-role {
+      color: #C4B5FD !important;
+      background: rgba(141, 130, 240, 0.18) !important;
+      border: 1px solid rgba(168, 85, 247, 0.35) !important;
+    }
+    [data-theme="dark"] .team-bio {
+      color: #D1CFDB !important;
+    }
+    [data-theme="dark"] .values-float-badge{background:rgba(20,20,28,0.92)}
+    [data-theme="dark"] .mission-float-chip{background:var(--soft)}
+    [data-theme="dark"] .timeline-dot{border-color:var(--bg)}
+  </style>
+</head>
+<body>
+<nav class="ink-navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="ink-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html" class="active" aria-current="page">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" role="navigation">
+    <a href="index.html" class="mobile-nav-link">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link active">About</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls"><a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a><a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></div>
+    <div class="mobile-utility-row"><button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button><button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i></a></div>
+  </div>
+</nav>
+
+<!-- Page Banner -->
+<div class="page-banner" aria-label="About InkForge banner">
+  <img src="assets/images/hero/about-banner.png" alt="About InkForge" class="banner-bg">
+  <div class="ink-container">
+    <h1 class="page-banner-title">About InkForge</h1>
+    <p class="page-banner-sub">Our story, mission, and the global creator community we support.</p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="section mission-section" aria-labelledby="mission-heading">
+  <div class="ink-container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2">
+        <div class="mission-img-wrap">
+          <img src="assets/images/hero/hero-home2.jpg" alt="InkForge creator workspace">
+          <div class="mission-float-chip">
+            <div class="chip-icon"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <div class="chip-val">$2M+</div>
+              <div class="chip-lbl">Paid to Creators</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="section-label">Why We Exist</div>
+        <h2 class="section-title" id="mission-heading">Our Mission</h2>
+        <p class="body-large" style="margin-bottom:18px">InkForge exists to remove every barrier between an artist's creative vision and a living income. We believe that great design deserves a direct path to the people who will love it.</p>
+        <p style="color:var(--body);line-height:1.78;margin-bottom:18px">In 2022, our founders — two designers frustrated with the complexity of merchandise logistics — built InkForge as the platform they wished existed. A marketplace where creators set their own prices, own their audience relationships, and see transparent real-time earnings data.</p>
+        <p style="color:var(--body);line-height:1.78;margin-bottom:28px">Today, InkForge serves 2,400+ creators across 60 countries, has facilitated over 180,000 orders, and has paid out more than $2 million in creator earnings.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="creator-signup.html" class="btn-ink btn-primary-ink btn-ink-md"><i class="fa-solid fa-palette"></i> Join as Creator</a>
+          <a href="products.html" class="btn-ink btn-secondary-ink btn-ink-md"><i class="fa-solid fa-bag-shopping"></i> Shop Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section bg-soft" aria-labelledby="stats-heading">
+  <div class="ink-container">
+    <div class="section-header centered" style="margin-bottom:40px">
+      <div class="section-label">By the Numbers</div>
+      <h2 class="section-title" id="stats-heading">InkForge at a Glance</h2>
+    </div>
+    <div class="about-stat-row">
+      <div class="about-stat-item">
+        <div style="font-size:1.75rem;color:var(--primary);margin-bottom:8px"><i class="fa-solid fa-users"></i></div>
+        <div class="about-stat-num">2,400+</div>
+        <div class="about-stat-lbl">Independent Creators</div>
+      </div>
+      <div class="about-stat-item">
+        <div style="font-size:1.75rem;color:var(--primary);margin-bottom:8px"><i class="fa-solid fa-palette"></i></div>
+        <div class="about-stat-num">50K+</div>
+        <div class="about-stat-lbl">Original Designs</div>
+      </div>
+      <div class="about-stat-item">
+        <div style="font-size:1.75rem;color:var(--primary);margin-bottom:8px"><i class="fa-solid fa-bag-shopping"></i></div>
+        <div class="about-stat-num">180K+</div>
+        <div class="about-stat-lbl">Orders Shipped</div>
+      </div>
+      <div class="about-stat-item">
+        <div style="font-size:1.75rem;color:var(--primary);margin-bottom:8px"><i class="fa-solid fa-coins"></i></div>
+        <div class="about-stat-num">$2M+</div>
+        <div class="about-stat-lbl">Creator Earnings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section" aria-labelledby="values-heading">
+  <div class="ink-container">
+    <div class="row g-5 align-items-center values-layout">
+      <!-- Left: Section info + Featured Image -->
+      <div class="col-lg-5">
+        <div class="section-label">What We Stand For</div>
+        <h2 class="section-title" id="values-heading">Our Core Values</h2>
+        <p class="section-subtitle" style="margin-bottom:var(--sp-5)">The principles that guide every decision at InkForge — putting creators, radical transparency, and sustainable craft at the center.</p>
+        
+        <div class="values-img-wrap">
+          <img src="assets/images/about/about_value.png" alt="InkForge core values and community" class="values-img">
+          <div class="values-float-badge">
+            <i class="fa-solid fa-heart"></i>
+            <div>
+              <span class="badge-title">Built for Artists</span>
+              <span class="badge-sub">Empowering 2,400+ creators worldwide</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Value cards 2-col grid -->
+      <div class="col-lg-7">
+        <div class="values-grid-2col">
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Creator First</h3>
+            <p>Every decision starts with one question: does this help creators succeed? We optimize for creator outcomes.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3>Radical Transparency</h3>
+            <p>No hidden fees or surprise deductions.<br>Every cost, earning, and payout is<br>visible in real time.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Sustainable by Design</h3>
+            <p>On-demand printing reduces overproduction and waste. We partner with responsible print facilities.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Quality Without Compromise</h3>
+            <p>Every product is rigorously vetted for print, material, and finish. If it doesn't meet our standards, it never ships.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3>A Global Community</h3>
+            <p>Art transcends borders. InkForge welcomes creators from every nation and ships to 60+ countries.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><i class="fa-solid fa-rocket"></i></div>
+            <h3>Always Evolving</h3>
+            <p>We continuously improve the platform using direct creator feedback, changing needs, and new opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE / JOURNEY SECTION -->
+<section class="section journey-bg-section" aria-labelledby="timeline-heading">
+  <div class="ink-container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-4 journey-intro-sticky">
+        <div class="journey-label"><i class="fa-solid fa-route me-1"></i> How We Got Here</div>
+        <h2 class="journey-title" id="timeline-heading">Our Journey</h2>
+        <p class="journey-desc">From a weekend side project to a platform serving thousands of creators worldwide — the InkForge story is one of persistence, community feedback, and a genuine love for original design.</p>
+        <div class="journey-stat-card">
+          <div class="journey-stat-num">2022 to 2026</div>
+          <div class="journey-stat-lbl">Four years of growth, innovation, and global creator empowerment</div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="timeline journey-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Q1 2022</div>
+            <div class="timeline-title">InkForge Founded</div>
+            <div class="timeline-desc">Two designers with a shared frustration launch InkForge as an invitation-only beta. First 50 creators onboarded. First 200 orders fulfilled.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Q3 2022</div>
+            <div class="timeline-title">Public Launch</div>
+            <div class="timeline-desc">InkForge opens to all creators. 400 sign up in the first week. The product catalog expands to include mugs, tote bags, and phone cases alongside t-shirts.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Q1 2023</div>
+            <div class="timeline-title">Seller Dashboard 2.0</div>
+            <div class="timeline-desc">Full-featured seller dashboard launches with real-time analytics, earnings charts, and CSV export. Creator satisfaction scores jump 40%.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Q3 2023</div>
+            <div class="timeline-title">International Shipping Expansion</div>
+            <div class="timeline-desc">InkForge now ships to 60+ countries. International orders grow to 35% of total volume. New print partner facilities in Europe and Asia added.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Q2 2024</div>
+            <div class="timeline-title">1,000 Active Creators</div>
+            <div class="timeline-desc">Milestone: InkForge reaches 1,000 active creator accounts. Total earnings paid exceed $1 million. Hoodies and poster prints added to the catalog.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2026</div>
+            <div class="timeline-title">2,400+ Creators and Growing</div>
+            <div class="timeline-desc">InkForge continues to grow. 50,000+ designs available. $2M+ paid to creators. The mission remains the same — put creators first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" aria-labelledby="team-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">The People</div>
+      <h2 class="section-title" id="team-heading">The InkForge Team</h2>
+      <p class="section-subtitle">A small, focused team working on big problems for independent creators.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-img"><img src="assets/images/creators/creator-2.jpg" alt="Alex Chen"></div>
+        <div class="team-card-body">
+          <div class="team-name">Alex Chen</div>
+          <div class="team-role">Co-Founder &amp; CEO</div>
+          <div class="team-bio">Former product designer at Shopify. Believes commerce should empower makers, not gatekeep them.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img"><img src="assets/images/creators/creator-1.jpg" alt="Maya Rao"></div>
+        <div class="team-card-body">
+          <div class="team-name">Maya Rao</div>
+          <div class="team-role">Co-Founder &amp; CTO</div>
+          <div class="team-bio">Full-stack engineer with a love for clean systems. Built InkForge's first version over a single weekend.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img"><img src="assets/images/creators/creator-3.jpg" alt="Jordan Walsh"></div>
+        <div class="team-card-body">
+          <div class="team-name">Jordan Walsh</div>
+          <div class="team-role">Head of Creator Success</div>
+          <div class="team-bio">Illustrator turned community builder who ensures every creator feels supported throughout their creative journey.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img"><img src="assets/images/creators/creator-4.jpg" alt="Sam Park"></div>
+        <div class="team-card-body">
+          <div class="team-name">Sam Park</div>
+          <div class="team-role">Head of Operations</div>
+          <div class="team-bio">Supply chain specialist who orchestrates InkForge's global print partner network with precision.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" aria-label="Join InkForge">
+  <img src="assets/images/cta/about-cta.png" alt="" class="cta-bg">
+  <div class="ink-container text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(1.75rem,3.5vw,2.5rem);color:#fff;margin-bottom:16px;letter-spacing:-.02em">Be Part of the InkForge Story</h2>
+        <p style="color:rgba(255,255,255,.78);font-size:1.0625rem;line-height:1.7;margin-bottom:28px">Whether you are here to shop or to sell — we are glad you found us. InkForge is better with you in it.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="products.html" class="btn-ink btn-white-ink btn-ink-lg"><i class="fa-solid fa-bag-shopping"></i> Shop Products</a>
+          <a href="creator-signup.html" class="btn-ink btn-white-outline-ink btn-ink-lg"><i class="fa-solid fa-palette"></i> Become a Creator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+      <div class="col-lg-4"><a href="index.html" class="footer-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a><p class="footer-tagline">Your Art. Your Merch. Your Store.</p><ul class="footer-social"><li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li><li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li><li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a></li></ul></div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="products.html">All Products</a></li><li><a href="creators.html">Browse Creators</a></li></ul></div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="creator-signup.html">Become a Creator</a></li></ul></div>
+      <div class="col-lg-3"><div class="footer-col-title">Newsletter</div><div class="footer-newsletter"><p>Get updates from InkForge.</p><div class="footer-newsletter-form"><input type="email" placeholder="Your email" aria-label="Newsletter"><button type="button">Subscribe</button></div></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="ink-container"><div class="inner"><p class="copy">&copy; 2026 InkForge. All rights reserved.</p><ul class="legal-links"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div></div></div>
+</footer>
+
+<button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

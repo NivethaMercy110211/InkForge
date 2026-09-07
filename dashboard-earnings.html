@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earnings — Seller Dashboard — InkForge</title>
+  <meta name="description" content="Track your creator royalties, view payout statements, and inspect profit margins for every item sold on InkForge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info">
+      <div class="user-name">Luna Patel</div>
+      <div class="user-role">Creator</div>
+    </div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link active" aria-current="page"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <a href="dashboard-payout.html" class="btn-ink btn-primary-ink btn-ink-sm"><i class="fa-solid fa-wallet"></i> Request Payout</a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <!-- Balance Cards -->
+    <div class="stats-grid stats-grid-4 mb-4">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#EEF2FF;color:#5546D7"><i class="fa-solid fa-vault"></i></div>
+        <div class="stat-label">Available for Payout</div>
+        <div class="stat-value">$1,420.50</div>
+        <div class="stat-change positive"><i class="fa-solid fa-calendar-check"></i> Auto-disbursing Sep 15</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#E8F5E9;color:#2E7D32"><i class="fa-solid fa-coins"></i></div>
+        <div class="stat-label">Lifetime Earnings</div>
+        <div class="stat-value">$8,246.20</div>
+        <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> +18.4% this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF3E0;color:#E65100"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <div class="stat-label">Pending Clearance</div>
+        <div class="stat-value">$482.00</div>
+        <div class="stat-change" style="color:var(--muted)">Clears in 7 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#F3E5F5;color:#8E24AA"><i class="fa-solid fa-receipt"></i></div>
+        <div class="stat-label">Last Payout</div>
+        <div class="stat-value">$1,185.00</div>
+        <div class="stat-change" style="color:var(--muted)">Paid on Aug 31, 2026</div>
+      </div>
+    </div>
+
+    <!-- Chart Row -->
+    <div class="chart-card mb-4">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Royalty Revenue Over Time</div>
+          <div class="chart-sub">Monthly earnings compared to base production costs</div>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="chart-period-btn active">2026</button>
+          <button class="chart-period-btn">2025</button>
+        </div>
+      </div>
+      <div class="chart-wrap" style="height:280px">
+        <canvas id="earningsHistoryChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Earnings Breakdown Table -->
+    <div class="dash-panel earnings-transactions-panel">
+      <div class="dash-panel-header">
+        <div class="dash-panel-title">Recent Royalties by Transaction</div>
+        <button class="btn-ink btn-secondary-ink btn-ink-sm"><i class="fa-solid fa-download"></i> Export CSV</button>
+      </div>
+      <div class="ink-table-wrap">
+        <table class="ink-table">
+          <thead>
+            <tr>
+              <th>Order Ref</th>
+              <th>Date</th>
+              <th>Design / Item</th>
+              <th>Retail Price</th>
+              <th>Base Cost</th>
+              <th>Net Profit</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="td-order-id">#INK-0091</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 2, 2026</td>
+              <td>Midnight Botanica Tee (Indigo, M)</td>
+              <td>$29.99</td>
+              <td>$12.50</td>
+              <td><strong style="color:var(--success, #2E7D32)">+$17.49</strong></td>
+              <td><span class="ink-status status-fulfilled">Available</span></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0090</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 1, 2026</td>
+              <td>Abstract Orbit Mug (11oz)</td>
+              <td>$18.99</td>
+              <td>$7.00</td>
+              <td><strong style="color:var(--success, #2E7D32)">+$11.99</strong></td>
+              <td><span class="ink-status status-fulfilled">Available</span></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0089</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Sep 1, 2026</td>
+              <td>Minimal Form Hoodie (Charcoal, L)</td>
+              <td>$52.99</td>
+              <td>$22.00</td>
+              <td><strong style="color:var(--success, #2E7D32)">+$30.99</strong></td>
+              <td><span class="ink-status status-pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0088</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 31, 2026</td>
+              <td>Retro Wave Phone Case (iPhone 15)</td>
+              <td>$16.99</td>
+              <td>$6.50</td>
+              <td><strong style="color:var(--success, #2E7D32)">+$10.49</strong></td>
+              <td><span class="ink-status status-fulfilled">Available</span></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#INK-0087</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 30, 2026</td>
+              <td>Urban Lines Tote (Natural)</td>
+              <td>$22.99</td>
+              <td>$9.00</td>
+              <td><strong style="color:var(--success, #2E7D32)">+$13.99</strong></td>
+              <td><span class="ink-status status-fulfilled">Available</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('earningsHistoryChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+          datasets: [{
+            label: 'Creator Earnings ($)',
+            data: [420, 580, 710, 840, 920, 1150, 1280, 1420, 1680],
+            borderColor: '#5546D7',
+            backgroundColor: 'rgba(85, 70, 215, 0.1)',
+            fill: true,
+            tension: 0.3,
+            borderWidth: 2.5
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: 'rgba(0,0,0,0.05)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

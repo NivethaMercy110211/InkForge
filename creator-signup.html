@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Signup — Start Selling on InkForge</title>
+  <meta name="description" content="Join InkForge as an independent creator. Upload your designs, set your prices, and start earning from your art. Free to join.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="creator-signup-page">
+<div class="auth-page">
+  <div class="auth-branding">
+    <img src="assets/images/hero/signup.png" alt="" class="auth-brand-bg">
+    <div class="auth-brand-overlay"></div>
+    <div class="auth-brand-content">
+      <a href="index.html" class="auth-logo-wrap">
+        <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <span class="logo-text">InkForge</span>
+      </a>
+      <h1 class="auth-brand-headline">Start Selling Your Art</h1>
+      <p class="auth-brand-sub">Join 2,400+ independent creators who earn from their original designs — for free.</p>
+      <div class="auth-brand-stats">
+        <div class="auth-brand-stat"><div class="val">Free</div><div class="lbl">To Join</div></div>
+        <div class="auth-brand-stat"><div class="val">0%</div><div class="lbl">Upfront Cost</div></div>
+        <div class="auth-brand-stat"><div class="val">15min</div><div class="lbl">Setup Time</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-form-col">
+    <div class="auth-form-inner">
+      <div class="auth-nav-row">
+        <div class="d-flex gap-2 align-items-center ms-auto"><button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button><button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button></div>
+      </div>
+
+      <!-- Step indicator -->
+      <div class="auth-steps-indicator" style="display:flex;gap:0;margin-bottom:32px">
+        <div class="step-indicator" id="step-ind-1" style="flex:1;text-align:center">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;margin:0 auto 4px">1</div>
+          <div style="font-size:0.72rem;color:var(--primary);font-weight:600">Account</div>
+        </div>
+        <div style="flex:1;display:flex;align-items:flex-start;padding-top:14px"><div style="height:1px;background:var(--border);width:100%"></div></div>
+        <div class="step-indicator" id="step-ind-2" style="flex:1;text-align:center">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;margin:0 auto 4px">2</div>
+          <div style="font-size:0.72rem;color:var(--muted);font-weight:600">Profile</div>
+        </div>
+        <div style="flex:1;display:flex;align-items:flex-start;padding-top:14px"><div style="height:1px;background:var(--border);width:100%"></div></div>
+        <div class="step-indicator" id="step-ind-3" style="flex:1;text-align:center">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;margin:0 auto 4px">3</div>
+          <div style="font-size:0.72rem;color:var(--muted);font-weight:600">Done</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Account -->
+      <div id="step-1">
+        <h2 class="auth-heading">Create Your Creator Account</h2>
+        <p class="auth-subheading">Free to join. No upfront costs. No minimum sales.</p>
+
+        <div class="row g-3">
+          <div class="col-6">
+            <label class="ink-label" for="su-fname">First Name</label>
+            <input type="text" class="ink-input" id="su-fname" placeholder="First name" required autocomplete="given-name">
+          </div>
+          <div class="col-6">
+            <label class="ink-label" for="su-lname">Last Name</label>
+            <input type="text" class="ink-input" id="su-lname" placeholder="Last name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="su-email">Email Address</label>
+          <div class="input-icon-wrap"><i class="fa-solid fa-envelope input-icon"></i><input type="email" class="ink-input" id="su-email" placeholder="your@email.com" required autocomplete="email"></div>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="su-password">Password</label>
+          <div class="input-icon-wrap"><i class="fa-solid fa-lock input-icon"></i><input type="password" class="ink-input" id="su-password" placeholder="Min 8 characters" required autocomplete="new-password"><button type="button" class="input-icon-right toggle-pass" aria-label="Toggle password"><i class="fa-solid fa-eye"></i></button></div>
+        </div>
+
+        <label class="ink-check-wrap auth-terms-check" style="margin-bottom:16px">
+          <input type="checkbox" required id="terms-agree"> <span>I agree to the <a href="#">Seller Terms</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-lg w-100 justify-content-center" onclick="nextStep(1)">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="auth-divider"><span>or sign up with</span></div>
+
+        <!-- Third Party Social Logins Below Form -->
+        <div class="social-login-icons">
+          <button type="button" class="social-icon-btn btn-google" title="Sign up with Google" aria-label="Sign up with Google">
+                                    <svg class="google-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                        <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.89-1.74 2.98-4.31 2.98-7.35Z"/>
+                                        <path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.42l-3.24-2.51c-.89.6-2.04.95-3.38.95-2.61 0-4.81-1.76-5.6-4.12H3.06v2.59A10 10 0 0 0 12 22Z"/>
+                                        <path fill="#FBBC05" d="M6.4 13.9A6 6 0 0 1 6.09 12c0-.66.11-1.3.31-1.9V7.51H3.06A10 10 0 0 0 2 12c0 1.61.39 3.14 1.06 4.49L6.4 13.9Z"/>
+                                        <path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.82 1.49l2.87-2.87C16.96 3 14.7 2 12 2a10 10 0 0 0-8.94 5.51L6.4 10.1c.79-2.36 2.99-4.12 5.6-4.12Z"/>
+                                    </svg>
+          </button>
+          <button type="button" class="social-icon-btn btn-apple" title="Sign up with Apple" aria-label="Sign up with Apple">
+            <i class="fa-brands fa-apple"></i>
+          </button>
+          <button type="button" class="social-icon-btn btn-facebook" title="Sign up with Facebook" aria-label="Sign up with Facebook">
+            <i class="fa-brands fa-facebook-f" style="color:#1877F2"></i>
+          </button>
+          <button type="button" class="social-icon-btn btn-github" title="Sign up with GitHub" aria-label="Sign up with GitHub">
+            <i class="fa-brands fa-github"></i>
+          </button>
+        </div>
+
+        <div class="auth-footer-links"><p>Already have an account? <a href="seller-login.html">Sign in</a></p></div>
+      </div>
+
+      <!-- Step 2: Profile -->
+      <div id="step-2" style="display:none">
+        <h2 class="auth-heading">Set Up Your Creator Profile</h2>
+        <p class="auth-subheading">Tell shoppers who you are and what you create.</p>
+
+        <div class="ink-form-group">
+          <label class="ink-label" for="su-handle">Creator Handle</label>
+          <div class="input-icon-wrap"><span class="input-icon" style="font-size:0.85rem;font-weight:600;color:var(--muted)">@</span><input type="text" class="ink-input" id="su-handle" placeholder="your.handle" required></div>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="su-bio">Short Bio</label>
+          <textarea class="ink-textarea" id="su-bio" rows="3" placeholder="Tell shoppers about your design style and inspiration..."></textarea>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="su-style">Primary Art Style</label>
+          <select class="ink-select" id="su-style">
+            <option>Botanical / Nature</option>
+            <option>Abstract</option>
+            <option>Geometric / Minimal</option>
+            <option>Retro / Vintage</option>
+            <option>Illustration / Character</option>
+            <option>Typography</option>
+            <option>Photography</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button type="button" class="btn-ink btn-secondary-ink btn-ink-lg" onclick="prevStep(2)" style="min-width:100px"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button type="button" class="btn-ink btn-primary-ink btn-ink-lg flex-grow-1 justify-content-center" onclick="nextStep(2)">Complete Setup <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Step 3: Done -->
+      <div id="step-3" style="display:none;text-align:center;padding:20px 0">
+        <div style="width:80px;height:80px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#2E7D32;margin:0 auto 20px"><i class="fa-solid fa-check"></i></div>
+        <h2 class="auth-heading">You're In!</h2>
+        <p class="auth-subheading" style="margin-bottom:24px">Your creator account is set up. Upload your first design and go live.</p>
+        <a href="dashboard-upload.html" class="btn-ink btn-primary-ink btn-ink-lg justify-content-center"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Your First Design</a>
+        <div style="margin-top:16px"><a href="dashboard.html" style="color:var(--muted);font-size:0.875rem">Go to Dashboard</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function nextStep(from) {
+    document.getElementById('step-' + from).style.display = 'none';
+    document.getElementById('step-' + (from+1)).style.display = 'block';
+    const ind = document.getElementById('step-ind-' + (from+1));
+    if (ind) {
+      ind.querySelector('div:first-child').style.background = 'var(--primary)';
+      ind.querySelector('div:first-child').style.color = '#fff';
+      ind.querySelector('div:last-child').style.color = 'var(--primary)';
+    }
+  }
+  function prevStep(from) {
+    document.getElementById('step-' + from).style.display = 'none';
+    document.getElementById('step-' + (from-1)).style.display = 'block';
+  }
+  document.querySelector('.toggle-pass').addEventListener('click', function() {
+    const inp = document.getElementById('su-password');
+    const icon = this.querySelector('i');
+    if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fa-solid fa-eye-slash'; }
+    else { inp.type = 'password'; icon.className = 'fa-solid fa-eye'; }
+  });
+</script>
+</body>
+</html>

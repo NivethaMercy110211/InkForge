@@ -1,0 +1,513 @@
+/* =========================================================
+   InkForge — rtl.css
+   Comprehensive, clean RTL layout system
+   ========================================================= */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ----- Global Typography & Spacing RTL ----- */
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ----- Header & Navbar RTL ----- */
+[dir="rtl"] .ink-navbar {
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-navbar .navbar-inner {
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-logo .logo-icon {
+  margin: 0;
+}
+
+[dir="rtl"] .ink-nav-links {
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-nav-links .dropdown-menu {
+  text-align: right;
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .nav-controls {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-icon-btn .cart-count {
+  right: auto;
+  left: -5px;
+}
+
+[dir="rtl"] .mobile-menu {
+  left: auto;
+  right: 0;
+  text-align: right;
+  direction: rtl;
+}
+
+/* ----- Footer RTL ----- */
+[dir="rtl"] .ink-footer {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-links li a:hover {
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+[dir="rtl"] .footer-social {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-newsletter-form {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom .inner {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom .legal-links {
+  direction: rtl;
+}
+
+/* ----- Dashboard Sidebar & Main RTL ----- */
+[dir="rtl"] .dash-sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--border);
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-main {
+  margin-left: 0;
+  margin-right: 248px;
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-sidebar.collapsed ~ .dash-main {
+  margin-left: 0;
+  margin-right: 64px;
+}
+
+[dir="rtl"] .dash-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-sidebar-user {
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-sidebar-user .user-info {
+  text-align: right;
+}
+
+[dir="rtl"] .dash-sidebar-link {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .dash-sidebar-link.active::before {
+  left: auto;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+[dir="rtl"] .dash-sidebar-toggle {
+  right: auto;
+  left: -12px;
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .dash-sidebar.collapsed .dash-sidebar-toggle {
+  transform: rotate(0deg);
+}
+
+[dir="rtl"] .dash-sidebar-section-label {
+  text-align: right;
+}
+
+[dir="rtl"] .dash-topbar {
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-topbar .topbar-actions {
+  direction: rtl;
+}
+
+[dir="rtl"] .dash-profile-dropdown {
+  right: auto;
+  left: 0;
+  text-align: right;
+}
+
+@media (max-width: 991px) {
+  [dir="rtl"] .dash-sidebar {
+    transform: translateX(100%);
+    left: auto;
+    right: 0;
+  }
+
+  [dir="rtl"] .dash-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  [dir="rtl"] .dash-main {
+    margin-right: 0 !important;
+  }
+}
+
+/* ----- Auth Pages RTL ----- */
+[dir="rtl"] .auth-page {
+  direction: rtl;
+  grid-template-columns: minmax(460px, 0.9fr) minmax(0, 1.1fr);
+}
+
+[dir="rtl"] .auth-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-form-inner {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-nav-row {
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-brand-content {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-brand-stats {
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-brand-stat:first-child {
+  padding-inline-start: 20px;
+}
+
+[dir="rtl"] .auth-brand-stat:last-child {
+  border-inline-end: 1px solid rgba(255,255,255,0.16);
+  border-inline-start: 0;
+}
+
+[dir="rtl"] .forgot-link {
+  text-align: left;
+}
+
+[dir="rtl"] .auth-controls-row {
+  direction: rtl;
+}
+
+[dir="rtl"] .social-login-icons {
+  direction: rtl;
+}
+
+[dir="rtl"] .social-icon-btn {
+  direction: ltr;
+}
+
+@media (max-width: 991px) {
+  [dir="rtl"] .auth-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Forms & Input Icons RTL ----- */
+[dir="rtl"] .input-icon-wrap .input-icon {
+  left: auto;
+  right: 14px;
+}
+
+[dir="rtl"] .input-icon-wrap .ink-input {
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+[dir="rtl"] .input-icon-wrap .input-icon-right,
+[dir="rtl"] .input-icon-wrap .toggle-pass {
+  right: auto;
+  left: 14px;
+}
+
+[dir="rtl"] .ink-select {
+  background-position: left 14px center;
+  padding-right: 14px;
+  padding-left: 40px;
+}
+
+[dir="rtl"] .search-bar .search-icon {
+  left: auto;
+  right: 14px;
+}
+
+[dir="rtl"] .search-bar .ink-input {
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+[dir="rtl"] .search-bar .search-clear {
+  right: auto;
+  left: 12px;
+}
+
+[dir="rtl"] .ink-check-wrap,
+[dir="rtl"] .custom-check,
+[dir="rtl"] .ink-switch {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .qty-control {
+  direction: rtl;
+}
+
+/* ----- Product Cards RTL ----- */
+[dir="rtl"] .product-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .product-card .card-badge {
+  left: auto;
+  right: 12px;
+}
+
+[dir="rtl"] .product-card .wishlist-btn {
+  right: auto;
+  left: 10px;
+}
+
+[dir="rtl"] .product-card .card-footer-ink {
+  direction: rtl;
+}
+
+/* ----- Category Cards & Content RTL ----- */
+[dir="rtl"] .category-card,
+[dir="rtl"] .category-card-content {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ----- Creator Cards RTL ----- */
+[dir="rtl"] .creator-card,
+[dir="rtl"] .creator-card-body {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .creator-card-cover .creator-avatar-wrap {
+  left: auto;
+  right: 20px;
+}
+
+[dir="rtl"] .creator-stats {
+  direction: rtl;
+}
+
+[dir="rtl"] .creator-profile-header .inner {
+  direction: rtl;
+}
+
+[dir="rtl"] .profile-card-avatar {
+  left: auto;
+  right: 24px;
+}
+
+/* ----- Filter Sidebar & Products Layout RTL ----- */
+[dir="rtl"] .products-layout {
+  direction: rtl;
+}
+
+[dir="rtl"] .filter-sidebar {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .filter-option label {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .filter-panel-title {
+  direction: rtl;
+}
+
+/* ----- Tables RTL ----- */
+[dir="rtl"] .ink-table thead th {
+  text-align: right;
+}
+
+[dir="rtl"] .ink-table thead th.right { text-align: left; }
+[dir="rtl"] .ink-table thead th.center { text-align: center; }
+
+[dir="rtl"] .ink-table tbody td {
+  text-align: right;
+}
+
+[dir="rtl"] .ink-table tbody td.right { text-align: left; }
+[dir="rtl"] .ink-table tbody td.center { text-align: center; }
+
+[dir="rtl"] .td-product {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .td-product-info {
+  text-align: right;
+}
+
+[dir="rtl"] .ink-table-header,
+[dir="rtl"] .ink-table-footer,
+[dir="rtl"] .table-filter-bar {
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-pagination {
+  direction: rtl;
+}
+
+/* ----- Stat Cards RTL ----- */
+[dir="rtl"] .stat-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .stat-change {
+  direction: rtl;
+}
+
+/* ----- Buttons & Links RTL ----- */
+[dir="rtl"] .btn-ink {
+  direction: rtl;
+}
+
+[dir="rtl"] .view-all-link {
+  direction: rtl;
+}
+
+[dir="rtl"] .view-all-link i.fa-arrow-right {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .view-all-link:hover i.fa-arrow-right {
+  transform: scaleX(-1) translateX(4px);
+}
+
+[dir="rtl"] .btn-ink i.fa-arrow-right {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .btn-ink i.fa-arrow-left {
+  transform: scaleX(-1);
+}
+
+/* ----- Scroll Top Button RTL ----- */
+[dir="rtl"] .scroll-top-btn {
+  right: auto;
+  left: 32px;
+}
+
+/* ----- Breadcrumbs RTL ----- */
+[dir="rtl"] .ink-breadcrumb {
+  direction: rtl;
+}
+
+[dir="rtl"] .ink-breadcrumb i {
+  transform: scaleX(-1);
+}
+
+/* ----- Section Headers RTL ----- */
+[dir="rtl"] .section-header {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .section-header .section-subtitle {
+  text-align: right;
+}
+
+[dir="rtl"] .section-header.centered {
+  text-align: center;
+  direction: rtl;
+}
+
+[dir="rtl"] .section-header.centered .section-subtitle {
+  text-align: center;
+}
+
+[dir="rtl"] .section-label::before {
+  transform: scaleX(-1);
+}
+
+/* ----- Process / How It Works RTL ----- */
+[dir="rtl"] .hiw-step {
+  direction: rtl;
+  text-align: center;
+}
+
+[dir="rtl"] .how-to-order-step {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .how-to-order-step .step-number {
+  margin-left: 0;
+}
+
+[dir="rtl"] .values-card,
+[dir="rtl"] .why-card,
+[dir="rtl"] .team-card,
+[dir="rtl"] .testimonial-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .testimonial-footer {
+  direction: rtl;
+}
+
+[dir="rtl"] .testimonial-product-pill {
+  direction: rtl;
+}

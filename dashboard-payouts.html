@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payout Settings &amp; History — Seller Dashboard — InkForge</title>
+  <meta name="description" content="Configure your bank account, PayPal, and payout preferences. Review historical disbursement statements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .payout-method-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      transition: all var(--trans-base);
+      position: relative;
+    }
+    .payout-method-card.active-method {
+      border-color: var(--primary);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .active-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+  </style>
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info">
+      <div class="user-name">Luna Patel</div>
+      <div class="user-role">Creator</div>
+    </div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <div class="row g-4 mb-4 payout-layout">
+      <!-- Payout Methods -->
+      <div class="col-lg-7">
+        <div class="dash-panel h-100">
+          <div class="dash-panel-header">
+            <div class="dash-panel-title">Connected Payout Methods</div>
+            <button class="btn-ink btn-primary-ink btn-ink-sm"><i class="fa-solid fa-plus"></i> Add Method</button>
+          </div>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="payout-method-card active-method">
+              <span class="active-tag"><i class="fa-solid fa-check"></i> Default</span>
+              <div class="d-flex gap-3 align-items-center mb-2">
+                <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--primary)">
+                  <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div>
+                  <h4 style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--heading);margin-bottom:2px">Direct Bank Deposit (ACH / IBAN)</h4>
+                  <div style="font-size:0.85rem;color:var(--muted)">Barclays Bank ···· 4920 (GBP)</div>
+                </div>
+              </div>
+              <p style="font-size:0.8rem;color:var(--muted);margin:0">Verified and active. No transfer fees. Disbursed every 1st and 15th of the month.</p>
+            </div>
+
+            <div class="payout-method-card">
+              <div class="d-flex gap-3 align-items-center mb-2">
+                <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#0079C1">
+                  <i class="fa-brands fa-paypal"></i>
+                </div>
+                <div>
+                  <h4 style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--heading);margin-bottom:2px">PayPal Account</h4>
+                  <div style="font-size:0.85rem;color:var(--muted)">luna.patel.art@gmail.com</div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 justify-content-end">
+                <button class="btn-ink btn-secondary-ink btn-ink-sm">Make Default</button>
+                <button class="btn-ink btn-secondary-ink btn-ink-sm text-danger"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payout Preferences -->
+      <div class="col-lg-5">
+        <div class="dash-panel h-100">
+          <div class="dash-panel-header">
+            <div class="dash-panel-title">Payout Schedule</div>
+          </div>
+          <form id="payout-pref-form">
+            <div class="ink-form-group">
+              <label class="ink-label">Disbursement Frequency</label>
+              <select class="ink-select">
+                <option selected>Bi-Weekly (1st &amp; 15th of each month)</option>
+                <option>Monthly (1st of each month)</option>
+                <option>Weekly (Every Monday)</option>
+              </select>
+            </div>
+            <div class="ink-form-group">
+              <label class="ink-label">Minimum Payout Threshold</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">$</span>
+                <input type="number" class="ink-input" value="50.00" min="20" step="10">
+              </div>
+              <span style="font-size:0.75rem;color:var(--muted)">Earnings below this balance carry over to next cycle.</span>
+            </div>
+            <div class="ink-form-group">
+              <label class="ink-check-wrap">
+                <input type="checkbox" checked> <span>Email me statement whenever a payout processes</span>
+              </label>
+            </div>
+            <button type="button" class="btn-ink btn-primary-ink btn-ink-md w-100 justify-content-center" onclick="showToast('Payout preferences saved!')">Save Preferences</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payout History Table -->
+    <div class="dash-panel payout-history-panel">
+      <div class="dash-panel-header">
+        <div class="dash-panel-title">Disbursement Statements &amp; History</div>
+        <button class="btn-ink btn-secondary-ink btn-ink-sm"><i class="fa-solid fa-file-arrow-down"></i> Tax Summary (PDF)</button>
+      </div>
+      <div class="ink-table-wrap">
+        <table class="ink-table">
+          <thead>
+            <tr>
+              <th>Disbursement ID</th>
+              <th>Date Processed</th>
+              <th>Method</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Statement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="td-order-id">#DIS-8821</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 31, 2026</td>
+              <td>Bank Transfer (···· 4920)</td>
+              <td><strong>$1,185.00</strong></td>
+              <td><span class="ink-status status-fulfilled">Completed</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm"><i class="fa-solid fa-receipt"></i> Invoice</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#DIS-8802</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Aug 15, 2026</td>
+              <td>Bank Transfer (···· 4920)</td>
+              <td><strong>$942.30</strong></td>
+              <td><span class="ink-status status-fulfilled">Completed</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm"><i class="fa-solid fa-receipt"></i> Invoice</button></td>
+            </tr>
+            <tr>
+              <td><span class="td-order-id">#DIS-8766</span></td>
+              <td style="color:var(--muted);font-size:0.85rem">Jul 31, 2026</td>
+              <td>PayPal (luna.patel.art)</td>
+              <td><strong>$810.00</strong></td>
+              <td><span class="ink-status status-fulfilled">Completed</span></td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm"><i class="fa-solid fa-receipt"></i> Invoice</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

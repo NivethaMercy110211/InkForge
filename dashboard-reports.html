@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Reports &amp; Statements — Seller Dashboard — InkForge</title>
+  <meta name="description" content="Generate and download sales reports, tax statements, and performance audits for your InkForge store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info">
+      <div class="user-name">Luna Patel</div>
+      <div class="user-role">Creator</div>
+    </div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link active" aria-current="page"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <!-- Quick Metrics -->
+    <div class="stats-grid stats-grid-4 mb-4">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#EEF2FF;color:#5546D7"><i class="fa-solid fa-cash-register"></i></div>
+        <div class="stat-label">Total Store Volume (GMV)</div>
+        <div class="stat-value">$14,890</div>
+        <div class="stat-change positive">Gross revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#E8F5E9;color:#2E7D32"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="stat-label">Net Creator Royalties</div>
+        <div class="stat-value">$8,246</div>
+        <div class="stat-change positive">55.4% creator share</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF3E0;color:#E65100"><i class="fa-solid fa-print"></i></div>
+        <div class="stat-label">Total Print &amp; Base Costs</div>
+        <div class="stat-value">$6,644</div>
+        <div class="stat-change" style="color:var(--muted)">Fulfillment expenses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FCE4EC;color:#C62828"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="stat-label">Refund Rate</div>
+        <div class="stat-value">0.4%</div>
+        <div class="stat-change positive"><i class="fa-solid fa-check"></i> Exceptional quality</div>
+      </div>
+    </div>
+
+    <!-- Generate Custom Report Box -->
+    <div class="dash-panel mb-4">
+      <div class="dash-panel-header">
+        <div class="dash-panel-title">Generate Custom Statement</div>
+      </div>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label class="ink-label">Report Type</label>
+          <select class="ink-select" id="rep-type">
+            <option>Monthly Sales &amp; Royalties Summary</option>
+            <option>Annual Tax Statement (1099-K / VAT)</option>
+            <option>Product &amp; Category Performance</option>
+            <option>Detailed Order Transaction Audit</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="ink-label">Date Range</label>
+          <select class="ink-select" id="rep-range">
+            <option>Year to Date (2026)</option>
+            <option>Full Year 2025</option>
+            <option>Last Quarter (Q2 2026)</option>
+            <option>Last 30 Days</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="ink-label">Export Format</label>
+          <select class="ink-select" id="rep-format">
+            <option>PDF Document (.pdf)</option>
+            <option>Spreadsheet (.csv)</option>
+            <option>Excel Workbook (.xlsx)</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn-ink btn-primary-ink btn-ink-md w-100 justify-content-center" onclick="generateReport()"><i class="fa-solid fa-file-export"></i> Generate &amp; Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generated Documents History -->
+    <div class="dash-panel">
+      <div class="dash-panel-header">
+        <div class="dash-panel-title">Archived Reports &amp; Statements</div>
+      </div>
+      <div class="ink-table-wrap">
+        <table class="ink-table">
+          <thead>
+            <tr>
+              <th>Document Name</th>
+              <th>Period</th>
+              <th>Generated On</th>
+              <th>File Size</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fa-solid fa-file-pdf text-danger" style="margin-right:8px"></i> <strong>August 2026 Monthly Statement</strong></td>
+              <td>Aug 1 – Aug 31, 2026</td>
+              <td style="color:var(--muted)">Sep 1, 2026</td>
+              <td>248 KB</td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm" onclick="showToast('Downloading statement...')"><i class="fa-solid fa-download"></i> Download</button></td>
+            </tr>
+            <tr>
+              <td><i class="fa-solid fa-file-pdf text-danger" style="margin-right:8px"></i> <strong>July 2026 Monthly Statement</strong></td>
+              <td>Jul 1 – Jul 31, 2026</td>
+              <td style="color:var(--muted)">Aug 1, 2026</td>
+              <td>235 KB</td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm" onclick="showToast('Downloading statement...')"><i class="fa-solid fa-download"></i> Download</button></td>
+            </tr>
+            <tr>
+              <td><i class="fa-solid fa-file-excel text-success" style="margin-right:8px"></i> <strong>Q2 2026 Product Audit (.xlsx)</strong></td>
+              <td>Apr 1 – Jun 30, 2026</td>
+              <td style="color:var(--muted)">Jul 2, 2026</td>
+              <td>1.2 MB</td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm" onclick="showToast('Downloading spreadsheet...')"><i class="fa-solid fa-download"></i> Download</button></td>
+            </tr>
+            <tr>
+              <td><i class="fa-solid fa-file-pdf text-danger" style="margin-right:8px"></i> <strong>2025 Annual Tax Summary</strong></td>
+              <td>Jan 1 – Dec 31, 2025</td>
+              <td style="color:var(--muted)">Jan 15, 2026</td>
+              <td>512 KB</td>
+              <td><button class="btn-ink btn-secondary-ink btn-ink-sm" onclick="showToast('Downloading tax statement...')"><i class="fa-solid fa-download"></i> Download</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  function generateReport() {
+    if (typeof showToast === 'function') {
+      showToast('Generating report... download will start shortly.');
+    }
+  }
+</script>
+</body>
+</html>

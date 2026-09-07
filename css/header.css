@@ -1,0 +1,413 @@
+/* =========================================================
+   InkForge — header.css
+   Sticky navbar, navigation, mobile menu, controls
+   ========================================================= */
+
+/* ----- Navbar Wrapper ----- */
+.ink-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background: rgba(248, 247, 244, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--trans-base), box-shadow var(--trans-base);
+}
+
+.ink-navbar.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.ink-navbar .navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 64px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ----- Logo ----- */
+.ink-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ink-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  transition: background var(--trans-fast);
+}
+
+.ink-logo:hover .logo-icon {
+  background: var(--primary-hover);
+}
+
+.ink-logo .logo-text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--heading);
+  letter-spacing: -0.03em;
+  transition: color var(--trans-fast);
+}
+
+.ink-logo:hover .logo-text {
+  color: var(--primary);
+}
+
+/* ----- Nav Links (Desktop) ----- */
+.ink-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.ink-nav-links > li > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--body);
+  border-radius: var(--radius-sm);
+  transition: color var(--trans-fast), background var(--trans-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+}
+
+.ink-nav-links > li > a:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.ink-nav-links > li > a.active,
+.ink-nav-links > li > a[aria-current="page"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.ink-nav-links > li > a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Dropdown */
+.ink-nav-links .dropdown-menu {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  min-width: 200px;
+  background: var(--white);
+  margin-top: 6px;
+}
+
+.ink-nav-links .dropdown-item {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--body);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  transition: background var(--trans-fast), color var(--trans-fast);
+}
+
+.ink-nav-links .dropdown-item:hover,
+.ink-nav-links .dropdown-item:focus {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ----- Nav Controls (right side) ----- */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--body);
+  cursor: pointer;
+  transition: color var(--trans-fast), border-color var(--trans-fast), background var(--trans-fast);
+  font-size: 0.9rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.nav-icon-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.nav-icon-btn .cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+/* Seller Dashboard Button */
+.btn-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: var(--primary);
+  color: #fff !important;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: background var(--trans-fast), transform var(--trans-fast);
+  white-space: nowrap;
+}
+
+.btn-dashboard:hover {
+  background: var(--primary-hover);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.btn-seller-login {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--body);
+  background: transparent;
+  text-decoration: none;
+  transition: border-color var(--trans-fast), color var(--trans-fast);
+  white-space: nowrap;
+}
+
+.btn-seller-login:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ----- RTL Label ----- */
+.rtl-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--body);
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--trans-fast), border-color var(--trans-fast), background var(--trans-fast);
+  white-space: nowrap;
+}
+
+.rtl-toggle-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* ----- Mobile Toggle ----- */
+.mobile-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--heading);
+  font-size: 1.1rem;
+  transition: color var(--trans-fast), border-color var(--trans-fast);
+}
+
+.mobile-toggle:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ----- Mobile Drawer ----- */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu .mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--body);
+  text-decoration: none;
+  transition: color var(--trans-fast), background var(--trans-fast);
+}
+
+.mobile-menu .mobile-nav-link:hover,
+.mobile-menu .mobile-nav-link.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.mobile-menu .mobile-nav-link.active {
+  font-weight: 600;
+}
+
+.mobile-menu-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 24px;
+}
+
+.mobile-menu .mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px 4px;
+  flex-wrap: wrap;
+}
+
+.mobile-menu .btn-dashboard,
+.mobile-menu .btn-seller-login {
+  flex: 1;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.mobile-menu .mobile-utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 24px 0;
+}
+
+/* ----- Responsive breakpoints (header) ----- */
+@media (max-width: 1199px) {
+  .ink-nav-links {
+    gap: 0;
+  }
+
+  .ink-nav-links > li > a {
+    padding: 8px 9px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .ink-nav-links {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-controls {
+    display: none;
+  }
+
+  .ink-navbar .navbar-inner {
+    justify-content: space-between;
+    height: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ink-navbar .navbar-inner {
+    padding: 0 16px;
+  }
+
+  .nav-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-menu {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu .mobile-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mobile-menu .btn-dashboard,
+  .mobile-menu .btn-seller-login {
+    min-width: 0;
+  }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — InkForge</title>
+  <meta name="description" content="Browse thousands of custom designed products — t-shirts, mugs, tote bags, phone cases, hoodies, posters, caps, and more. Filter by category, style, and price.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/creators.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav class="ink-navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="ink-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html" class="active" aria-current="page">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" role="navigation">
+    <a href="index.html" class="mobile-nav-link">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="products.html" class="mobile-nav-link active">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls">
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <div class="mobile-utility-row">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Banner -->
+<div class="page-banner" aria-label="Products page banner">
+  <img src="assets/images/hero/products-banner.png" alt="" class="banner-bg">
+  <div class="ink-container">
+    <h1 class="page-banner-title">All Products</h1>
+    <p class="page-banner-sub">50,000+ original designs from independent creators — shop, filter, discover.</p>
+  </div>
+</div>
+
+
+<!-- Products Layout -->
+<main class="section" aria-label="Products catalog">
+  <div class="ink-container">
+    <!-- Toolbar -->
+    <div class="products-toolbar">
+      <div class="toolbar-left">
+        <button class="mobile-filter-btn btn-ink btn-secondary-ink btn-ink-sm" aria-label="Toggle filters">
+          <i class="fa-solid fa-sliders"></i> Filters
+        </button>
+        <span class="products-result-count"><span id="products-count">12</span> products</span>
+      </div>
+      <div class="toolbar-right d-flex gap-3 align-items-center">
+        <!-- Category chips for quick filter -->
+        <div class="d-flex gap-2 flex-wrap d-none d-md-flex">
+          <button class="ink-chip active" data-chip-cat="all">All</button>
+          <button class="ink-chip" data-chip-cat="tshirts">T-Shirts</button>
+          <button class="ink-chip" data-chip-cat="mugs">Mugs</button>
+          <button class="ink-chip" data-chip-cat="totes">Totes</button>
+          <button class="ink-chip" data-chip-cat="hoodies">Hoodies</button>
+        </div>
+        <!-- Sort -->
+        <div class="input-icon-wrap" style="min-width:175px">
+          <select class="ink-select" id="sort-select" aria-label="Sort products">
+            <option value="bestselling">Best Selling</option>
+            <option value="newest">Newest First</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar mb-4" style="max-width:480px">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="search" class="ink-input" id="product-search" placeholder="Search products or creators..." aria-label="Search products">
+      <button class="search-clear" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="products-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar" aria-label="Product filters">
+        <div class="filter-panel">
+          <div class="filter-panel-title">
+            <span>Categories</span>
+            <button class="filter-clear-btn" onclick="InkFilters.clearAll()">Clear All</button>
+          </div>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="tshirts"> <span>T-Shirts</span>
+              <span class="filter-count">12,400+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="mugs"> <span>Mugs</span>
+              <span class="filter-count">4,200+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="totes"> <span>Tote Bags</span>
+              <span class="filter-count">3,100+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="cases"> <span>Phone Cases</span>
+              <span class="filter-count">6,800+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="hoodies"> <span>Hoodies</span>
+              <span class="filter-count">2,900+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="posters"> <span>Posters</span>
+              <span class="filter-count">8,700+</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-cat value="caps"> <span>Caps</span>
+              <span class="filter-count">1,400+</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-panel">
+          <div class="filter-panel-title"><span>Art Style</span></div>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" data-filter-style value="botanical"> <span>Botanical</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-style value="abstract"> <span>Abstract</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-style value="geometric"> <span>Geometric</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-style value="minimal"> <span>Minimal</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" data-filter-style value="retro"> <span>Retro</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-panel">
+          <div class="filter-panel-title"><span>Price Range</span></div>
+          <div class="price-range-wrap">
+            <div class="d-flex justify-content-between mb-2">
+              <span style="font-size:0.85rem;color:var(--muted)">$0</span>
+              <span style="font-size:0.85rem;color:var(--heading);font-weight:600" id="price-max-label">$100</span>
+            </div>
+            <input type="range" id="price-range" min="0" max="100" value="100" class="ink-range" aria-label="Maximum price">
+          </div>
+        </div>
+      </aside>
+
+      <!-- Products Grid -->
+      <div>
+        <div class="products-grid" id="products-grid" aria-live="polite" aria-label="Products grid">
+          <!-- Products rendered by JS from filters.js -->
+          <!-- Fallback static cards for no-JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <a href="index.html" class="footer-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+        <p class="footer-tagline">Your Art. Your Merch. Your Store.</p>
+        <ul class="footer-social">
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html?cat=tshirts">T-Shirts</a></li>
+          <li><a href="products.html?cat=hoodies">Hoodies</a></li>
+          <li><a href="products.html?cat=mugs">Mugs</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="how-to-order.html">How to Order</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="creator-signup.html">Sell on InkForge</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-title">Newsletter</div>
+        <div class="footer-newsletter">
+          <p>Get new design drops and exclusive deals.</p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Your email" aria-label="Newsletter email">
+            <button type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="ink-container"><div class="inner">
+      <p class="copy">&copy; 2026 InkForge. All rights reserved.</p>
+      <ul class="legal-links"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li></ul>
+    </div></div>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/filters.js"></script>
+</body>
+</html>

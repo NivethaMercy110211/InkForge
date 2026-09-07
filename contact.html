@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — InkForge</title>
+  <meta name="description" content="Get in touch with the InkForge team. Support for shoppers, creators, and press inquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
+    .contact-side { display: contents; }
+
+    .contact-form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 40px; }
+    .contact-form-card .ink-form-group { margin-bottom: 20px; }
+    .contact-form-card .ink-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .contact-form-card .row { --bs-gutter-y: 20px; }
+    .contact-form-card .ink-input,
+    .contact-form-card .ink-select,
+    .contact-form-card .ink-textarea { display: block; width: 100%; }
+    .contact-info-card { background: var(--primary); border-radius: var(--radius-xl); padding: 40px; color: rgba(255,255,255,0.9); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:40px; }
+    .contact-info-card h3 { font-family: var(--font-heading); font-weight: 700; color: #fff; font-size: 1.375rem; margin-bottom: 8px; }
+    .contact-info-card p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 0; }
+    .contact-info-card > h3, .contact-info-card > p { grid-column:1 / -1; }
+    .contact-info-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .contact-info-card > .contact-info-item:nth-of-type(2) { margin-top:20px; }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-info-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .contact-info-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .contact-info-val { color: #fff; font-weight: 600; font-size: 0.9375rem; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { padding: 16px 0; font-family: var(--font-heading); font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-a { padding-bottom: 16px; color: var(--body); line-height: 1.7; font-size: 0.925rem; }
+    .contact-faq-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-xl); padding:40px; }
+    @media (max-width: 576px) {
+      .contact-layout { gap:24px; }
+      .contact-form-card, .contact-info-card, .contact-faq-card { padding:24px; }
+      .contact-info-card { grid-template-columns:1fr; }
+    }
+    [data-theme="dark"] .contact-form-card { background: var(--white); border-color: var(--border); }
+    [data-theme="dark"] .contact-form-card .ink-select {
+      color-scheme: dark;
+      background-color: #25252D !important;
+      color: #F8F7FC !important;
+      border-color: #4A4A56 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F8F7FC' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 12px 8px;
+    }
+    [data-theme="dark"] .contact-form-card .ink-select option {
+      background-color: #25252D !important;
+      color: #F8F7FC !important;
+    }
+    [data-theme="dark"] .contact-form-card .ink-select option:checked {
+      background-color: #5546D7 !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+<body>
+<nav class="ink-navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="ink-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" role="navigation">
+    <a href="index.html" class="mobile-nav-link">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link active">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls"><a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a><a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></div>
+    <div class="mobile-utility-row"><button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button><button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button></div>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <img src="assets/images/hero/contact-banner.png" alt="" class="banner-bg">
+  <div class="ink-container">
+    <nav aria-label="breadcrumb"><ol class="ink-breadcrumb"><li><a href="index.html">Home</a></li><li>Contact</li></ol></nav>
+    <h1 class="page-banner-title">Contact InkForge</h1>
+    <p class="page-banner-sub">We're here to help — shoppers, creators, and press welcome.</p>
+  </div>
+</div>
+
+
+<main class="section" aria-label="Contact page">
+  <div class="ink-container">
+    <div class="contact-layout">
+      <!-- Contact Form -->
+      <div>
+        <div class="contact-form-card">
+          <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.375rem;color:var(--heading);margin-bottom:6px">Send Us a Message</h2>
+          <p style="color:var(--muted);margin-bottom:24px;font-size:0.9rem">We respond to all messages within 24 hours on business days.</p>
+
+          <!-- Inquiry Type -->
+          <div class="ink-form-group">
+            <label class="ink-label" for="inquiry-type">Inquiry Type</label>
+            <select class="ink-select" id="inquiry-type">
+              <option>I'm a Shopper — Order Support</option>
+              <option>I'm a Creator — Dashboard or Payout</option>
+              <option>I'm a Creator — Product or Upload Question</option>
+              <option>Press or Partnership Inquiry</option>
+              <option>Technical Issue or Bug Report</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="ink-label" for="contact-name">Your Name</label>
+              <input type="text" class="ink-input" id="contact-name" placeholder="Full name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="ink-label" for="contact-email">Email Address</label>
+              <input type="email" class="ink-input" id="contact-email" placeholder="your@email.com" required>
+            </div>
+            <div class="col-12">
+              <label class="ink-label" for="contact-subject">Subject</label>
+              <input type="text" class="ink-input" id="contact-subject" placeholder="Brief subject line" required>
+            </div>
+            <div class="col-12">
+              <label class="ink-label" for="contact-message">Message</label>
+              <textarea class="ink-textarea" id="contact-message" rows="5" placeholder="Tell us how we can help..." required data-max-chars="1000" data-char-target="msg-count"></textarea>
+              <div style="font-size:0.78rem;color:var(--muted);text-align:right;margin-top:4px" id="msg-count">0/1000</div>
+            </div>
+            <div class="col-12">
+              <label class="ink-label" for="contact-attachment">Attachment (optional)</label>
+              <input type="file" class="ink-input" id="contact-attachment" style="padding:8px">
+            </div>
+          </div>
+
+          <button type="button" class="btn-ink btn-primary-ink btn-ink-lg w-100 justify-content-center mt-4" id="contact-submit">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-side">
+        <div class="contact-info-card">
+          <h3>We're Here to Help</h3>
+          <p>Reach out through the form, or use one of the direct channels below.</p>
+
+          <div class="contact-info-item" style="margin-top:20px">
+            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-info-label">General Support</div>
+              <div class="contact-info-val">support@inkforge.com</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-palette"></i></div>
+            <div>
+              <div class="contact-info-label">Creator Support</div>
+              <div class="contact-info-val">creators@inkforge.com</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-newspaper"></i></div>
+            <div>
+              <div class="contact-info-label">Press &amp; Partnerships</div>
+              <div class="contact-info-val">press@inkforge.com</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="contact-info-label">Response Time</div>
+              <div class="contact-info-val">Within 24 hours</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="contact-faq-card">
+          <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--heading);font-size:1.125rem;margin-bottom:16px">Common Questions</h3>
+          <div class="faq-item">
+            <div class="faq-q">Where is my order? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a">Orders ship within 3–5 business days of placement. You will receive a tracking email once your order ships. Check your spam folder if you haven't received it.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How do I become a creator? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a">Sign up at our <a href="creator-signup.html">Creator Signup</a> page. It's free and takes under 15 minutes to upload your first design and publish your store.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">When do creators get paid? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a">Creator earnings are paid out on a bi-weekly schedule. You can view your pending and confirmed earnings in your <a href="dashboard-earnings.html">earnings dashboard</a>.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I return or exchange a product? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a">Yes — InkForge offers free returns within 30 days for products that arrive damaged, defective, or significantly different from the listing. Contact us with your order number and we'll sort it out.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+      <div class="col-lg-4"><a href="index.html" class="footer-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a><p class="footer-tagline">Your Art. Your Merch. Your Store.</p></div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="products.html">All Products</a></li><li><a href="creators.html">Creators</a></li></ul></div>
+      <div class="col-6 col-md-2"><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-lg-3"><div class="footer-col-title">Newsletter</div><div class="footer-newsletter"><div class="footer-newsletter-form"><input type="email" placeholder="Your email" aria-label="Newsletter"><button type="button">Subscribe</button></div></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="ink-container"><div class="inner"><p class="copy">&copy; 2026 InkForge. All rights reserved.</p><ul class="legal-links"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div></div></div>
+</footer>
+<button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    const a = q.nextElementSibling;
+    a.style.display = 'none';
+    q.addEventListener('click', () => {
+      const isOpen = a.style.display !== 'none';
+      document.querySelectorAll('.faq-a').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.faq-q i').forEach(i => i.className = 'fa-solid fa-chevron-down');
+      if (!isOpen) {
+        a.style.display = 'block';
+        q.querySelector('i').className = 'fa-solid fa-chevron-up';
+      }
+    });
+  });
+
+  // Form submit
+  document.getElementById('contact-submit').addEventListener('click', function() {
+    this.classList.add('loading');
+    this.disabled = true;
+    setTimeout(() => {
+      this.classList.remove('loading');
+      this.disabled = false;
+      if (typeof showToast === 'function') showToast('Message sent! We\'ll reply within 24 hours.');
+    }, 1500);
+  });
+
+  // Char count
+  const msg = document.getElementById('contact-message');
+  const count = document.getElementById('msg-count');
+  msg.addEventListener('input', () => count.textContent = msg.value.length + '/1000');
+</script>
+</body>
+</html>

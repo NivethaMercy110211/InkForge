@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account — InkForge</title>
+  <meta name="description" content="Create your InkForge shopper account to save your wishlist, track orders, and get personalized design recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-branding">
+    <img src="assets/images/hero/signup.png" alt="" class="auth-brand-bg">
+    <div class="auth-brand-overlay"></div>
+    <div class="auth-brand-content">
+      <a href="index.html" class="auth-logo-wrap"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+      <h1 class="auth-brand-headline">Join InkForge</h1>
+      <p class="auth-brand-sub">Create an account to track orders, save wishlists, and discover designs tailored to you.</p>
+    </div>
+  </div>
+  <div class="auth-form-col">
+    <div class="auth-form-inner">
+      <div class="auth-nav-row">
+        <div class="d-flex gap-2 align-items-center ms-auto"><button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button><button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button></div>
+      </div>
+      <h2 class="auth-heading">Create Your Account</h2>
+      <p class="auth-subheading">Shop original designs from independent creators.</p>
+      <form id="register-form" novalidate>
+        <div class="row g-3">
+          <div class="col-6"><label class="ink-label" for="reg-fname">First Name</label><input type="text" class="ink-input" id="reg-fname" placeholder="First name" required autocomplete="given-name"></div>
+          <div class="col-6"><label class="ink-label" for="reg-lname">Last Name</label><input type="text" class="ink-input" id="reg-lname" placeholder="Last name" required autocomplete="family-name"></div>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="reg-email">Email Address</label>
+          <div class="input-icon-wrap"><i class="fa-solid fa-envelope input-icon"></i><input type="email" class="ink-input" id="reg-email" placeholder="your@email.com" required autocomplete="email"></div>
+        </div>
+        <div class="ink-form-group">
+          <label class="ink-label" for="reg-password">Password</label>
+          <div class="input-icon-wrap"><i class="fa-solid fa-lock input-icon"></i><input type="password" class="ink-input" id="reg-password" placeholder="Minimum 8 characters" required autocomplete="new-password"></div>
+        </div>
+        <label class="ink-check-wrap" style="margin-bottom:16px"><input type="checkbox" required> <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span></label>
+        <button type="submit" class="btn-ink btn-primary-ink btn-ink-lg w-100 justify-content-center" id="register-btn"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+      </form>
+      <div class="auth-divider"><span>or sign up with</span></div>
+      <!-- Third Party Social Logins Below Form -->
+      <div class="social-login-icons">
+        <button type="button" class="social-icon-btn btn-google" title="Sign up with Google" aria-label="Sign up with Google">
+          <i class="fa-brands fa-google" style="color:#EA4335"></i>
+        </button>
+        <button type="button" class="social-icon-btn btn-apple" title="Sign up with Apple" aria-label="Sign up with Apple">
+          <i class="fa-brands fa-apple"></i>
+        </button>
+        <button type="button" class="social-icon-btn btn-facebook" title="Sign up with Facebook" aria-label="Sign up with Facebook">
+          <i class="fa-brands fa-facebook-f" style="color:#1877F2"></i>
+        </button>
+        <button type="button" class="social-icon-btn btn-github" title="Sign up with GitHub" aria-label="Sign up with GitHub">
+          <i class="fa-brands fa-github"></i>
+        </button>
+      </div>
+      <div class="auth-footer-links"><p>Already have an account? <a href="seller-login.html">Sign in</a></p><p style="margin-top:8px">Want to sell? <a href="creator-signup.html">Become a creator</a></p></div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('register-btn');
+    btn.classList.add('loading'); btn.disabled = true;
+    setTimeout(() => { window.location.href = 'index.html'; }, 1400);
+  });
+</script>
+</body>
+</html>

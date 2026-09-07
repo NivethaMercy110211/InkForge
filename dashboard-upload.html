@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload New Design — Seller Dashboard — InkForge</title>
+  <meta name="description" content="Upload high-resolution artwork, select print-on-demand products, adjust mockups, and publish your new merchandise.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .upload-step-bar {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .upload-step-bar::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: var(--border);
+      z-index: 1;
+    }
+    .upload-step-item {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .upload-step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--border);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all var(--trans-base);
+    }
+    .upload-step-item.active .upload-step-circle {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+    .upload-step-item.completed .upload-step-circle {
+      border-color: var(--success, #2E7D32);
+      background: var(--success, #2E7D32);
+      color: #fff;
+    }
+    .upload-step-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .upload-step-item.active .upload-step-label {
+      color: var(--primary);
+    }
+
+    .dropzone-box {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-xl);
+      padding: 48px 24px;
+      text-align: center;
+      background: var(--soft);
+      cursor: pointer;
+      transition: all var(--trans-base);
+    }
+    .dropzone-box:hover, .dropzone-box.dragover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .dropzone-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .product-select-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .product-select-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--trans-base);
+      position: relative;
+    }
+    .product-select-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .product-select-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .product-select-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+    }
+    .product-select-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+    .product-select-base {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .mockup-preview-wrap {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      text-align: center;
+    }
+    .mockup-canvas-area {
+      position: relative;
+      display: inline-block;
+      max-width: 360px;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--soft);
+    }
+    .mockup-canvas-area img.base-garment {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .mockup-artwork-overlay {
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      aspect-ratio: 1;
+      border: 1px dashed var(--primary);
+      background: url('assets/images/categories/tshirts.jpg') center/cover;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="dash-body">
+<div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+  <div class="dash-sidebar-logo">
+    <a href="index.html" class="ink-logo-dash">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" title="Collapse sidebar" aria-label="Toggle sidebar">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="dash-sidebar-user">
+    <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+    <div class="user-info">
+      <div class="user-name">Luna Patel</div>
+      <div class="user-role">Creator</div>
+    </div>
+  </div>
+  <nav class="dash-sidebar-nav" aria-label="Seller navigation">
+    <div class="dash-sidebar-section-label">Main</div>
+    <a href="dashboard.html" class="dash-sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Overview</span></a>
+    <a href="dashboard-orders.html" class="dash-sidebar-link"><i class="fa-solid fa-bag-shopping"></i><span>Orders</span></a>
+    <a href="dashboard-designs.html" class="dash-sidebar-link"><i class="fa-solid fa-palette"></i><span>My Designs</span></a>
+    <a href="dashboard-upload.html" class="dash-sidebar-link active" aria-current="page"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Design</span></a>
+    <a href="dashboard-earnings.html" class="dash-sidebar-link"><i class="fa-solid fa-coins"></i><span>Earnings</span></a>
+    <a href="dashboard-analytics.html" class="dash-sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="dashboard-reports.html" class="dash-sidebar-link"><i class="fa-solid fa-file-chart-column"></i><span>Reports</span></a>
+    <a href="seller-login.html" class="dash-sidebar-link dash-signout-link" data-action="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="dash-main" id="dash-main">
+  <div class="dash-topbar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="dash-mobile-toggle d-lg-none" id="dash-mobile-toggle" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="topbar-actions">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+
+  <div class="dash-content">
+    <!-- Step Bar -->
+    <div class="upload-step-bar">
+      <div class="upload-step-item active" id="ustep-1">
+        <div class="upload-step-circle">1</div>
+        <span class="upload-step-label">Upload</span>
+      </div>
+      <div class="upload-step-item" id="ustep-2">
+        <div class="upload-step-circle">2</div>
+        <span class="upload-step-label">Products</span>
+      </div>
+      <div class="upload-step-item" id="ustep-3">
+        <div class="upload-step-circle">3</div>
+        <span class="upload-step-label">Mockup</span>
+      </div>
+      <div class="upload-step-item" id="ustep-4">
+        <div class="upload-step-circle">4</div>
+        <span class="upload-step-label">Pricing</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Upload File -->
+    <div id="upload-panel-1" class="dash-panel">
+      <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.25rem;margin-bottom:12px;color:var(--heading)">1. Select Your High-Resolution Artwork</h2>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:24px">PNG, SVG, or high-res JPG files supported. Minimum recommended size: 3000 x 3000px at 300 DPI for best print quality.</p>
+
+      <div class="dropzone-box" id="dropzone">
+        <input type="file" id="artwork-file-input" accept="image/*" style="display:none">
+        <div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.15rem;margin-bottom:8px;color:var(--heading)">Drag and drop artwork here</h3>
+        <p style="color:var(--muted);font-size:0.875rem;margin-bottom:16px">or browse from your computer</p>
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-md" onclick="document.getElementById('artwork-file-input').click()"><i class="fa-solid fa-folder-open"></i> Browse Files</button>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-md-4">
+          <div style="background:var(--soft);padding:16px;border-radius:var(--radius-lg);height:100%">
+            <div style="font-weight:700;font-size:0.9rem;color:var(--heading);margin-bottom:6px"><i class="fa-solid fa-check text-success"></i> Recommended DPI</div>
+            <p style="font-size:0.8rem;color:var(--muted);margin:0">300 DPI ensures crystal clear prints on cotton apparel and fine art posters.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div style="background:var(--soft);padding:16px;border-radius:var(--radius-lg);height:100%">
+            <div style="font-weight:700;font-size:0.9rem;color:var(--heading);margin-bottom:6px"><i class="fa-solid fa-check text-success"></i> Transparent PNG</div>
+            <p style="font-size:0.8rem;color:var(--muted);margin:0">Transparent background allows the design to blend naturally on colored fabric.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div style="background:var(--soft);padding:16px;border-radius:var(--radius-lg);height:100%">
+            <div style="font-weight:700;font-size:0.9rem;color:var(--heading);margin-bottom:6px"><i class="fa-solid fa-check text-success"></i> RGB Color Mode</div>
+            <p style="font-size:0.8rem;color:var(--muted);margin:0">Direct-to-garment digital printers use sRGB color profiles for widest gamut.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-lg" onclick="goToStep(2)">Continue to Products <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 2: Choose Products -->
+    <div id="upload-panel-2" class="dash-panel" style="display:none">
+      <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.25rem;margin-bottom:12px;color:var(--heading)">2. Select Products to Offer</h2>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:24px">Choose which merchandise items will carry this artwork. Base production costs are shown for each item.</p>
+
+      <div class="product-select-grid">
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/tshirts.jpg" alt="T-Shirt">
+          <div class="product-select-name">Classic Tee</div>
+          <div class="product-select-base">Base Cost: $12.50</div>
+        </div>
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/hoodies.jpg" alt="Hoodie">
+          <div class="product-select-name">Pullover Hoodie</div>
+          <div class="product-select-base">Base Cost: $26.00</div>
+        </div>
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/mugs.jpg" alt="Mug">
+          <div class="product-select-name">Ceramic Mug</div>
+          <div class="product-select-base">Base Cost: $7.00</div>
+        </div>
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/totes.jpg" alt="Tote">
+          <div class="product-select-name">Canvas Tote</div>
+          <div class="product-select-base">Base Cost: $9.00</div>
+        </div>
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/cases.jpg" alt="Phone Case">
+          <div class="product-select-name">Phone Case</div>
+          <div class="product-select-base">Base Cost: $6.50</div>
+        </div>
+        <div class="product-select-card selected" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/posters.jpg" alt="Poster">
+          <div class="product-select-name">Art Poster</div>
+          <div class="product-select-base">Base Cost: $5.00</div>
+        </div>
+        <div class="product-select-card" onclick="toggleProduct(this)">
+          <img src="assets/images/categories/caps.jpg" alt="Cap">
+          <div class="product-select-name">Embroidered Cap</div>
+          <div class="product-select-base">Base Cost: $11.00</div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn-ink btn-secondary-ink btn-ink-lg" onclick="goToStep(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-lg" onclick="goToStep(3)">Preview Mockups <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 3: Mockup Preview & Adjustment -->
+    <div id="upload-panel-3" class="dash-panel" style="display:none">
+      <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.25rem;margin-bottom:12px;color:var(--heading)">3. Mockup &amp; Placement</h2>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:24px">Adjust the scale and positioning of your design on the product mockup.</p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="mockup-preview-wrap">
+            <div class="mockup-canvas-area">
+              <img src="assets/images/categories/tshirts.jpg" alt="T-Shirt Mockup" class="base-garment">
+              <div class="mockup-artwork-overlay" id="mockup-overlay"></div>
+            </div>
+            <div class="mt-3" style="font-size:0.85rem;color:var(--muted)">Preview: Classic Tee (Indigo)</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div style="background:var(--soft);border-radius:var(--radius-xl);padding:24px">
+            <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;margin-bottom:16px;color:var(--heading)">Placement Controls</h3>
+            <div class="mb-3">
+              <label class="ink-label">Artwork Scale</label>
+              <input type="range" class="ink-range" min="20" max="80" value="40" oninput="document.getElementById('mockup-overlay').style.width = this.value + '%'">
+            </div>
+            <div class="mb-3">
+              <label class="ink-label">Vertical Position</label>
+              <input type="range" class="ink-range" min="10" max="60" value="30" oninput="document.getElementById('mockup-overlay').style.top = this.value + '%'">
+            </div>
+            <div class="mb-3">
+              <label class="ink-label">Horizontal Position</label>
+              <input type="range" class="ink-range" min="10" max="60" value="30" oninput="document.getElementById('mockup-overlay').style.left = this.value + '%'">
+            </div>
+            <div class="mb-3">
+              <label class="ink-label">Default Product Color</label>
+              <div class="d-flex gap-2">
+                <button class="color-swatch active" style="background:#1A1A2E"></button>
+                <button class="color-swatch" style="background:#4A4A6A"></button>
+                <button class="color-swatch" style="background:#FFFFFF;border:1px solid #ddd"></button>
+                <button class="color-swatch" style="background:#2C4A2E"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn-ink btn-secondary-ink btn-ink-lg" onclick="goToStep(2)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-lg" onclick="goToStep(4)">Pricing &amp; Details <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 4: Details & Pricing -->
+    <div id="upload-panel-4" class="dash-panel" style="display:none">
+      <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.25rem;margin-bottom:12px;color:var(--heading)">4. Design Details &amp; Pricing</h2>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:24px">Set your title, story, and profit margins. You earn the difference between selling price and base cost.</p>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="ink-form-group">
+            <label class="ink-label" for="design-title-input">Design Title</label>
+            <input type="text" class="ink-input" id="design-title-input" placeholder="e.g. Celestial Garden Flora" value="Celestial Garden Flora">
+          </div>
+          <div class="ink-form-group">
+            <label class="ink-label" for="design-desc-input">Description / Artist Note</label>
+            <textarea class="ink-textarea" id="design-desc-input" rows="4" placeholder="Describe your design and the inspiration behind it...">An intricate hand-drawn botanical study depicting nocturnal blossoms intertwined with celestial orbit paths.</textarea>
+          </div>
+          <div class="ink-form-group">
+            <label class="ink-label" for="design-tags-input">Tags (comma separated)</label>
+            <input type="text" class="ink-input" id="design-tags-input" placeholder="botanical, nature, celestial, organic, stars" value="botanical, nature, celestial, organic, stars">
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div style="background:var(--soft);border-radius:var(--radius-xl);padding:24px">
+            <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;margin-bottom:16px;color:var(--heading)">Profit Margin Calculator</h3>
+            <div class="mb-3">
+              <label class="ink-label">Retail Price (Classic Tee)</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon" style="font-weight:700">$</span>
+                <input type="number" class="ink-input" id="calc-retail" value="29.99" step="0.50" oninput="updateMargin()">
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.85rem">
+              <span>Base Cost (Fulfillment):</span>
+              <span style="font-weight:600">$12.50</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;font-family:var(--font-heading);font-weight:800;font-size:1.1rem;color:var(--success, #2E7D32)">
+              <span>Your Profit Per Sale:</span>
+              <span id="profit-calc">$17.49</span>
+            </div>
+            <p style="font-size:0.78rem;color:var(--muted);margin:0">Fulfillment, packing, customer service, and credit card processing are handled by InkForge.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn-ink btn-secondary-ink btn-ink-lg" onclick="goToStep(3)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <button type="button" class="btn-ink btn-primary-ink btn-ink-lg" id="publish-btn" onclick="publishDesign()"><i class="fa-solid fa-rocket"></i> Publish to Store</button>
+      </div>
+    </div>
+
+    <!-- Success Panel -->
+    <div id="upload-success" class="dash-panel text-center" style="display:none;padding:60px 24px">
+      <div style="width:80px;height:80px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#2E7D32;margin:0 auto 20px">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:1.75rem;color:var(--heading);margin-bottom:12px">Design Published Successfully!</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:500px;margin:0 auto 28px;line-height:1.7">Your new artwork is now live on 6 products across your InkForge store. Shoppers can discover and purchase it immediately.</p>
+      <div class="d-flex gap-3 justify-content-center">
+        <a href="dashboard-designs.html" class="btn-ink btn-secondary-ink btn-ink-lg"><i class="fa-solid fa-palette"></i> View My Designs</a>
+        <a href="product-detail.html" class="btn-ink btn-primary-ink btn-ink-lg"><i class="fa-solid fa-store"></i> View on Store</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/upload.js"></script>
+<script>
+  function goToStep(step) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById('upload-panel-' + i).style.display = 'none';
+      const ind = document.getElementById('ustep-' + i);
+      ind.classList.remove('active', 'completed');
+      if (i < step) ind.classList.add('completed');
+      if (i === step) ind.classList.add('active');
+    }
+    document.getElementById('upload-panel-' + step).style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleProduct(card) {
+    card.classList.toggle('selected');
+  }
+
+  function updateMargin() {
+    const retail = parseFloat(document.getElementById('calc-retail').value) || 0;
+    const base = 12.50;
+    const profit = Math.max(0, retail - base).toFixed(2);
+    document.getElementById('profit-calc').textContent = '$' + profit;
+  }
+
+  function publishDesign() {
+    const btn = document.getElementById('publish-btn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('upload-panel-4').style.display = 'none';
+      document.querySelector('.upload-step-bar').style.display = 'none';
+      document.getElementById('upload-success').style.display = 'block';
+      if (typeof showToast === 'function') showToast('Artwork published successfully!');
+    }, 1200);
+  }
+</script>
+</body>
+</html>

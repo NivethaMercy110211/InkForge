@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkForge — From Your Idea to Their Favorite Product</title>
+  <meta name="description" content="See how InkForge takes your artwork from digital illustration to finished merchandise. Join 2,400+ independent creators selling custom products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/creators.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ---- Hero Home 2 ---- */
+    .hero-h2 {
+      position: relative;
+      min-height: clamp(700px, calc(100vh - 72px), 840px);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-h2-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      min-height: inherit;
+    }
+
+    .hero-h2-media {
+      position: relative;
+      min-height: inherit;
+      overflow: hidden;
+      background: #15151b;
+    }
+
+    .hero-h2 .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 42% center;
+    }
+
+    .hero-h2-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, rgba(17,17,24,0.18), transparent 36%);
+      pointer-events: none;
+    }
+
+    .hero-h2-content {
+      display: flex;
+      align-items: center;
+      padding: clamp(48px, 6vw, 88px);
+      background: linear-gradient(135deg, var(--white) 0%, var(--soft) 100%);
+    }
+
+    .hero-h2 .hero-inner {
+      width: 100%;
+      max-width: 590px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-h2-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-h2 .h2-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      color: var(--heading);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-h2 .h2-heading .accent { color: var(--primary); }
+
+    .hero-h2 .h2-sub {
+      font-size: 1.0625rem;
+      color: var(--body);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    /* Creator Journey Steps */
+    .journey-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 56px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .journey-step:last-child { border-bottom: none; }
+    .journey-step.reverse .journey-step-img { order: -1; }
+
+    .journey-step-num {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 4rem;
+      color: var(--primary-light);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .journey-step-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .journey-step-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--heading);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .journey-step-desc {
+      font-size: 1rem;
+      color: var(--body);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .journey-step-img {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .journey-step-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Success stories */
+    .success-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .success-grid > div {
+      min-width: 0;
+    }
+
+    .success-grid .success-story-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .success-grid .story-text {
+      flex: 1;
+    }
+
+    .success-grid .story-author {
+      margin-top: auto;
+    }
+
+    /* Supported products strip */
+    .supported-products-strip {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .supported-product-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-width: 100px;
+      transition: box-shadow var(--trans-base), transform var(--trans-base), border-color var(--trans-base);
+    }
+
+    .supported-product-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .supported-product-item .sp-icon {
+      font-size: 1.75rem;
+      color: var(--primary);
+    }
+
+    .supported-product-item .sp-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--body);
+      text-align: center;
+    }
+
+    /* Tablet & iPad Mini View (768px–1024px) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero-h2 {
+        min-height: 520px;
+      }
+      .hero-h2-layout {
+        grid-template-columns: 1fr 1fr;
+        min-height: 520px;
+      }
+      .hero-h2-media {
+        min-height: 100%;
+        height: auto;
+      }
+      .hero-h2-content {
+        padding: 44px 32px;
+      }
+      .journey-step {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+        padding: 44px 20px;
+      }
+      .journey-step .journey-step-img,
+      .journey-step:not(.reverse) .journey-step-img {
+        order: 1 !important;
+        aspect-ratio: 4/3;
+      }
+      .journey-step:not(.reverse) .journey-step-content {
+        order: 2 !important;
+      }
+      .journey-step.reverse .journey-step-content {
+        order: 1 !important;
+      }
+      .journey-step.reverse .journey-step-img {
+        order: 2 !important;
+        aspect-ratio: 4/3;
+      }
+      .journey-step .journey-step-content {
+        align-self: center;
+        text-align: left;
+      }
+      .journey-step-num {
+        font-size: 3.25rem;
+      }
+      .journey-step-title {
+        font-size: 1.45rem;
+      }
+      .journey-step-desc {
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+      .success-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-auto-rows: 1fr;
+        gap: 20px;
+      }
+      .success-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;
+        max-width: none;
+        width: calc(50% - 10px);
+        margin-inline: auto !important;
+        justify-self: center !important;
+      }
+      .success-grid > div,
+      .success-grid .success-story-card {
+        height: 100%;
+      }
+      .success-grid .story-text {
+        min-height: 6.8em;
+      }
+      .supported-products-strip {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .supported-product-item {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-h2 { min-height: auto; }
+      .hero-h2-layout { grid-template-columns: 1fr; }
+      .hero-h2-media { height: 320px; min-height: 0; }
+      .hero-h2-content { padding: 40px var(--container-pad); }
+      .hero-h2 .hero-inner { max-width: 100%; }
+      .journey-step {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        padding: 36px 16px !important;
+      }
+      .journey-step .journey-step-img,
+      .journey-step.reverse .journey-step-img {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 520px !important;
+        margin-inline: auto !important;
+        aspect-ratio: 4/3 !important;
+      }
+      .journey-step .journey-step-content,
+      .journey-step.reverse .journey-step-content {
+        order: 2 !important;
+        text-align: center !important;
+      }
+      .journey-step-num,
+      .journey-step-label,
+      .journey-step-title,
+      .journey-step-desc { text-align: center !important; }
+      .journey-step-content .feature-list { text-align: start; max-width: 360px; margin-inline: auto; }
+      .success-grid { grid-template-columns: 1fr !important; }
+      .supported-product-item { width: 100%; min-width: 100%; }
+    }
+
+    @media (max-width: 576px) {
+      .hero-h2-media { height: 260px; }
+      .hero-h2 .h2-heading { font-size: 1.85rem; }
+      .hero-h2 .h2-sub { font-size: 0.92rem; }
+      .journey-step { padding: 32px 12px; }
+    }
+
+    [data-theme="dark"] .hero-h2 { background: var(--soft); }
+    [data-theme="dark"] .journey-step { border-color: var(--border); }
+    [data-theme="dark"] .supported-product-item { background: var(--white); border-color: var(--border); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR (identical across all pages) -->
+<nav class="ink-navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="ink-logo" aria-label="InkForge Home">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
+    <ul class="ink-nav-links" role="list">
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html" class="active" aria-current="page">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="how-to-order.html">How to Order</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-divider"></div>
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" role="navigation">
+    <a href="index.html" class="mobile-nav-link">Home 1</a>
+    <a href="home2.html" class="mobile-nav-link active">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
+    <a href="creators.html" class="mobile-nav-link">Creators</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <hr class="mobile-menu-divider">
+    <div class="mobile-controls">
+      <a href="creator-signup.html" class="btn-seller-login"><i class="fa-solid fa-palette"></i> Creator Signup</a>
+      <a href="dashboard.html" class="btn-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+    <div class="mobile-utility-row">
+      <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
+      <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO H2 ===== -->
+<section class="hero-h2" aria-label="Hero section">
+  <div class="hero-h2-layout">
+    <div class="hero-h2-media">
+      <img src="assets/images/hero/home2-banner.jpg" alt="Independent creator preparing artwork and apparel in studio" class="hero-bg">
+    </div>
+    <div class="hero-h2-content">
+      <div class="hero-inner">
+        <div class="hero-h2-tag"><i class="fa-solid fa-palette"></i> For Independent Creators</div>
+        <h1 class="h2-heading">From Your Idea to Their <span class="accent">Favorite Product</span></h1>
+        <p class="h2-sub">Upload your artwork. Choose your products. Publish your store. We handle printing, fulfillment, and everything in between.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="creator-signup.html" class="btn-ink btn-primary-ink btn-ink-lg"><i class="fa-solid fa-palette"></i> Become a Creator</a>
+          <a href="how-to-order.html" class="btn-ink btn-secondary-ink btn-ink-lg">See How It Works</a>
+        </div>
+        <div class="d-flex gap-4 flex-wrap mt-4 pt-4" style="border-top:1px solid var(--border)">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--heading)">Free</div><div style="font-size:0.8rem;color:var(--muted)">to join</div></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--heading)">0%</div><div style="font-size:0.8rem;color:var(--muted)">upfront cost</div></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--heading)">2,400+</div><div style="font-size:0.8rem;color:var(--muted)">active creators</div></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--heading)">180K+</div><div style="font-size:0.8rem;color:var(--muted)">orders shipped</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CREATOR JOURNEY ===== -->
+<section class="section bg-white-section" aria-labelledby="journey-heading">
+  <div class="ink-container">
+    <div class="section-header centered" style="margin-bottom:var(--sp-7)">
+      <div class="section-label">Step by Step</div>
+      <h2 class="section-title" id="journey-heading">Your Journey as a Creator</h2>
+      <p class="section-subtitle">From your first upload to your first payout — here's exactly how it works.</p>
+    </div>
+
+    <!-- Step 1: Create Your Artwork -->
+    <div class="journey-step">
+      <div class="journey-step-content">
+        <div class="journey-step-num">01</div>
+        <div class="journey-step-label">Step One</div>
+        <h3 class="journey-step-title">Create Your Artwork</h3>
+        <p class="journey-step-desc">Design your artwork in any software you prefer — Illustrator, Procreate, Photoshop, or even hand-draw and scan. InkForge accepts PNG, JPEG, and SVG formats at high resolution.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Minimum 150 DPI for apparel, 300 DPI recommended</li>
+          <li><i class="fa-solid fa-check icon"></i> PNG with transparent background for best results</li>
+          <li><i class="fa-solid fa-check icon"></i> SVG supported for scalable vector artwork</li>
+          <li><i class="fa-solid fa-check icon"></i> No minimum artistry level — all styles welcome</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step1-artwork.jpg" alt="Digital artist drawing vector illustration on tablet" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 2: Choose Your Products -->
+    <div class="journey-step reverse">
+      <div class="journey-step-content">
+        <div class="journey-step-num">02</div>
+        <div class="journey-step-label">Step Two</div>
+        <h3 class="journey-step-title">Choose Your Products</h3>
+        <p class="journey-step-desc">Select which products you'd like to offer your design on. Apply it to t-shirts, hoodies, mugs, tote bags, phone cases, posters, caps, and more.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Apply one design across multiple product types</li>
+          <li><i class="fa-solid fa-check icon"></i> Choose available sizes, colors, and variants</li>
+          <li><i class="fa-solid fa-check icon"></i> Set different prices for different products</li>
+          <li><i class="fa-solid fa-check icon"></i> Preview exactly how your design will look</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step2-products.jpg" alt="Custom artwork mapped onto premium apparel and accessories" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 3: Preview -->
+    <div class="journey-step">
+      <div class="journey-step-content">
+        <div class="journey-step-num">03</div>
+        <div class="journey-step-label">Step Three</div>
+        <h3 class="journey-step-title">Preview Your Merchandise</h3>
+        <p class="journey-step-desc">See realistic mockups of your design applied to every chosen product. Adjust placement, scale, and positioning before publishing. What you see is what your customers receive.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Realistic product mockups generated instantly</li>
+          <li><i class="fa-solid fa-check icon"></i> Adjust print position and scale</li>
+          <li><i class="fa-solid fa-check icon"></i> Preview in different product colors</li>
+          <li><i class="fa-solid fa-check icon"></i> Review before any commitment</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step3-preview.jpg" alt="Interactive 3D product mockup generator preview" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 4: Publish -->
+    <div class="journey-step reverse">
+      <div class="journey-step-content">
+        <div class="journey-step-num">04</div>
+        <div class="journey-step-label">Step Four</div>
+        <h3 class="journey-step-title">Publish Your Store</h3>
+        <p class="journey-step-desc">Write your product description, add tags, set your selling price, and go live. Your creator profile and product listings are immediately discoverable by InkForge shoppers.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Custom creator profile with portfolio</li>
+          <li><i class="fa-solid fa-check icon"></i> Searchable product listings</li>
+          <li><i class="fa-solid fa-check icon"></i> Featured in relevant category pages</li>
+          <li><i class="fa-solid fa-check icon"></i> Share your store link anywhere</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step4-store.jpg" alt="Creator publishing custom merchandise storefront" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 5: We Print on Demand -->
+    <div class="journey-step">
+      <div class="journey-step-content">
+        <div class="journey-step-num">05</div>
+        <div class="journey-step-label">Step Five</div>
+        <h3 class="journey-step-title">We Print on Demand</h3>
+        <p class="journey-step-desc">When a customer orders your product, we handle everything. Our print partners produce the item fresh — direct-to-garment, sublimation, or digital print depending on the product type.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Professional print quality on every order</li>
+          <li><i class="fa-solid fa-check icon"></i> Multiple printing methods for different products</li>
+          <li><i class="fa-solid fa-check icon"></i> No stock to manage or warehouse needed</li>
+          <li><i class="fa-solid fa-check icon"></i> Automated from order to production</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step5-printing.jpg" alt="High precision Direct-to-Garment DTG apparel printer in action" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 6: Orders & Fulfillment -->
+    <div class="journey-step reverse">
+      <div class="journey-step-content">
+        <div class="journey-step-num">06</div>
+        <div class="journey-step-label">Step Six</div>
+        <h3 class="journey-step-title">Orders &amp; Fulfillment</h3>
+        <p class="journey-step-desc">Monitor incoming orders in your seller dashboard. Track fulfillment status in real time. Customer support and returns are handled by InkForge — you can focus entirely on creating.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> Real-time order tracking in your dashboard</li>
+          <li><i class="fa-solid fa-check icon"></i> Automatic fulfillment notifications</li>
+          <li><i class="fa-solid fa-check icon"></i> Customer support handled for you</li>
+          <li><i class="fa-solid fa-check icon"></i> Returns and replacements managed by InkForge</li>
+        </ul>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step6-fulfillment.jpg" alt="Order packaging and fulfillment shipping station" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 7: Earn -->
+    <div class="journey-step" style="border-bottom:none">
+      <div class="journey-step-content">
+        <div class="journey-step-num">07</div>
+        <div class="journey-step-label">Step Seven</div>
+        <h3 class="journey-step-title">Earn &amp; Get Paid</h3>
+        <p class="journey-step-desc">Your earnings are the difference between your selling price and the base production cost. Track earnings in real time. Payouts are processed on a regular schedule to your preferred payment method.</p>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check icon"></i> You set your own selling price</li>
+          <li><i class="fa-solid fa-check icon"></i> Earn = Selling price − Base production cost</li>
+          <li><i class="fa-solid fa-check icon"></i> Transparent earnings dashboard</li>
+          <li><i class="fa-solid fa-check icon"></i> Regular payout schedule — no waiting months</li>
+        </ul>
+        <a href="creator-signup.html" class="btn-ink btn-primary-ink btn-ink-lg mt-4">
+          <i class="fa-solid fa-palette"></i> Start Earning Today
+        </a>
+      </div>
+      <div class="journey-step-img">
+        <img src="assets/images/journey/step7-payout.jpg" alt="Independent creator tracking revenue growth and payouts" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUPPORTED PRODUCTS ===== -->
+<section class="section bg-soft" aria-labelledby="products-supported-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">What You Can Sell</div>
+      <h2 class="section-title" id="products-supported-heading">Supported Product Types</h2>
+      <p class="section-subtitle">Apply your designs to a growing range of high-quality products.</p>
+    </div>
+    <div class="supported-products-strip">
+      <div class="supported-product-item"><i class="fa-solid fa-shirt sp-icon"></i><span class="sp-name">T-Shirts</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-vest sp-icon"></i><span class="sp-name">Hoodies</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-mug-hot sp-icon"></i><span class="sp-name">Mugs</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-bag-shopping sp-icon"></i><span class="sp-name">Tote Bags</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-mobile-screen sp-icon"></i><span class="sp-name">Phone Cases</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-image sp-icon"></i><span class="sp-name">Posters</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-hat-cowboy sp-icon"></i><span class="sp-name">Caps</span></div>
+      <div class="supported-product-item"><i class="fa-solid fa-gift sp-icon"></i><span class="sp-name">Custom Gifts</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CREATOR SUCCESS STORIES ===== -->
+<section class="section bg-white-section" aria-labelledby="success-heading">
+  <div class="ink-container">
+    <div class="section-header centered">
+      <div class="section-label">Real Creators</div>
+      <h2 class="section-title" id="success-heading">Creator Success Stories</h2>
+      <p class="section-subtitle">Hear from artists who turned their passion into an income stream through InkForge.</p>
+    </div>
+
+    <div class="success-grid">
+      <div>
+        <div class="success-story-card h-100">
+          <div class="story-quote">"</div>
+          <p class="story-text">I started uploading botanical illustrations on evenings after work. Within three months I had over 100 orders and decided to design full-time. InkForge gave me that confidence.</p>
+          <div class="story-author">
+            <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar avatar-md">
+            <div class="story-author-info">
+              <div class="name">Luna Patel</div>
+              <div class="role">Botanical Illustrator</div>
+            </div>
+            <div class="story-metric">
+              <div class="val">3.2K</div>
+              <div class="lbl">Total Sales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="success-story-card h-100">
+          <div class="story-quote">"</div>
+          <p class="story-text">The dashboard makes everything so transparent — I can see exactly what sold, what earned, and when I get paid. As a data-driven designer, that clarity lets me focus confidently on creating.</p>
+          <div class="story-author">
+            <img src="assets/images/creators/creator-2.jpg" alt="Kai Nakamura" class="ink-avatar avatar-md">
+            <div class="story-author-info">
+              <div class="name">Kai Nakamura</div>
+              <div class="role">Geometric Designer</div>
+            </div>
+            <div class="story-metric">
+              <div class="val">1.8K</div>
+              <div class="lbl">Total Sales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="success-story-card h-100">
+          <div class="story-quote">"</div>
+          <p class="story-text">My illustration style is colorful and bold, and InkForge's print quality does it justice. Customers frequently comment on how vibrant the colors are. The quality control is excellent.</p>
+          <div class="story-author">
+            <img src="assets/images/creators/creator-3.jpg" alt="Zoe Wright" class="ink-avatar avatar-md">
+            <div class="story-author-info">
+              <div class="name">Zoe Wright</div>
+              <div class="role">Pop Illustrator</div>
+            </div>
+            <div class="story-metric">
+              <div class="val">5.1K</div>
+              <div class="lbl">Total Sales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== START SELLING CTA ===== -->
+<section class="cta-section" aria-label="Start selling call to action">
+  <img src="assets/images/cta/home2-cta.png" alt="InkForge creative pattern" class="cta-bg" loading="lazy">
+  <div class="ink-container text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:var(--radius-full);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:20px">
+          <i class="fa-solid fa-rocket"></i> Ready to Start?
+        </div>
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(1.75rem,3.5vw,2.75rem);color:#fff;margin-bottom:16px;letter-spacing:-0.02em">Your Art Deserves a Store</h2>
+        <p style="color:rgba(255,255,255,0.78);font-size:1.0625rem;line-height:1.7;margin-bottom:32px">Join 2,400+ creators who are already earning from their original designs. Setting up takes less than 15 minutes.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="seller-register.html" class="btn-ink btn-white-ink btn-ink-xl"><i class="fa-solid fa-user-plus"></i> Create Your Seller Account</a>
+          <a href="creators.html" class="btn-ink btn-white-outline-ink btn-ink-xl">Meet the Creators</a>
+        </div>
+        <p style="color:rgba(255,255,255,0.45);font-size:0.8rem;margin-top:20px">Free to join. No listing fees. No inventory. No minimum sales requirement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ink-footer" role="contentinfo">
+  <div class="ink-container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <a href="index.html" class="footer-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+        <p class="footer-tagline">Your Art. Your Merch. Your Store. — An independent creator marketplace where great designs meet print-on-demand production.</p>
+        <ul class="footer-social">
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a></li>
+          <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html?cat=tshirts">T-Shirts</a></li>
+          <li><a href="products.html?cat=hoodies">Hoodies</a></li>
+          <li><a href="products.html?cat=mugs">Mugs</a></li>
+          <li><a href="products.html?cat=totes">Tote Bags</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="footer-col-title">Creators</div>
+        <ul class="footer-links">
+          <li><a href="creators.html">Browse Creators</a></li>
+          <li><a href="creator-signup.html">Become a Creator</a></li>
+          <li><a href="dashboard.html">Seller Dashboard</a></li>
+          <li><a href="about.html">About InkForge</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-title">Stay Updated</div>
+        <div class="footer-newsletter">
+          <p>Get new design drops, creator spotlights, and exclusive deals.</p>
+          <div class="footer-newsletter-form">
+            <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+            <button type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="ink-container">
+      <div class="inner">
+        <p class="copy">&copy; 2026 InkForge. All rights reserved.</p>
+        <ul class="legal-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

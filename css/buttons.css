@@ -1,0 +1,250 @@
+/* =========================================================
+   InkForge — buttons.css
+   Complete button system
+   ========================================================= */
+
+/* ----- Base Button ----- */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--trans-base),
+    border-color var(--trans-base),
+    color var(--trans-base),
+    box-shadow var(--trans-base),
+    transform var(--trans-fast);
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ink:active {
+  transform: translateY(1px) !important;
+}
+
+.btn-ink:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ----- Sizes ----- */
+.btn-ink-sm {
+  padding: 7px 16px;
+  font-size: 0.8125rem;
+}
+
+.btn-ink-md {
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+
+.btn-ink-lg {
+  padding: 13px 28px;
+  font-size: 1rem;
+}
+
+.btn-ink-xl {
+  padding: 15px 36px;
+  font-size: 1.0625rem;
+}
+
+/* ----- Primary ----- */
+.btn-primary-ink {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(85,70,215,0.25);
+}
+
+.btn-primary-ink:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(85,70,215,0.35);
+  transform: translateY(-1px);
+}
+
+/* ----- Secondary (outline) ----- */
+.btn-secondary-ink {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-secondary-ink:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(85,70,215,0.25);
+  transform: translateY(-1px);
+}
+
+/* ----- Ghost (light outline) ----- */
+.btn-ghost-ink {
+  background: transparent;
+  color: var(--body);
+  border-color: var(--border);
+}
+
+.btn-ghost-ink:hover {
+  background: var(--soft);
+  color: var(--heading);
+  border-color: var(--border);
+}
+
+/* ----- White (on dark bg) ----- */
+.btn-white-ink {
+  background: #fff;
+  color: var(--primary);
+  border-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.btn-white-ink:hover {
+  background: #f0ecff;
+  color: var(--primary-hover);
+  border-color: #f0ecff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+}
+
+/* ----- White Outline (on dark bg) ----- */
+.btn-white-outline-ink {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+}
+
+.btn-white-outline-ink:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ----- Icon-only button ----- */
+.btn-icon-ink {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon-ink.btn-icon-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+
+.btn-icon-ink.btn-icon-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.1rem;
+}
+
+/* ----- Danger ----- */
+.btn-danger-ink {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+}
+
+.btn-danger-ink:hover {
+  background: #b03232;
+  border-color: #b03232;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ----- Success ----- */
+.btn-success-ink {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+}
+
+.btn-success-ink:hover {
+  background: #147a57;
+  border-color: #147a57;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ----- Loading state ----- */
+.btn-ink.loading {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.btn-ink.loading::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+  margin-left: 6px;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ----- Ripple effect ----- */
+.btn-ink .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0);
+  animation: ripple-anim 0.55s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ----- Full width ----- */
+.btn-ink.w-full {
+  width: 100%;
+}
+
+/* ----- Pill shape ----- */
+.btn-ink.pill {
+  border-radius: var(--radius-full);
+}
+
+/* ----- View all link ----- */
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: gap var(--trans-fast), color var(--trans-fast);
+}
+
+.view-all-link:hover {
+  color: var(--primary-hover);
+  gap: 10px;
+}
+
+.view-all-link i {
+  transition: transform var(--trans-fast);
+}
+
+.view-all-link:hover i {
+  transform: translateX(3px);
+}
