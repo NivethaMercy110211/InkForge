@@ -520,17 +520,25 @@
 
     @media (min-width: 1101px) {
       .hero-h1 {
-        min-height: auto;
+        min-height: clamp(700px, calc(100vh - 72px), 840px);
       }
 
       .hero-h1 > .container-fluid {
         height: auto !important;
-        min-height: 0 !important;
+        min-height: inherit !important;
       }
 
       .hero-h1 .hero-text-panel {
         padding-top: 40px;
         padding-bottom: 40px;
+      }
+
+      .hero-h1 .hero-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 600px;
       }
 
       .hero-h1 .hero-banner-img {
