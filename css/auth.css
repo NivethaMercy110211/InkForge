@@ -660,11 +660,6 @@
 
 .auth-heading,
 .auth-subheading {
-  text-align: start;
-}
-
-.seller-login-page .auth-heading,
-.seller-login-page .auth-subheading {
   text-align: center;
 }
 
