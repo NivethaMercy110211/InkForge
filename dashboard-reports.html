@@ -19,6 +19,22 @@
   <link rel="stylesheet" href="css/dark-theme.css">
   <link rel="stylesheet" href="css/rtl.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .report-generate-btn {
+      padding-inline: 28px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1100px) {
+      .report-generate-col {
+        width: 100%;
+      }
+
+      .report-generate-btn {
+        width: auto !important;
+        min-width: max-content;
+      }
+    }
+  </style>
 </head>
 <body class="dash-body">
 <div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
@@ -127,8 +143,8 @@
             <option>Excel Workbook (.xlsx)</option>
           </select>
         </div>
-        <div class="col-md-3">
-          <button type="button" class="btn-ink btn-primary-ink btn-ink-md w-100 justify-content-center" onclick="generateReport()"><i class="fa-solid fa-file-export"></i> Generate &amp; Download</button>
+        <div class="col-md-3 report-generate-col">
+          <button type="button" class="btn-ink btn-primary-ink btn-ink-md w-100 justify-content-center report-generate-btn" onclick="generateReport()"><i class="fa-solid fa-file-export"></i> Generate &amp; Download</button>
         </div>
       </div>
     </div>

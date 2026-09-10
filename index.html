@@ -98,6 +98,9 @@
 
     .hero-h1 .hero-eyebrow {
       display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      align-self: flex-start;
       align-items: center;
       gap: 8px;
       background: var(--primary-light);
@@ -564,7 +567,12 @@
     }
 
     [data-theme="dark"] .why-card { background: var(--white); border-color: var(--border); }
-    [data-theme="dark"] .why-icon-badge { background: #25252D; color: var(--primary-light); }
+    [data-theme="dark"] .why-icon-badge {
+      background: rgba(29, 27, 58, 0.96);
+      border: 1px solid rgba(196, 181, 253, 0.58);
+      color: #C4B5FD;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
     [data-theme="dark"] .testimonial-card { background: var(--white); border-color: var(--border); }
     [data-theme="dark"] .testimonial-product-pill { background: var(--bg); }
     [data-theme="dark"] .pod-step:hover { background: var(--white); }

@@ -633,6 +633,8 @@
         text-align: center !important;
         display: flex;
         justify-content: center;
+        padding-top: 28px !important;
+        padding-bottom: 40px !important;
       }
 
       .hero-h1 .hero-inner {
@@ -643,6 +645,9 @@
       }
 
       .hero-h1 .hero-eyebrow {
+        width: fit-content !important;
+        max-width: calc(100% - 32px);
+        align-self: center !important;
         justify-content: center !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -1009,6 +1014,48 @@
         border-radius: inherit;
       }
 
+      .earnings-transactions-panel .ink-table {
+        width: 100%;
+        min-width: 0;
+        table-layout: fixed;
+      }
+
+      .earnings-transactions-panel .ink-table th,
+      .earnings-transactions-panel .ink-table td {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        box-sizing: border-box;
+        padding-inline: 8px;
+        overflow-wrap: anywhere;
+      }
+
+      .earnings-transactions-panel .ink-table th:nth-child(1),
+      .earnings-transactions-panel .ink-table td:nth-child(1) { width: 14%; }
+
+      .earnings-transactions-panel .ink-table th:nth-child(2),
+      .earnings-transactions-panel .ink-table td:nth-child(2) { width: 11%; }
+
+      .earnings-transactions-panel .ink-table th:nth-child(3),
+      .earnings-transactions-panel .ink-table td:nth-child(3) {
+        width: 20%;
+      }
+
+      .earnings-transactions-panel .ink-table th:nth-child(4),
+      .earnings-transactions-panel .ink-table td:nth-child(4) { width: 13%; }
+
+      .earnings-transactions-panel .ink-table th:nth-child(5),
+      .earnings-transactions-panel .ink-table td:nth-child(5) { width: 12%; }
+
+      .earnings-transactions-panel .ink-table th:nth-child(6),
+      .earnings-transactions-panel .ink-table td:nth-child(6) { width: 14%; }
+
+      .earnings-transactions-panel .ink-table th:last-child,
+      .earnings-transactions-panel .ink-table td:last-child {
+        width: 16%;
+        padding-right: 14px;
+      }
+
       .order-cards-mobile {
         display: flex;
       }
@@ -1028,6 +1075,10 @@
 
       .auth-subheading {
         text-align: center !important;
+      }
+
+      .seller-login-page .auth-brand-headline {
+        text-align: left !important;
       }
 
       .dash-content {
@@ -1233,5 +1284,61 @@
         padding: 0 !important;
         object-fit: cover !important;
         object-position: center !important;
+      }
+
+      .earnings-transactions-panel .ink-table {
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      .earnings-transactions-panel .ink-table th,
+      .earnings-transactions-panel .ink-table td {
+        box-sizing: border-box;
+        padding-inline: 8px;
+        overflow-wrap: anywhere;
+      }
+
+      .earnings-transactions-panel .ink-table th:nth-child(1),
+      .earnings-transactions-panel .ink-table td:nth-child(1) { width: 14%; }
+      .earnings-transactions-panel .ink-table th:nth-child(2),
+      .earnings-transactions-panel .ink-table td:nth-child(2) { width: 11%; }
+      .earnings-transactions-panel .ink-table th:nth-child(3),
+      .earnings-transactions-panel .ink-table td:nth-child(3) { width: 20%; }
+      .earnings-transactions-panel .ink-table th:nth-child(4),
+      .earnings-transactions-panel .ink-table td:nth-child(4) { width: 13%; }
+      .earnings-transactions-panel .ink-table th:nth-child(5),
+      .earnings-transactions-panel .ink-table td:nth-child(5) { width: 12%; }
+      .earnings-transactions-panel .ink-table th:nth-child(6),
+      .earnings-transactions-panel .ink-table td:nth-child(6) { width: 14%; }
+      .earnings-transactions-panel .ink-table th:last-child,
+      .earnings-transactions-panel .ink-table td:last-child {
+        width: 16%;
+        padding-right: 14px;
+      }
+
+      .analytics-referral-panel .ink-table {
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      .analytics-referral-panel .ink-table th,
+      .analytics-referral-panel .ink-table td {
+        box-sizing: border-box;
+        min-width: 0;
+        padding-inline: 8px;
+        overflow-wrap: anywhere;
+      }
+
+      .analytics-referral-panel .ink-table th:nth-child(1),
+      .analytics-referral-panel .ink-table td:nth-child(1) { width: 38%; }
+      .analytics-referral-panel .ink-table th:nth-child(2),
+      .analytics-referral-panel .ink-table td:nth-child(2) { width: 21%; }
+      .analytics-referral-panel .ink-table th:nth-child(3),
+      .analytics-referral-panel .ink-table td:nth-child(3) { width: 16%; }
+      .analytics-referral-panel .ink-table th:last-child,
+      .analytics-referral-panel .ink-table td:last-child {
+        width: 25%;
+        padding-right: 16px;
+        white-space: nowrap;
       }
     }
