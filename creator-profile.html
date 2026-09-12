@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luna Patel — Creator Profile — InkForge</title>
   <meta name="description" content="Browse Luna Patel's original designs on InkForge. Botanical illustrations and nature-inspired artwork on tees, mugs, totes, and more.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -62,7 +67,15 @@
       <li><a href="index.html">Home 1</a></li>
       <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
+            <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="productsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products <i class="fa-solid fa-chevron-down nav-chevron"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="productsNavDropdown">
+          <li><a class="dropdown-item" href="products.html"><i class="fa-solid fa-table-cells"></i> All Products</a></li>
+          <li><a class="dropdown-item" href="product-detail.html"><i class="fa-solid fa-shirt"></i> Product Detail</a></li>
+        </ul>
+      </li>
       <li><a href="how-to-order.html">How to Order</a></li>
       <li><a href="creators.html" class="active">Creators</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -81,7 +94,16 @@
     <a href="index.html" class="mobile-nav-link">Home 1</a>
     <a href="home2.html" class="mobile-nav-link">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="products.html" class="mobile-nav-link">Products</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false">
+        <span>Products</span>
+        <i class="fa-solid fa-chevron-down mobile-chevron"></i>
+      </button>
+      <div class="mobile-dropdown-menu">
+        <a href="products.html" class="mobile-dropdown-item"><i class="fa-solid fa-table-cells"></i> All Products</a>
+        <a href="product-detail.html" class="mobile-dropdown-item"><i class="fa-solid fa-shirt"></i> Product Detail</a>
+      </div>
+    </div>
     <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
     <a href="creators.html" class="mobile-nav-link active">Creators</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
@@ -139,28 +161,28 @@
 
     <div class="bestsellers-grid">
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/tshirts.jpg" alt="Midnight Botanica Tee" loading="lazy"><div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button><div class="card-quick-view"><button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button></div></div>
-        <div class="card-body-ink"><div class="card-category">T-Shirts</div><div class="card-title">Midnight Botanica Tee</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.8</span></div><span style="font-size:0.8rem;color:var(--muted)">(342)</span></div><div class="card-footer-ink"><div class="card-price">$29.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=1"><img src="assets/images/categories/tshirts.jpg" alt="Midnight Botanica Tee" loading="lazy"></a><div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button><div class="card-quick-view"><button class="quick-view-btn"><i class="fa-regular fa-eye"></i> Quick View</button></div></div>
+        <div class="card-body-ink"><div class="card-category">T-Shirts</div><div class="card-title"><a href="product-detail.html?id=1" style="color:inherit;text-decoration:none">Midnight Botanica Tee</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.8</span></div><span style="font-size:0.8rem;color:var(--muted)">(342)</span></div><div class="card-footer-ink"><div class="card-price">$29.99</div><a href="product-detail.html?id=1" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/mugs.jpg" alt="Abstract Orbit Mug" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="card-body-ink"><div class="card-category">Mugs</div><div class="card-title">Abstract Orbit Mug</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.6</span></div></div><div class="card-footer-ink"><div class="card-price">$18.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=2"><img src="assets/images/categories/mugs.jpg" alt="Abstract Orbit Mug" loading="lazy"></a><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="card-body-ink"><div class="card-category">Mugs</div><div class="card-title"><a href="product-detail.html?id=2" style="color:inherit;text-decoration:none">Abstract Orbit Mug</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.6</span></div></div><div class="card-footer-ink"><div class="card-price">$18.99</div><a href="product-detail.html?id=2" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/totes.jpg" alt="Urban Lines Tote" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="card-body-ink"><div class="card-category">Tote Bags</div><div class="card-title">Urban Lines Tote</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div></div><div class="card-footer-ink"><div class="card-price">$22.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=3"><img src="assets/images/categories/totes.jpg" alt="Urban Lines Tote" loading="lazy"></a><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="card-body-ink"><div class="card-category">Tote Bags</div><div class="card-title"><a href="product-detail.html?id=3" style="color:inherit;text-decoration:none">Urban Lines Tote</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div></div><div class="card-footer-ink"><div class="card-price">$22.99</div><a href="product-detail.html?id=3" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/posters.jpg" alt="Wild Bloom Poster" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="card-body-ink"><div class="card-category">Posters</div><div class="card-title">Wild Bloom Poster</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>4.4</span></div></div><div class="card-footer-ink"><div class="card-price">$14.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=6"><img src="assets/images/categories/posters.jpg" alt="Wild Bloom Poster" loading="lazy"></a><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="card-body-ink"><div class="card-category">Posters</div><div class="card-title"><a href="product-detail.html?id=6" style="color:inherit;text-decoration:none">Wild Bloom Poster</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>4.4</span></div></div><div class="card-footer-ink"><div class="card-price">$14.99</div><a href="product-detail.html?id=6" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/cases.jpg" alt="Botanical Case" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="card-body-ink"><div class="card-category">Phone Cases</div><div class="card-title">Botanical Case</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div></div><div class="card-footer-ink"><div class="card-price">$16.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=4"><img src="assets/images/categories/cases.jpg" alt="Botanical Case" loading="lazy"></a><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="card-body-ink"><div class="card-category">Phone Cases</div><div class="card-title"><a href="product-detail.html?id=4" style="color:inherit;text-decoration:none">Botanical Case</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div></div><div class="card-footer-ink"><div class="card-price">$16.99</div><a href="product-detail.html?id=4" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
       <div class="product-card">
-        <div class="card-img-wrap"><img src="assets/images/categories/hoodies.jpg" alt="Nature Forms Hoodie" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="card-body-ink"><div class="card-category">Hoodies</div><div class="card-title">Nature Forms Hoodie</div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.9</span></div></div><div class="card-footer-ink"><div class="card-price">$49.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
+        <div class="card-img-wrap"><a href="product-detail.html?id=5"><img src="assets/images/categories/hoodies.jpg" alt="Nature Forms Hoodie" loading="lazy"></a><button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="card-body-ink"><div class="card-category">Hoodies</div><div class="card-title"><a href="product-detail.html?id=5" style="color:inherit;text-decoration:none">Nature Forms Hoodie</a></div><div class="card-rating"><div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.9</span></div></div><div class="card-footer-ink"><div class="card-price">$49.99</div><a href="product-detail.html?id=5" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a></div></div>
       </div>
     </div>
   </div>

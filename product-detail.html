@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Detail — Midnight Botanica Tee — InkForge</title>
-  <meta name="description" content="Midnight Botanica Tee by Luna Patel. Botanical illustration on premium organic cotton. Available in 5 colors and 6 sizes. Free returns.">
+  <title id="page-head-title">Product Detail — InkForge</title>
+  <meta name="description" id="page-meta-desc" content="Discover original merchandise from independent creators on InkForge. High quality DTG print, organic cotton, fast delivery, and easy returns.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,14 +27,26 @@
 </head>
 <body>
 
+<!-- Navigation Bar -->
 <nav class="ink-navbar" aria-label="Main navigation">
   <div class="navbar-inner">
-    <a href="index.html" class="ink-logo"><div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="logo-text">InkForge</span></a>
+    <a href="index.html" class="ink-logo">
+      <div class="logo-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <span class="logo-text">InkForge</span>
+    </a>
     <ul class="ink-nav-links" role="list">
       <li><a href="index.html">Home 1</a></li>
       <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html" class="active">Products</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="productsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products <i class="fa-solid fa-chevron-down nav-chevron"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="productsNavDropdown">
+          <li><a class="dropdown-item" href="products.html"><i class="fa-solid fa-table-cells"></i> All Products</a></li>
+          <li><a class="dropdown-item active" href="product-detail.html"><i class="fa-solid fa-shirt"></i> Product Detail</a></li>
+        </ul>
+      </li>
       <li><a href="how-to-order.html">How to Order</a></li>
       <li><a href="creators.html">Creators</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -48,7 +65,16 @@
     <a href="index.html" class="mobile-nav-link">Home 1</a>
     <a href="home2.html" class="mobile-nav-link">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="products.html" class="mobile-nav-link active">Products</a>
+    <div class="mobile-dropdown open">
+      <button type="button" class="mobile-nav-link mobile-dropdown-toggle active" aria-expanded="true">
+        <span>Products</span>
+        <i class="fa-solid fa-chevron-down mobile-chevron"></i>
+      </button>
+      <div class="mobile-dropdown-menu">
+        <a href="products.html" class="mobile-dropdown-item"><i class="fa-solid fa-table-cells"></i> All Products</a>
+        <a href="product-detail.html" class="mobile-dropdown-item active"><i class="fa-solid fa-shirt"></i> Product Detail</a>
+      </div>
+    </div>
     <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
     <a href="creators.html" class="mobile-nav-link">Creators</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
@@ -65,231 +91,259 @@
   </div>
 </nav>
 
-<main class="section" aria-label="Product detail">
+<!-- Main Detail Page Content -->
+<main class="section pt-4" aria-label="Product detail">
   <div class="ink-container">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="mb-4">
-      <ol class="ink-breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="products.html?cat=tshirts">T-Shirts</a></li>
-        <li>Midnight Botanica Tee</li>
-      </ol>
-    </nav>
 
-    <div class="product-detail-layout">
-      <!-- Gallery -->
-      <div class="product-gallery">
-        <div class="gallery-thumbs">
-          <button class="gallery-thumb active" onclick="setMainImg(this)" data-img="assets/images/categories/tshirts.jpg">
-            <img src="assets/images/categories/tshirts.jpg" alt="Front view">
-          </button>
-          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/categories/mugs.jpg">
-            <img src="assets/images/categories/mugs.jpg" alt="Design closeup">
-          </button>
-          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/categories/totes.jpg">
-            <img src="assets/images/categories/totes.jpg" alt="Lifestyle photo">
-          </button>
-          <button class="gallery-thumb" onclick="setMainImg(this)" data-img="assets/images/hero/hero-home1.jpg">
-            <img src="assets/images/hero/hero-home1.jpg" alt="Flat lay">
-          </button>
-        </div>
-        <div class="gallery-main">
-          <img src="assets/images/categories/tshirts.jpg" alt="Midnight Botanica Tee — front view" id="gallery-main-img">
-          <div class="gallery-zoom-btn"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <div class="gallery-main-badge">
-            <span class="ink-badge badge-new">Bestseller</span>
+    <!-- =========================================================
+         SECTION 1: MAIN PRODUCT BUY HUB (Gallery & Purchase Grid)
+         ========================================================= -->
+    <section class="product-detail-grid" aria-label="Product overview and purchase options">
+      
+      <!-- Left: Unique Product Gallery -->
+      <div class="detail-gallery-card">
+        <div class="gallery-main-frame" id="gallery-frame" title="Hover to inspect details">
+          <div class="detail-badge-group">
+            <span class="detail-badge-deal" id="badge-deal-pill">Limited Time Deal</span>
+            <span class="detail-badge-bestseller" id="badge-bestseller-pill">#1 Bestseller</span>
           </div>
+          <div class="gallery-actions-float">
+            <button type="button" class="gallery-icon-btn wishlist-btn" title="Save to wishlist" aria-label="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button type="button" class="gallery-icon-btn" onclick="shareProduct()" title="Share product" aria-label="Share product">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
+          </div>
+          <img src="assets/images/products/botanica-front.jpg" alt="Midnight Botanica Tee" id="gallery-main-img">
+        </div>
+        
+        <!-- Dedicated Product Thumbnails -->
+        <div class="gallery-thumbs-grid" id="gallery-thumbs-container">
+          <!-- Populated dynamically by JS with product-specific images only -->
         </div>
       </div>
 
-      <!-- Product Info -->
-      <div class="product-info">
-        <div class="product-info-category"><a href="products.html?cat=tshirts">T-Shirts</a></div>
-        <h1 class="product-info-title" data-product-name>Midnight Botanica Tee</h1>
-        <div class="product-info-creator">
-          Designed by <a href="creator-profile.html" class="creator-link">
-            <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="ink-avatar" style="width:24px;height:24px;border-radius:50%">
-            Luna Patel
-          </a>
-        </div>
-        <div class="product-info-rating">
-          <div class="star-rating">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-            <span>4.8</span>
-          </div>
-          <a href="#reviews-section" class="reviews-count">342 reviews</a>
-        </div>
-        <div class="product-info-price" data-product-price>$29.99</div>
-
-        <!-- Color Picker -->
-        <div class="product-option-group">
-          <div class="option-label">Color: <span class="option-val" id="selected-color">Indigo</span></div>
-          <div class="color-swatch-group">
-            <button class="color-swatch active" style="background:#1A1A2E" title="Indigo" onclick="selectColor(this,'Indigo')"></button>
-            <button class="color-swatch" style="background:#4A4A6A" title="Slate" onclick="selectColor(this,'Slate')"></button>
-            <button class="color-swatch" style="background:#F8F7F4;border:1.5px solid #E4E2E7" title="Natural" onclick="selectColor(this,'Natural')"></button>
-            <button class="color-swatch" style="background:#2C4A2E" title="Forest" onclick="selectColor(this,'Forest')"></button>
-            <button class="color-swatch" style="background:#8B4513" title="Terracotta" onclick="selectColor(this,'Terracotta')"></button>
+      <!-- Right: Product Info & Commerce Engine -->
+      <div class="detail-info-card">
+        <div class="detail-header-top">
+          <a href="products.html" class="detail-category-link" id="product-category-chip">T-Shirts</a>
+          <div class="detail-creator-pill" id="product-creator-wrapper">
+            <img src="assets/images/creators/creator-1.jpg" alt="" class="ink-avatar" id="product-creator-avatar" style="width:24px;height:24px;border-radius:50%">
+            <span>Designed by <a href="creator-profile.html" id="product-creator-link">Luna Patel</a></span>
+            <span class="verified-badge"><i class="fa-solid fa-circle-check"></i></span>
           </div>
         </div>
 
-        <!-- Size Picker -->
-        <div class="product-option-group">
-          <div class="option-label">Size: <span class="option-val" id="selected-size">M</span></div>
-          <div class="size-swatch-group">
-            <button class="size-option" onclick="selectSize(this)">XS</button>
-            <button class="size-option" onclick="selectSize(this)">S</button>
-            <button class="size-option active" onclick="selectSize(this)">M</button>
-            <button class="size-option" onclick="selectSize(this)">L</button>
-            <button class="size-option" onclick="selectSize(this)">XL</button>
-            <button class="size-option" onclick="selectSize(this)">2XL</button>
-          </div>
-          <a href="#size-guide" class="size-guide-link"><i class="fa-solid fa-ruler-horizontal"></i> Size Guide</a>
+        <h1 class="detail-title" id="product-title">Midnight Botanica Tee</h1>
+
+        <!-- Rating Strip -->
+        <div class="detail-rating-strip">
+          <span class="rating-badge-pill" id="rating-pill">4.8 <i class="fa-solid fa-star" style="font-size:0.75rem"></i></span>
+          <span class="rating-stars-gold" id="rating-stars-icons"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          <a href="#reviews-section" class="rating-count-link" id="rating-count-text">342 ratings</a>
+          <span class="rating-sep">|</span>
+          <a href="#specs-section" class="qa-link" id="qa-count-text">48 answered questions</a>
         </div>
 
-        <!-- Quantity -->
-        <div class="product-option-group">
-          <div class="option-label">Quantity</div>
-          <div class="qty-control">
-            <button class="qty-btn" id="qty-minus"><i class="fa-solid fa-minus"></i></button>
-            <input class="qty-val" type="number" id="product-qty" value="1" min="1" max="99" readonly>
-            <button class="qty-btn" id="qty-plus"><i class="fa-solid fa-plus"></i></button>
+        <!-- Deal Pricing Card -->
+        <div class="detail-price-card">
+          <div class="price-deal-tag"><i class="fa-solid fa-bolt"></i> Deal of the Day</div>
+          <div class="price-main-row">
+            <span class="price-discount-percent" id="product-discount">-25%</span>
+            <span class="price-current" id="product-price">$29.99</span>
+          </div>
+          <div class="price-mrp-row">
+            <span>Typical M.R.P.:</span>
+            <span class="price-mrp-val" id="product-mrp">$39.99</span>
+          </div>
+          <div class="price-tax-note"><i class="fa-solid fa-circle-check"></i> Inclusive of all taxes &amp; Free Delivery Eligible</div>
+        </div>
+
+        <!-- Special Offers Strip -->
+        <div class="offers-section">
+          <div class="offers-heading"><i class="fa-solid fa-tags text-primary"></i> Available Offers &amp; Discounts</div>
+          <div class="offers-grid" id="offers-cards-container">
+            <!-- Populated by JS -->
           </div>
         </div>
 
-        <!-- CTA Buttons -->
-        <div class="d-flex gap-3 flex-wrap">
-          <button class="btn-ink btn-primary-ink btn-ink-lg flex-grow-1" data-add-cart="1" id="add-to-cart-btn">
+        <!-- Color Selection Option -->
+        <div class="detail-option-block" id="color-selection-block">
+          <div class="option-header-row">
+            <span class="option-label">Color: <span class="option-val-selected" id="selected-color-label">Indigo</span></span>
+          </div>
+          <div class="color-swatches-grid" id="product-colors-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Size Selection Option -->
+        <div class="detail-option-block" id="size-selection-block">
+          <div class="option-header-row">
+            <span class="option-label">Size: <span class="option-val-selected" id="selected-size-label">M</span></span>
+            <button type="button" class="size-chart-btn" onclick="openSizeModal()"><i class="fa-solid fa-ruler-horizontal"></i> Size Guide</button>
+          </div>
+          <div class="sizes-grid" id="product-sizes-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Delivery & Pincode Checker -->
+        <div class="delivery-checker-box">
+          <div class="delivery-header"><i class="fa-solid fa-truck-fast text-primary"></i> Check Delivery &amp; Services</div>
+          <div class="pincode-input-row">
+            <input type="text" class="pincode-input" id="pincode-input" placeholder="Enter Delivery Pincode / ZIP (e.g. 10001)" value="10001">
+            <button type="button" class="pincode-check-btn" id="pincode-check-btn" onclick="checkPincode()">Check</button>
+          </div>
+          <div class="delivery-status-msg" id="delivery-msg">
+            <i class="fa-solid fa-circle-check text-primary"></i> <strong>FREE Delivery by Wednesday</strong> | Fastest delivery <strong>Tomorrow by 2 PM</strong>
+          </div>
+        </div>
+
+        <!-- Actions: Quantity + Add to Cart + Buy Now -->
+        <div class="detail-actions-row">
+          <div class="qty-stepper">
+            <button type="button" class="qty-stepper-btn" id="qty-minus" aria-label="Decrease quantity"><i class="fa-solid fa-minus"></i></button>
+            <input class="qty-stepper-input" type="number" id="product-qty" value="1" min="1" max="99" readonly aria-label="Quantity">
+            <button type="button" class="qty-stepper-btn" id="qty-plus" aria-label="Increase quantity"><i class="fa-solid fa-plus"></i></button>
+          </div>
+          <button class="btn-ink btn-primary-ink" id="add-to-cart-btn" style="height:48px;font-size:0.95rem">
             <i class="fa-solid fa-cart-plus"></i> Add to Cart
           </button>
-          <button class="btn-ink btn-secondary-ink btn-ink-lg wishlist-btn" title="Add to wishlist">
-            <i class="fa-regular fa-heart"></i>
+          <button class="btn-buy-now" id="buy-now-btn" onclick="buyNowAction()">
+            <i class="fa-solid fa-bolt"></i> Buy Now
           </button>
         </div>
 
-        <!-- Shipping info strip -->
-        <div class="product-shipping-strip">
-          <div class="ship-item"><i class="fa-solid fa-truck-fast"></i> Ships in 3–5 days</div>
-          <div class="ship-item"><i class="fa-solid fa-rotate-left"></i> Free returns within 30 days</div>
-          <div class="ship-item"><i class="fa-solid fa-shield-halved"></i> Secure checkout</div>
+        <!-- Trust Features Strip -->
+        <div class="detail-trust-grid">
+          <div class="trust-item">
+            <i class="fa-solid fa-shield-check"></i>
+            <span>100% Authentic</span>
+          </div>
+          <div class="trust-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>30-Day Returns</span>
+          </div>
+          <div class="trust-item">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>COD Available</span>
+          </div>
+          <div class="trust-item">
+            <i class="fa-solid fa-lock"></i>
+            <span>Secure Checkout</span>
+          </div>
         </div>
 
-        <!-- Description -->
-        <div class="product-description" id="product-description">
-          <h2 class="product-desc-title">About This Product</h2>
-          <p>The Midnight Botanica Tee features an original botanical illustration by Luna Patel — intricate plant forms rendered in a bold, graphic style on a deep indigo base. Printed using direct-to-garment technology for vibrant, long-lasting color.</p>
-          <ul>
-            <li>100% organic ring-spun cotton (180g)</li>
-            <li>Direct-to-garment print — washes well, won't crack or fade</li>
-            <li>Relaxed unisex fit — true to size</li>
-            <li>Pre-washed to minimize shrinkage</li>
-            <li>Tear-away label for comfort</li>
+        <!-- Seller / Creator Card -->
+        <div class="seller-profile-card">
+          <div class="seller-info-left">
+            <img src="assets/images/creators/creator-1.jpg" alt="Creator" class="seller-avatar-img" id="seller-avatar-img">
+            <div>
+              <div class="seller-name" id="seller-name-text">Sold by Luna Patel</div>
+              <div class="seller-sub">
+                <span class="rating-badge-pill" style="font-size:0.75rem;padding:2px 6px" id="seller-rating-text">4.9 ★</span>
+                <span id="seller-sales-text">12,450+ orders fulfilled</span>
+              </div>
+            </div>
+          </div>
+          <a href="creator-profile.html" class="btn-ink btn-secondary-ink btn-ink-sm" id="seller-store-btn">Visit Store</a>
+        </div>
+
+        <!-- Highlights Bullet List -->
+        <div class="highlights-card">
+          <div class="highlights-title"><i class="fa-solid fa-star me-1 text-primary"></i> Key Highlights &amp; Features</div>
+          <ul class="highlights-list" id="product-highlights-list">
+            <!-- Populated by JS -->
           </ul>
-          <p><em>Care:</em> Machine wash cold, gentle cycle. Tumble dry low. Do not iron directly on print.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Reviews Section -->
-    <div id="reviews-section" style="margin-top:var(--sp-7)">
-      <h2 class="section-title" style="margin-bottom:var(--sp-4)">Customer Reviews</h2>
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="review-summary-card">
-            <div class="review-avg">4.8</div>
-            <div class="star-rating mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-            <div style="color:var(--muted);font-size:0.9rem">Based on 342 reviews</div>
-            <div class="review-bars">
-              <div class="review-bar-row"><span>5</span><div class="rbar"><div class="rbar-fill" style="width:78%"></div></div><span>78%</span></div>
-              <div class="review-bar-row"><span>4</span><div class="rbar"><div class="rbar-fill" style="width:15%"></div></div><span>15%</span></div>
-              <div class="review-bar-row"><span>3</span><div class="rbar"><div class="rbar-fill" style="width:5%"></div></div><span>5%</span></div>
-              <div class="review-bar-row"><span>2</span><div class="rbar"><div class="rbar-fill" style="width:1%"></div></div><span>1%</span></div>
-              <div class="review-bar-row"><span>1</span><div class="rbar"><div class="rbar-fill" style="width:1%"></div></div><span>1%</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="d-flex flex-column gap-3">
-            <div class="review-card">
-              <div class="review-header">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="review-avatar">S</div>
-                  <div><strong style="font-size:0.9rem;color:var(--heading)">Sarah M.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
-                </div>
-                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              </div>
-              <p class="review-text">"Even better in person than in the photos. The print is incredibly sharp and the fabric feels premium. I've already ordered two more designs from Luna."</p>
-              <div style="font-size:0.78rem;color:var(--muted)">Size: M · Color: Indigo · September 2026</div>
-            </div>
-            <div class="review-card">
-              <div class="review-header">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="review-avatar" style="background:#E8F5E9;color:#2E7D32">J</div>
-                  <div><strong style="font-size:0.9rem;color:var(--heading)">James K.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
-                </div>
-                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              </div>
-              <p class="review-text">"Ordered as a birthday gift. My friend absolutely loved it. The tee is great quality and the design washes beautifully after multiple machine cycles."</p>
-              <div style="font-size:0.78rem;color:var(--muted)">Size: L · Color: Natural · August 2026</div>
-            </div>
-            <div class="review-card">
-              <div class="review-header">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="review-avatar" style="background:#FFF3E0;color:#E65100">R</div>
-                  <div><strong style="font-size:0.9rem;color:var(--heading)">Riya P.</strong> <span style="font-size:0.8rem;color:var(--muted)">· Verified Purchase</span></div>
-                </div>
-                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-              </div>
-              <p class="review-text">"Beautiful design and great fit. The Midnight Botanica really stands out. One star off because the shipping took a day longer than estimated, but the product itself is perfect."</p>
-              <div style="font-size:0.78rem;color:var(--muted)">Size: S · Color: Indigo · August 2026</div>
-            </div>
-          </div>
-        </div>
+    <!-- =========================================================
+         SECTION 2: PRODUCT SPECIFICATIONS & DETAILS
+         ========================================================= -->
+    <section class="product-specs-section" id="specs-section" aria-label="Product specifications">
+      <h2 class="specs-title"><i class="fa-solid fa-circle-info text-primary"></i> Product Specifications &amp; Details</h2>
+      <p id="product-overview-text" style="color:var(--body);font-size:0.95rem;line-height:1.7;margin-bottom:24px"></p>
+      <div class="amazon-specs-grid" id="product-specs-grid">
+        <!-- Populated dynamically by JS -->
       </div>
-    </div>
+    </section>
 
-    <!-- Related Products -->
-    <div style="margin-top:var(--sp-7)">
-      <h2 class="section-title" style="margin-bottom:var(--sp-5)">More From Luna Patel</h2>
-      <div class="arrivals-strip">
-        <div class="product-card">
-          <div class="card-img-wrap"><img src="assets/images/categories/mugs.jpg" alt="Abstract Orbit Mug" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-          <div class="card-body-ink">
-            <div class="card-category">Mugs</div>
-            <div class="card-title">Abstract Orbit Mug</div>
-            <div class="card-footer-ink"><div class="card-price">$18.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
+    <!-- =========================================================
+         SECTION 3: RATINGS & CUSTOMER REVIEWS
+         ========================================================= -->
+    <section id="reviews-section" class="product-reviews-section" aria-label="Customer reviews">
+      <h2 class="section-title" style="margin-bottom:var(--sp-4)">Customer Ratings &amp; Reviews</h2>
+      <div class="reviews-grid-layout">
+        <!-- Score Column -->
+        <div class="review-score-card">
+          <div class="score-number" id="review-score-big">4.8</div>
+          <div class="score-stars" id="review-stars-big"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <div class="score-total" id="review-verified-count-text">Based on 342 verified purchases</div>
+          
+          <div class="score-bars">
+            <div class="sbar-row"><span>5 ★</span><div class="sbar-track"><div class="sbar-fill" style="width:78%"></div></div><span>78%</span></div>
+            <div class="sbar-row"><span>4 ★</span><div class="sbar-track"><div class="sbar-fill" style="width:15%"></div></div><span>15%</span></div>
+            <div class="sbar-row"><span>3 ★</span><div class="sbar-track"><div class="sbar-fill" style="width:5%"></div></div><span>5%</span></div>
+            <div class="sbar-row"><span>2 ★</span><div class="sbar-track"><div class="sbar-fill" style="width:1%"></div></div><span>1%</span></div>
+            <div class="sbar-row"><span>1 ★</span><div class="sbar-track"><div class="sbar-fill" style="width:1%"></div></div><span>1%</span></div>
+          </div>
+
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border)">
+            <button type="button" class="btn-ink btn-secondary-ink btn-ink-sm w-100" onclick="alert('Thank you! Review submission is enabled for verified orders.')">
+              <i class="fa-solid fa-pen-to-square"></i> Write a Review
+            </button>
           </div>
         </div>
-        <div class="product-card">
-          <div class="card-img-wrap"><img src="assets/images/categories/posters.jpg" alt="Wild Bloom Poster" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-          <div class="card-body-ink">
-            <div class="card-category">Posters</div>
-            <div class="card-title">Wild Bloom Poster</div>
-            <div class="card-footer-ink"><div class="card-price">$14.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="card-img-wrap"><img src="assets/images/categories/totes.jpg" alt="Urban Lines Tote" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-          <div class="card-body-ink">
-            <div class="card-category">Tote Bags</div>
-            <div class="card-title">Urban Lines Tote</div>
-            <div class="card-footer-ink"><div class="card-price">$22.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="card-img-wrap"><img src="assets/images/categories/hoodies.jpg" alt="Minimal Form Hoodie" loading="lazy"><button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button></div>
-          <div class="card-body-ink">
-            <div class="card-category">Hoodies</div>
-            <div class="card-title">Minimal Form Hoodie</div>
-            <div class="card-footer-ink"><div class="card-price">$52.99</div><a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a></div>
-          </div>
+
+        <!-- Reviews List -->
+        <div class="review-cards-list" id="reviews-cards-list">
+          <!-- Populated dynamically by JS -->
         </div>
       </div>
-    </div>
+    </section>
+
   </div>
 </main>
 
+<!-- Size Chart Modal -->
+<div class="size-modal-backdrop" id="size-chart-modal" onclick="if(event.target===this)closeSizeModal()">
+  <div class="size-modal-card">
+    <div class="size-modal-header">
+      <div class="size-modal-title"><i class="fa-solid fa-ruler-combined text-primary me-2"></i> Size &amp; Measurement Guide</div>
+      <button type="button" class="size-modal-close" onclick="closeSizeModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:16px">All measurements are in inches unless noted. Compare against your favorite fitting garment for the best fit.</p>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center" style="font-size:0.85rem">
+        <thead class="table-light">
+          <tr>
+            <th>Size</th>
+            <th>Chest (in)</th>
+            <th>Length (in)</th>
+            <th>Sleeve (in)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>XS</strong></td><td>34 - 36"</td><td>27"</td><td>8"</td></tr>
+          <tr><td><strong>S</strong></td><td>36 - 38"</td><td>28"</td><td>8.5"</td></tr>
+          <tr><td><strong>M</strong></td><td>38 - 40"</td><td>29"</td><td>9"</td></tr>
+          <tr><td><strong>L</strong></td><td>41 - 43"</td><td>30"</td><td>9.5"</td></tr>
+          <tr><td><strong>XL</strong></td><td>44 - 46"</td><td>31"</td><td>10"</td></tr>
+          <tr><td><strong>2XL</strong></td><td>47 - 49"</td><td>32"</td><td>10.5"</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-end mt-3">
+      <button type="button" class="btn-ink btn-primary-ink btn-ink-sm" onclick="closeSizeModal()">Got It</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
 <footer class="ink-footer" role="contentinfo">
   <div class="ink-container">
     <div class="row g-5">
@@ -309,27 +363,285 @@
 <button class="scroll-top-btn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/products-data.js"></script>
 <script src="js/main.js"></script>
 <script src="js/cart.js"></script>
+
+<!-- Dynamic Product Detail Engine -->
 <script>
+  let currentProduct = null;
+  let selectedColor = '';
+  let selectedSize = '';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initProductDetail();
+  });
+
+  function initProductDetail() {
+    // 1. Get product ID from URL params (e.g. product-detail.html?id=3)
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id') || '1';
+
+    // 2. Fetch product from database
+    currentProduct = window.getInkProductById(productId);
+    if (!currentProduct) {
+      currentProduct = window.INK_PRODUCTS[0];
+    }
+
+    // 3. Update Page Title & Metadata
+    document.title = `${currentProduct.name} — InkForge`;
+    document.getElementById('page-head-title').textContent = `${currentProduct.name} — InkForge`;
+
+    // 4. Update Gallery (strictly unique images)
+    const galleryImg = document.getElementById('gallery-main-img');
+    galleryImg.src = currentProduct.img;
+    galleryImg.alt = currentProduct.name;
+
+    // Deal & Bestseller badges
+    const badgeBestseller = document.getElementById('badge-bestseller-pill');
+    if (badgeBestseller) {
+      badgeBestseller.style.display = currentProduct.bestseller ? 'inline-block' : 'none';
+    }
+
+    // Thumbnails
+    const thumbsContainer = document.getElementById('gallery-thumbs-container');
+    const galleryList = (currentProduct.gallery && currentProduct.gallery.length > 0) ? currentProduct.gallery : [currentProduct.img];
+    thumbsContainer.innerHTML = galleryList.map((src, idx) => `
+      <button type="button" class="gallery-thumb-btn ${idx === 0 ? 'active' : ''}" onclick="setMainImg(this)" data-img="${src}" aria-label="View image ${idx + 1}">
+        <img src="${src}" alt="Thumbnail ${idx + 1}" onerror="this.src='${currentProduct.img}'">
+      </button>
+    `).join('');
+
+    // 5. Update Product Title & Category & Creator
+    document.getElementById('product-category-chip').textContent = currentProduct.category;
+    document.getElementById('product-category-chip').href = `products.html?cat=${currentProduct.categorySlug}`;
+    document.getElementById('product-title').textContent = currentProduct.name;
+
+    if (currentProduct.creator) {
+      document.getElementById('product-creator-link').textContent = currentProduct.creator.name;
+      document.getElementById('product-creator-avatar').src = currentProduct.creator.avatar || 'assets/images/creators/creator-1.jpg';
+      document.getElementById('seller-name-text').textContent = `Sold by ${currentProduct.creator.name}`;
+      document.getElementById('seller-avatar-img').src = currentProduct.creator.avatar || 'assets/images/creators/creator-1.jpg';
+      document.getElementById('seller-rating-text').textContent = currentProduct.creator.rating || '4.9 ★';
+      document.getElementById('seller-sales-text').textContent = currentProduct.creator.sales || '10,000+ orders fulfilled';
+    }
+
+    // 6. Update Ratings
+    document.getElementById('rating-pill').innerHTML = `${currentProduct.rating.toFixed(1)} <i class="fa-solid fa-star" style="font-size:0.75rem"></i>`;
+    document.getElementById('rating-count-text').textContent = `${currentProduct.ratingCount} ratings`;
+    document.getElementById('qa-count-text').textContent = `${currentProduct.answeredQuestions || 24} answered questions`;
+    document.getElementById('review-score-big').textContent = currentProduct.rating.toFixed(1);
+    document.getElementById('review-verified-count-text').textContent = `Based on ${currentProduct.ratingCount} verified purchases`;
+
+    // 7. Update Pricing
+    const priceEl = document.getElementById('product-price');
+    const mrpEl = document.getElementById('product-mrp');
+    const discountEl = document.getElementById('product-discount');
+    const mobilePriceEl = document.getElementById('mobile-price-val');
+    if (priceEl) priceEl.textContent = `$${currentProduct.price.toFixed(2)}`;
+    if (mrpEl) mrpEl.textContent = `$${currentProduct.mrp.toFixed(2)}`;
+    if (discountEl) discountEl.textContent = currentProduct.discount || '-25%';
+    if (mobilePriceEl) mobilePriceEl.textContent = `$${currentProduct.price.toFixed(2)}`;
+
+    // 8. Update Offers
+    const offersContainer = document.getElementById('offers-cards-container');
+    if (offersContainer) {
+      if (currentProduct.offers && currentProduct.offers.length > 0) {
+        offersContainer.innerHTML = currentProduct.offers.map(o => `
+          <div class="offer-card">
+            <span class="offer-badge">${o.badge}</span>
+            <div class="offer-title">${o.title}</div>
+            <div class="offer-desc">${o.desc}</div>
+          </div>
+        `).join('');
+      } else {
+        offersContainer.innerHTML = `
+          <div class="offer-card">
+            <span class="offer-badge">SPECIAL OFFER</span>
+            <div class="offer-title">10% Instant Discount</div>
+            <div class="offer-desc">Apply coupon INKFORGE10 at checkout</div>
+          </div>
+        `;
+      }
+    }
+
+    // 9. Update Colors
+    const colorsContainer = document.getElementById('product-colors-container');
+    const colorBlock = document.getElementById('color-selection-block');
+    if (colorsContainer && colorBlock) {
+      if (currentProduct.colors && currentProduct.colors.length > 0) {
+        colorBlock.style.display = 'flex';
+        selectedColor = currentProduct.colors[0].name;
+        const colorLabel = document.getElementById('selected-color-label');
+        if (colorLabel) colorLabel.textContent = selectedColor;
+
+        colorsContainer.innerHTML = currentProduct.colors.map((c, idx) => `
+          <button type="button" class="color-swatch-item ${idx === 0 ? 'active' : ''}" 
+            style="background:${c.hex};${c.hex === '#FFFFFF' || c.hex === '#F8F7F4' ? 'border-color:#ccc' : ''}" 
+            title="${c.name}" 
+            onclick="selectColor(this, '${c.name}')" aria-label="Select color ${c.name}"></button>
+        `).join('');
+      } else {
+        colorBlock.style.display = 'none';
+      }
+    }
+
+    // 10. Update Sizes
+    const sizesContainer = document.getElementById('product-sizes-container');
+    const sizeBlock = document.getElementById('size-selection-block');
+    if (sizesContainer && sizeBlock) {
+      if (currentProduct.sizes && currentProduct.sizes.length > 0) {
+        sizeBlock.style.display = 'flex';
+        selectedSize = currentProduct.sizes[Math.min(2, currentProduct.sizes.length - 1)];
+        const sizeLabel = document.getElementById('selected-size-label');
+        if (sizeLabel) sizeLabel.textContent = selectedSize;
+
+        sizesContainer.innerHTML = currentProduct.sizes.map(s => `
+          <button type="button" class="size-btn ${s === selectedSize ? 'active' : ''}" onclick="selectSize(this)">${s}</button>
+        `).join('');
+      } else {
+        sizeBlock.style.display = 'none';
+      }
+    }
+
+    // 11. Update Highlights
+    const highlightsContainer = document.getElementById('product-highlights-list');
+    if (highlightsContainer && currentProduct.highlights && currentProduct.highlights.length > 0) {
+      highlightsContainer.innerHTML = currentProduct.highlights.map(h => `
+        <li><i class="fa-solid fa-circle-check"></i> <span>${h}</span></li>
+      `).join('');
+    }
+
+    // 12. Update Overview & Specifications Table (Section 2)
+    const overviewText = document.getElementById('product-overview-text');
+    if (overviewText) overviewText.textContent = currentProduct.description || '';
+    const specsContainer = document.getElementById('product-specs-grid');
+    if (specsContainer && currentProduct.specifications && currentProduct.specifications.length > 0) {
+      specsContainer.innerHTML = currentProduct.specifications.map(s => `
+        <div class="specs-row">
+          <div class="specs-label">${s.label}</div>
+          <div class="specs-value">${s.value}</div>
+        </div>
+      `).join('');
+    }
+
+    // 13. Update Customer Reviews List (Section 3)
+    const reviewsContainer = document.getElementById('reviews-cards-list');
+    if (reviewsContainer) {
+      const defaultAvatars = [
+        'assets/images/reviews/sarah.jpg',
+        'assets/images/reviews/james.jpg',
+        'assets/images/reviews/riya.jpg',
+        'assets/images/reviews/alex.jpg'
+      ];
+      const fallbackReviews = [
+        {
+          user: "Sarah M.",
+          avatar: "assets/images/reviews/sarah.jpg",
+          rating: 5,
+          date: "September 8, 2026",
+          verified: true,
+          title: "Stunning print and premium quality fabric!",
+          text: "Even better in person than in the photos. The print is incredibly sharp and the material feels substantial yet comfortable.",
+          variant: "Standard"
+        },
+        {
+          user: "James K.",
+          avatar: "assets/images/reviews/james.jpg",
+          rating: 5,
+          date: "August 24, 2026",
+          verified: true,
+          title: "Exceptional craftsmanship & fast delivery",
+          text: "The packaging was neat, and the print quality is gallery-level. Fits true to size and exceeded my expectations.",
+          variant: "Standard"
+        },
+        {
+          user: "Riya P.",
+          avatar: "assets/images/reviews/riya.jpg",
+          rating: 4.5,
+          date: "August 15, 2026",
+          verified: true,
+          title: "Beautiful aesthetic and great texture",
+          text: "The artwork stands out beautifully. Got tons of compliments on it. Customer support was super helpful.",
+          variant: "Standard"
+        },
+        {
+          user: "Alex T.",
+          avatar: "assets/images/reviews/alex.jpg",
+          rating: 5,
+          date: "July 30, 2026",
+          verified: true,
+          title: "Top tier creator merch",
+          text: "Love supporting independent artists. The print has zero defects and the feel is top grade.",
+          variant: "Standard"
+        }
+      ];
+
+      const reviewList = (currentProduct.reviews && currentProduct.reviews.length > 0) ? currentProduct.reviews : fallbackReviews;
+      reviewsContainer.innerHTML = reviewList.map((r, idx) => {
+        const avatarSrc = (r.avatar && r.avatar.includes('.')) ? r.avatar : defaultAvatars[idx % defaultAvatars.length];
+        return `
+          <div class="review-bubble">
+            <div class="rbubble-header">
+              <div class="rbubble-user">
+                <img src="${avatarSrc}" alt="${r.user}" class="rbubble-avatar-img" onerror="this.src='assets/images/reviews/sarah.jpg'">
+                <div>
+                  <strong>${r.user}</strong>
+                  ${r.verified ? '<span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Purchase</span>' : ''}
+                </div>
+              </div>
+              <div class="rbubble-stars">${renderStarsHtml(r.rating)}</div>
+            </div>
+            ${r.title ? `<div class="rbubble-title">${r.title}</div>` : ''}
+            <p class="rbubble-text">"${r.text}"</p>
+            <div class="rbubble-meta">
+              <span>${r.variant || 'Standard'}</span>
+              <span>${r.date}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  function renderStarsHtml(rating) {
+    let out = '';
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(rating)) {
+        out += '<i class="fa-solid fa-star"></i> ';
+      } else if (i - 0.5 <= rating) {
+        out += '<i class="fa-solid fa-star-half-stroke"></i> ';
+      } else {
+        out += '<i class="fa-regular fa-star"></i> ';
+      }
+    }
+    return out;
+  }
+
+  /* Image Swapping */
   function setMainImg(btn) {
-    document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.gallery-thumb-btn').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('gallery-main-img').src = btn.dataset.img;
   }
 
+  /* Color selection */
   function selectColor(btn, name) {
-    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.color-swatch-item').forEach(s => s.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('selected-color').textContent = name;
+    selectedColor = name;
+    document.getElementById('selected-color-label').textContent = name;
   }
 
+  /* Size selection */
   function selectSize(btn) {
-    document.querySelectorAll('.size-option').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.size-btn').forEach(s => s.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('selected-size').textContent = btn.textContent;
+    selectedSize = btn.textContent.trim();
+    document.getElementById('selected-size-label').textContent = selectedSize;
   }
 
+  /* Quantity buttons */
   document.getElementById('qty-minus').addEventListener('click', () => {
     const inp = document.getElementById('product-qty');
     if (parseInt(inp.value) > 1) inp.value = parseInt(inp.value) - 1;
@@ -340,24 +652,78 @@
     inp.value = parseInt(inp.value) + 1;
   });
 
+  /* Add to Cart */
   document.getElementById('add-to-cart-btn').addEventListener('click', () => {
-    const size = document.getElementById('selected-size').textContent;
-    const color = document.getElementById('selected-color').textContent;
-    const qty = parseInt(document.getElementById('product-qty').value);
+    if (!currentProduct) return;
+    const qty = parseInt(document.getElementById('product-qty').value) || 1;
     if (typeof InkCart !== 'undefined') {
       InkCart.add({
-        id: 1,
-        name: 'Midnight Botanica Tee',
-        price: 29.99,
-        size,
-        color,
-        qty,
-        category: 'T-Shirts',
-        creator: 'Luna Patel',
-        img: 'assets/images/categories/tshirts.jpg'
+        id: currentProduct.id,
+        name: currentProduct.name,
+        price: currentProduct.price,
+        size: selectedSize || (currentProduct.sizes ? currentProduct.sizes[0] : ''),
+        color: selectedColor || (currentProduct.colors ? currentProduct.colors[0].name : ''),
+        qty: qty,
+        category: currentProduct.category,
+        creator: currentProduct.creator ? currentProduct.creator.name : '',
+        img: currentProduct.img
       });
     }
   });
+
+  /* Buy Now Action (Instant Checkout) */
+  function buyNowAction() {
+    if (!currentProduct) return;
+    const qty = parseInt(document.getElementById('product-qty').value) || 1;
+    if (typeof InkCart !== 'undefined') {
+      InkCart.add({
+        id: currentProduct.id,
+        name: currentProduct.name,
+        price: currentProduct.price,
+        size: selectedSize || (currentProduct.sizes ? currentProduct.sizes[0] : ''),
+        color: selectedColor || (currentProduct.colors ? currentProduct.colors[0].name : ''),
+        qty: qty,
+        category: currentProduct.category,
+        creator: currentProduct.creator ? currentProduct.creator.name : '',
+        img: currentProduct.img
+      });
+    }
+    window.location.href = 'cart.html';
+  }
+
+  /* Pincode checker */
+  function checkPincode() {
+    const pin = document.getElementById('pincode-input').value.trim();
+    const msg = document.getElementById('delivery-msg');
+    if (!pin || pin.length < 3) {
+      msg.innerHTML = `<span class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Please enter a valid Pincode / ZIP.</span>`;
+      return;
+    }
+    msg.innerHTML = `<i class="fa-solid fa-circle-check text-success"></i> Delivery available to <strong>${pin}</strong>: <strong>FREE Standard by Wednesday</strong> | Fastest: <strong>Tomorrow by 2 PM</strong>`;
+  }
+
+  /* Size Modal */
+  function openSizeModal() {
+    document.getElementById('size-chart-modal').classList.add('active');
+  }
+  function closeSizeModal() {
+    document.getElementById('size-chart-modal').classList.remove('active');
+  }
+
+  /* Share product */
+  function shareProduct() {
+    if (navigator.share) {
+      navigator.share({
+        title: currentProduct.name,
+        text: `Check out ${currentProduct.name} on InkForge!`,
+        url: window.location.href
+      }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      if (typeof showToast === 'function') showToast('Product link copied to clipboard!');
+      else alert('Product link copied to clipboard!');
+    }
+  }
 </script>
 </body>
 </html>

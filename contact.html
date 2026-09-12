@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — InkForge</title>
   <meta name="description" content="Get in touch with the InkForge team. Support for shoppers, creators, and press inquiries.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,9 +55,77 @@
     .faq-q { padding: 16px 0; font-family: var(--font-heading); font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .faq-a { padding-bottom: 16px; color: var(--body); line-height: 1.7; font-size: 0.925rem; }
     .contact-faq-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-xl); padding:40px; }
+    .locations-section { margin-top: 56px; }
+    .locations-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+    .location-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      transition: box-shadow var(--trans-base), transform var(--trans-base), border-color var(--trans-base);
+      display: flex;
+      flex-direction: column;
+    }
+    .location-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: var(--primary-light, rgba(85,70,215,0.1));
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+    .location-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--heading);
+      margin-bottom: 10px;
+    }
+    .location-address {
+      color: var(--body);
+      font-size: 0.925rem;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .location-meta {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .location-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+    .location-meta-item:last-child {
+      margin-bottom: 0;
+    }
+    .location-meta-item i {
+      color: var(--primary);
+      width: 16px;
+      text-align: center;
+    }
+    @media (max-width: 991px) {
+      .locations-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 576px) {
       .contact-layout { gap:24px; }
-      .contact-form-card, .contact-info-card, .contact-faq-card { padding:24px; }
+      .contact-form-card, .contact-info-card, .contact-faq-card, .location-card { padding:24px; }
       .contact-info-card { grid-template-columns:1fr; }
     }
     [data-theme="dark"] .contact-form-card { background: var(--white); border-color: var(--border); }
@@ -84,7 +157,15 @@
       <li><a href="index.html">Home 1</a></li>
       <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
+            <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="productsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products <i class="fa-solid fa-chevron-down nav-chevron"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="productsNavDropdown">
+          <li><a class="dropdown-item" href="products.html"><i class="fa-solid fa-table-cells"></i> All Products</a></li>
+          <li><a class="dropdown-item" href="product-detail.html"><i class="fa-solid fa-shirt"></i> Product Detail</a></li>
+        </ul>
+      </li>
       <li><a href="how-to-order.html">How to Order</a></li>
       <li><a href="creators.html">Creators</a></li>
       <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
@@ -103,7 +184,16 @@
     <a href="index.html" class="mobile-nav-link">Home 1</a>
     <a href="home2.html" class="mobile-nav-link">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="products.html" class="mobile-nav-link">Products</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false">
+        <span>Products</span>
+        <i class="fa-solid fa-chevron-down mobile-chevron"></i>
+      </button>
+      <div class="mobile-dropdown-menu">
+        <a href="products.html" class="mobile-dropdown-item"><i class="fa-solid fa-table-cells"></i> All Products</a>
+        <a href="product-detail.html" class="mobile-dropdown-item"><i class="fa-solid fa-shirt"></i> Product Detail</a>
+      </div>
+    </div>
     <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
     <a href="creators.html" class="mobile-nav-link">Creators</a>
     <a href="contact.html" class="mobile-nav-link active">Contact</a>
@@ -181,6 +271,20 @@
           <p>Reach out through the form, or use one of the direct channels below.</p>
 
           <div class="contact-info-item" style="margin-top:20px">
+            <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-info-label">Headquarters &amp; Studio</div>
+              <div class="contact-info-val">742 Evergreen Arts District<br>Suite 400, San Francisco, CA 94107</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="contact-info-label">Phone &amp; Helpline</div>
+              <div class="contact-info-val"><a href="tel:+18005550199" style="color:#fff;text-decoration:none">+1 (800) 555-0199</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
             <div>
               <div class="contact-info-label">General Support</div>
@@ -195,17 +299,17 @@
             </div>
           </div>
           <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="contact-info-label">Business Hours</div>
+              <div class="contact-info-val">Mon – Fri: 9:00 AM – 6:00 PM PST</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-solid fa-newspaper"></i></div>
             <div>
               <div class="contact-info-label">Press &amp; Partnerships</div>
               <div class="contact-info-val">press@inkforge.com</div>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <div class="contact-info-label">Response Time</div>
-              <div class="contact-info-val">Within 24 hours</div>
             </div>
           </div>
         </div>
@@ -228,6 +332,62 @@
           <div class="faq-item">
             <div class="faq-q">Can I return or exchange a product? <i class="fa-solid fa-chevron-down"></i></div>
             <div class="faq-a">Yes — InkForge offers free returns within 30 days for products that arrive damaged, defective, or significantly different from the listing. Contact us with your order number and we'll sort it out.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Locations & Production Hubs Section -->
+    <div class="locations-section">
+      <div class="section-header centered">
+        <div class="section-label">Our Locations</div>
+        <h2 class="section-title">Visit Us &amp; Global Hubs</h2>
+        <p class="section-subtitle">Our design headquarters, creator studios, and print-on-demand fulfillment centers.</p>
+      </div>
+
+      <div class="locations-grid">
+        <div class="location-card">
+          <div class="location-badge"><i class="fa-solid fa-star"></i> Global HQ</div>
+          <h3>San Francisco Studio</h3>
+          <p class="location-address">
+            742 Evergreen Arts District, Suite 400<br>
+            San Francisco, CA 94107<br>
+            United States
+          </p>
+          <div class="location-meta">
+            <div class="location-meta-item"><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</div>
+            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 9am – 6pm PST</div>
+            <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> sf-studio@inkforge.com</div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <div class="location-badge"><i class="fa-solid fa-box-open"></i> US Fulfillment</div>
+          <h3>Columbus Print Hub</h3>
+          <p class="location-address">
+            1200 Logistics Parkway, Bay 4<br>
+            Columbus, OH 43217<br>
+            United States
+          </p>
+          <div class="location-meta">
+            <div class="location-meta-item"><i class="fa-solid fa-truck-fast"></i> 24/7 Production &amp; Dispatch</div>
+            <div class="location-meta-item"><i class="fa-solid fa-shield-check"></i> Certified Quality Control</div>
+            <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> logistics@inkforge.com</div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <div class="location-badge"><i class="fa-solid fa-earth-europe"></i> European Hub</div>
+          <h3>London Creator Lab</h3>
+          <p class="location-address">
+            45 Printmaker Lane, Shoreditch<br>
+            London EC2A 3AY<br>
+            United Kingdom
+          </p>
+          <div class="location-meta">
+            <div class="location-meta-item"><i class="fa-solid fa-phone"></i> +44 20 7946 0912</div>
+            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 8:30am – 5:30pm GMT</div>
+            <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> uk-support@inkforge.com</div>
           </div>
         </div>
       </div>

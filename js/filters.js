@@ -98,7 +98,9 @@
     return `
     <div class="product-card" data-id="${p.id}">
       <div class="card-img-wrap">
-        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/products/product-placeholder.jpg'">
+        <a href="product-detail.html?id=${p.id}" class="d-block w-100 h-100">
+          <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/products/product-placeholder.jpg'">
+        </a>
         ${badge ? `<div class="card-badge">${badge}</div>` : ''}
         <button class="wishlist-btn" title="Add to wishlist" aria-label="Add to wishlist">
           <i class="fa-regular fa-heart"></i>
@@ -111,7 +113,7 @@
       </div>
       <div class="card-body-ink">
         <div class="card-category">${formatCategory(p.category)}</div>
-        <div class="card-title">${p.name}</div>
+        <div class="card-title"><a href="product-detail.html?id=${p.id}" style="color:inherit;text-decoration:none">${p.name}</a></div>
         <div class="card-creator">by <a href="creator-profile.html">${p.creator}</a></div>
         <div class="card-rating">
           ${stars}
@@ -120,7 +122,7 @@
         <div class="card-variants">${colorDots}</div>
         <div class="card-footer-ink">
           <div class="card-price">$${p.price.toFixed(2)}</div>
-          <a href="product-detail.html" class="card-add-btn">
+          <a href="product-detail.html?id=${p.id}" class="card-add-btn">
             <i class="fa-solid fa-cart-plus"></i> Shop Now
           </a>
         </div>

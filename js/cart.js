@@ -130,8 +130,39 @@
     updateCartUI();
   }
 
-  /* ----- Checkout form validation ----- */
+  /* ----- Checkout & Order Placement ----- */
   function initCheckout() {
+    const checkoutBtn = document.getElementById('proceed-checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', () => {
+        const cart = getCart();
+        if (!cart || cart.length === 0) {
+          if (typeof showToast === 'function') {
+            showToast('Your cart is empty! Add items first.');
+          } else {
+            alert('Your cart is empty! Add items first.');
+          }
+          return;
+        }
+
+        const originalText = checkoutBtn.innerHTML;
+        checkoutBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Order...';
+        checkoutBtn.disabled = true;
+
+        setTimeout(() => {
+          saveCart([]);
+          renderCartPage();
+          checkoutBtn.innerHTML = originalText;
+          checkoutBtn.disabled = false;
+          if (typeof showToast === 'function') {
+            showToast('🎉 Order placed successfully! Thank you for shopping with InkForge.');
+          } else {
+            alert('🎉 Order placed successfully! Thank you for shopping with InkForge.');
+          }
+        }, 1200);
+      });
+    }
+
     const form = document.getElementById('checkout-form');
     if (!form) return;
 

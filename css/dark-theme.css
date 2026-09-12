@@ -52,8 +52,15 @@
 [data-theme="dark"] .rtl-toggle-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
 [data-theme="dark"] .mobile-toggle { border-color: var(--border); color: var(--heading); }
 [data-theme="dark"] .mobile-menu { background: #1D1D24; border-color: var(--border); }
-[data-theme="dark"] .mobile-menu .mobile-nav-link { color: var(--body); }
-[data-theme="dark"] .mobile-menu .mobile-nav-link:hover { color: #fff; background: var(--primary-light); }
+[data-theme="dark"] .mobile-menu .mobile-nav-link,
+[data-theme="dark"] .mobile-menu .mobile-dropdown-toggle { color: var(--body); }
+[data-theme="dark"] .mobile-menu .mobile-nav-link:hover,
+[data-theme="dark"] .mobile-menu .mobile-dropdown-toggle:hover,
+[data-theme="dark"] .mobile-menu .mobile-dropdown.open > .mobile-dropdown-toggle { color: #fff; background: var(--primary-light); }
+[data-theme="dark"] .mobile-menu .mobile-dropdown-menu { background: rgba(255, 255, 255, 0.03); border-color: var(--primary); }
+[data-theme="dark"] .mobile-menu .mobile-dropdown-item { color: var(--muted); }
+[data-theme="dark"] .mobile-menu .mobile-dropdown-item:hover,
+[data-theme="dark"] .mobile-menu .mobile-dropdown-item.active { color: #fff; background: var(--primary-light); }
 [data-theme="dark"] .mobile-menu-divider { border-color: var(--border); }
 
 /* Cards */
@@ -252,6 +259,33 @@
 
 /* Divider */
 [data-theme="dark"] .ink-divider { border-color: var(--border); }
+
+/* Product Detail Elements */
+[data-theme="dark"] .detail-info-card,
+[data-theme="dark"] .detail-gallery-card,
+[data-theme="dark"] .product-specs-section,
+[data-theme="dark"] .review-score-card,
+[data-theme="dark"] .review-bubble,
+[data-theme="dark"] .seller-profile-card,
+[data-theme="dark"] .frequently-bought-section {
+  background: #1D1D26;
+  border-color: var(--border);
+}
+[data-theme="dark"] .detail-price-card,
+[data-theme="dark"] .delivery-checker-box,
+[data-theme="dark"] .detail-trust-grid,
+[data-theme="dark"] .bundle-cta-box,
+[data-theme="dark"] .bundle-item-box {
+  background: #15151C;
+  border-color: var(--border);
+}
+[data-theme="dark"] .specs-label {
+  background: #181820;
+  color: var(--heading);
+}
+[data-theme="dark"] .specs-row:nth-child(even) {
+  background: #16161E;
+}
 
 /* Selection */
 [data-theme="dark"] ::selection { background: var(--primary); color: var(--bg); }

@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Order — InkForge</title>
   <meta name="description" content="Step-by-step guide to ordering custom merchandise from InkForge. Learn how to browse, customize, and receive your order.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +52,15 @@
       <li><a href="index.html">Home 1</a></li>
       <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
+            <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="productsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products <i class="fa-solid fa-chevron-down nav-chevron"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="productsNavDropdown">
+          <li><a class="dropdown-item" href="products.html"><i class="fa-solid fa-table-cells"></i> All Products</a></li>
+          <li><a class="dropdown-item" href="product-detail.html"><i class="fa-solid fa-shirt"></i> Product Detail</a></li>
+        </ul>
+      </li>
       <li><a href="how-to-order.html" class="active" aria-current="page">How to Order</a></li>
       <li><a href="creators.html">Creators</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -66,7 +79,16 @@
     <a href="index.html" class="mobile-nav-link">Home 1</a>
     <a href="home2.html" class="mobile-nav-link">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="products.html" class="mobile-nav-link">Products</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false">
+        <span>Products</span>
+        <i class="fa-solid fa-chevron-down mobile-chevron"></i>
+      </button>
+      <div class="mobile-dropdown-menu">
+        <a href="products.html" class="mobile-dropdown-item"><i class="fa-solid fa-table-cells"></i> All Products</a>
+        <a href="product-detail.html" class="mobile-dropdown-item"><i class="fa-solid fa-shirt"></i> Product Detail</a>
+      </div>
+    </div>
     <a href="how-to-order.html" class="mobile-nav-link active">How to Order</a>
     <a href="creators.html" class="mobile-nav-link">Creators</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>

@@ -9,6 +9,11 @@
   <meta property="og:description" content="Discover custom merchandise created by independent artists.">
   <meta name="theme-color" content="#5546D7">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,6 +143,36 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    @media (max-width: 991px) {
+      .hero-h1 .hero-ctas {
+        justify-content: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-h1 .hero-ctas .btn-ink {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-h1 .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+      }
+      .hero-h1 .hero-ctas .btn-ink {
+        width: 100%;
+        max-width: 290px;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+      }
     }
 
     .hero-h1 .hero-trust {
@@ -595,7 +630,15 @@
       <li><a href="index.html" class="active" aria-current="page">Home 1</a></li>
       <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
+            <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="productsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products <i class="fa-solid fa-chevron-down nav-chevron"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="productsNavDropdown">
+          <li><a class="dropdown-item" href="products.html"><i class="fa-solid fa-table-cells"></i> All Products</a></li>
+          <li><a class="dropdown-item" href="product-detail.html"><i class="fa-solid fa-shirt"></i> Product Detail</a></li>
+        </ul>
+      </li>
       <li><a href="how-to-order.html">How to Order</a></li>
       <li><a href="creators.html">Creators</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -631,7 +674,16 @@
     <a href="index.html" class="mobile-nav-link active">Home 1</a>
     <a href="home2.html" class="mobile-nav-link">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="products.html" class="mobile-nav-link">Products</a>
+    <div class="mobile-dropdown">
+      <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false">
+        <span>Products</span>
+        <i class="fa-solid fa-chevron-down mobile-chevron"></i>
+      </button>
+      <div class="mobile-dropdown-menu">
+        <a href="products.html" class="mobile-dropdown-item"><i class="fa-solid fa-table-cells"></i> All Products</a>
+        <a href="product-detail.html" class="mobile-dropdown-item"><i class="fa-solid fa-shirt"></i> Product Detail</a>
+      </div>
+    </div>
     <a href="how-to-order.html" class="mobile-nav-link">How to Order</a>
     <a href="creators.html" class="mobile-nav-link">Creators</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
@@ -855,7 +907,7 @@
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$29.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=1" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -863,7 +915,7 @@
       <!-- Product Card 2 -->
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-2.jpg" alt="Abstract Orbit Mug" loading="lazy">
+          <a href="product-detail.html?id=2"><img src="assets/images/products/product-2.jpg" alt="Abstract Orbit Mug" loading="lazy"></a>
           <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
           <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
           <div class="card-quick-view">
@@ -872,7 +924,7 @@
         </div>
         <div class="card-body-ink">
           <div class="card-category">Mugs</div>
-          <div class="card-title">Abstract Orbit Mug</div>
+          <div class="card-title"><a href="product-detail.html?id=2" style="color:inherit;text-decoration:none">Abstract Orbit Mug</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Kai Nakamura</a></div>
           <div class="card-rating">
             <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.6</span></div>
@@ -885,7 +937,7 @@
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$18.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=2" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -893,7 +945,7 @@
       <!-- Product Card 3 -->
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-3.jpg" alt="Urban Lines Tote" loading="lazy">
+          <a href="product-detail.html?id=3"><img src="assets/images/products/product-3.jpg" alt="Urban Lines Tote" loading="lazy"></a>
           <div class="card-badge"><span class="ink-badge badge-active">New</span></div>
           <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
           <div class="card-quick-view">
@@ -902,7 +954,7 @@
         </div>
         <div class="card-body-ink">
           <div class="card-category">Tote Bags</div>
-          <div class="card-title">Urban Lines Tote</div>
+          <div class="card-title"><a href="product-detail.html?id=3" style="color:inherit;text-decoration:none">Urban Lines Tote</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Zoe Wright</a></div>
           <div class="card-rating">
             <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.7</span></div>
@@ -915,7 +967,7 @@
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$22.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=3" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -923,7 +975,7 @@
       <!-- Product Card 4 -->
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-4.jpg" alt="Retro Wave Phone Case" loading="lazy">
+          <a href="product-detail.html?id=4"><img src="assets/images/products/product-4.jpg" alt="Retro Wave Phone Case" loading="lazy"></a>
           <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
           <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
           <div class="card-quick-view">
@@ -932,11 +984,11 @@
         </div>
         <div class="card-body-ink">
           <div class="card-category">Phone Cases</div>
-          <div class="card-title">Retro Wave Phone Case</div>
+          <div class="card-title"><a href="product-detail.html?id=4" style="color:inherit;text-decoration:none">Retro Wave Phone Case</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Marco Silva</a></div>
           <div class="card-rating">
-            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.5</span></div>
-            <span style="font-size:0.8rem;color:var(--muted)">(167)</span>
+            <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.5</span></div>
+            <span style="font-size:0.8rem;color:var(--muted)">(182)</span>
           </div>
           <div class="card-variants">
             <span class="variant-dot" style="background:#FF6B6B"></span>
@@ -945,7 +997,7 @@
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$16.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=4" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -953,7 +1005,7 @@
       <!-- Product Card 5 -->
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-5.jpg" alt="Minimal Form Hoodie" loading="lazy">
+          <a href="product-detail.html?id=5"><img src="assets/images/products/product-5.jpg" alt="Minimal Form Hoodie" loading="lazy"></a>
           <div class="card-badge"><span class="ink-badge badge-new">Bestseller</span></div>
           <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
           <div class="card-quick-view">
@@ -962,11 +1014,11 @@
         </div>
         <div class="card-body-ink">
           <div class="card-category">Hoodies</div>
-          <div class="card-title">Minimal Form Hoodie</div>
+          <div class="card-title"><a href="product-detail.html?id=5" style="color:inherit;text-decoration:none">Minimal Form Hoodie</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Anika Jensen</a></div>
           <div class="card-rating">
             <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.9</span></div>
-            <span style="font-size:0.8rem;color:var(--muted)">(521)</span>
+            <span style="font-size:0.8rem;color:var(--muted)">(428)</span>
           </div>
           <div class="card-variants">
             <span class="variant-dot" style="background:#2C2C3E"></span>
@@ -975,7 +1027,7 @@
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$52.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=5" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -983,7 +1035,7 @@
       <!-- Product Card 6 -->
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-6.jpg" alt="Wild Bloom Poster" loading="lazy">
+          <a href="product-detail.html?id=6"><img src="assets/images/products/product-6.jpg" alt="Wild Bloom Poster" loading="lazy"></a>
           <div class="card-badge"><span class="ink-badge badge-active">New</span></div>
           <button class="wishlist-btn" title="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
           <div class="card-quick-view">
@@ -992,20 +1044,20 @@
         </div>
         <div class="card-body-ink">
           <div class="card-category">Posters</div>
-          <div class="card-title">Wild Bloom Poster</div>
+          <div class="card-title"><a href="product-detail.html?id=6" style="color:inherit;text-decoration:none">Wild Bloom Poster</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Luna Patel</a></div>
           <div class="card-rating">
             <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span>4.4</span></div>
-            <span style="font-size:0.8rem;color:var(--muted)">(76)</span>
+            <span style="font-size:0.8rem;color:var(--muted)">(67)</span>
           </div>
           <div class="card-variants">
-            <span class="variant-dot" style="background:#FFFFFF;border:1px solid #E4E2E7"></span>
-            <span class="variant-dot" style="background:#D8C6A5"></span>
-            <span class="variant-dot" style="background:#1A1A2E"></span>
+            <span class="variant-dot" style="background:#F8F7F4;border:1px solid #E4E2E7"></span>
+            <span class="variant-dot" style="background:#2C4A2E"></span>
+            <span class="variant-dot" style="background:#E8D5B5"></span>
           </div>
           <div class="card-footer-ink">
             <div class="card-price">$14.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
+            <a href="product-detail.html?id=6" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop Now</a>
           </div>
         </div>
       </div>
@@ -1034,76 +1086,76 @@
     <div class="arrivals-strip">
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-8.jpg" alt="Skyline Cap" loading="lazy">
-          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+          <a href="product-detail.html?id=8"><img src="assets/images/products/product-8.jpg" alt="Skyline Cap" loading="lazy"></a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
         </div>
         <div class="card-body-ink">
           <div class="card-category">Caps</div>
-          <div class="card-title">Skyline Cap</div>
+          <div class="card-title"><a href="product-detail.html?id=8" style="color:inherit;text-decoration:none">Skyline Cap</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Kai Nakamura</a></div>
           <div class="card-footer-ink">
             <div class="card-price">$24.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+            <a href="product-detail.html?id=8" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
           </div>
         </div>
       </div>
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-9.jpg" alt="Cosmos Dream Tee" loading="lazy">
-          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+          <a href="product-detail.html?id=9"><img src="assets/images/products/product-9.jpg" alt="Cosmos Dream Tee" loading="lazy"></a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
         </div>
         <div class="card-body-ink">
           <div class="card-category">T-Shirts</div>
-          <div class="card-title">Cosmos Dream Tee</div>
+          <div class="card-title"><a href="product-detail.html?id=9" style="color:inherit;text-decoration:none">Cosmos Dream Tee</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Marco Silva</a></div>
           <div class="card-footer-ink">
             <div class="card-price">$31.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+            <a href="product-detail.html?id=9" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
           </div>
         </div>
       </div>
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-10.jpg" alt="Brushstroke Tote" loading="lazy">
-          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+          <a href="product-detail.html?id=10"><img src="assets/images/products/product-10.jpg" alt="Brushstroke Tote" loading="lazy"></a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
         </div>
         <div class="card-body-ink">
           <div class="card-category">Tote Bags</div>
-          <div class="card-title">Brushstroke Tote</div>
+          <div class="card-title"><a href="product-detail.html?id=10" style="color:inherit;text-decoration:none">Brushstroke Tote</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Anika Jensen</a></div>
           <div class="card-footer-ink">
             <div class="card-price">$21.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+            <a href="product-detail.html?id=10" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
           </div>
         </div>
       </div>
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-11.jpg" alt="Forest Walk Mug" loading="lazy">
-          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+          <a href="product-detail.html?id=11"><img src="assets/images/products/product-11.jpg" alt="Forest Walk Mug" loading="lazy"></a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
         </div>
         <div class="card-body-ink">
           <div class="card-category">Mugs</div>
-          <div class="card-title">Forest Walk Mug</div>
+          <div class="card-title"><a href="product-detail.html?id=11" style="color:inherit;text-decoration:none">Forest Walk Mug</a></div>
           <div class="card-creator">by <a href="creator-profile.html">Luna Patel</a></div>
           <div class="card-footer-ink">
             <div class="card-price">$17.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+            <a href="product-detail.html?id=11" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
           </div>
         </div>
       </div>
       <div class="product-card">
         <div class="card-img-wrap">
-          <img src="assets/images/products/product-12.jpg" alt="Framed Botanical Print" loading="lazy">
-          <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+          <a href="product-detail.html?id=12"><img src="assets/images/products/product-12.jpg" alt="Neon Pulse Hoodie" loading="lazy"></a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
         </div>
         <div class="card-body-ink">
-          <div class="card-category">Posters</div>
-          <div class="card-title">Framed Botanical Print</div>
-          <div class="card-creator">by <a href="creator-profile.html">Zoe Wright</a></div>
+          <div class="card-category">Hoodies</div>
+          <div class="card-title"><a href="product-detail.html?id=12" style="color:inherit;text-decoration:none">Neon Pulse Hoodie</a></div>
+          <div class="card-creator">by <a href="creator-profile.html">Marco Silva</a></div>
           <div class="card-footer-ink">
-            <div class="card-price">$14.99</div>
-            <a href="product-detail.html" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
+            <div class="card-price">$58.99</div>
+            <a href="product-detail.html?id=12" class="card-add-btn"><i class="fa-solid fa-cart-plus"></i> Shop</a>
           </div>
         </div>
       </div>

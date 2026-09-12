@@ -60,6 +60,16 @@
   direction: rtl;
 }
 
+[dir="rtl"] .mobile-menu .mobile-dropdown-toggle {
+  text-align: right;
+}
+
+[dir="rtl"] .mobile-menu .mobile-dropdown-menu {
+  border-left: none;
+  border-right: 3px solid var(--primary);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
 /* ----- Footer RTL ----- */
 [dir="rtl"] .ink-footer {
   direction: rtl;

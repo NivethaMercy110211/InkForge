@@ -3,7 +3,6 @@
 # Run from d:\InkForge\InkForge directory
 
 $pages = @(
-  "checkout.html",
   "creator-profile.html",
   "creator-signup.html",
   "seller-login.html",
