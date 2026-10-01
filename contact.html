@@ -44,25 +44,31 @@
       max-width: 640px;
     }
 
-    .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
-    .contact-side { display: contents; }
+    .contact-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      align-items: stretch;
+      width: 100%;
+    }
 
     /* Contact Form Card & Headings */
     .contact-form-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
-      padding: 40px;
+      padding: 44px 48px;
       box-shadow: var(--shadow-sm);
+      width: 100%;
     }
     .contact-form-card .form-heading-wrap {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
     .contact-form-card .form-heading-wrap h2 {
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.625rem;
       color: var(--heading);
       margin-bottom: 8px;
       text-align: center;
@@ -74,7 +80,7 @@
       text-align: center;
     }
 
-    .contact-form-card .ink-form-group { margin-bottom: 20px; }
+    .contact-form-card .ink-form-group { margin-bottom: 24px; }
     .contact-form-card .ink-label {
       display: block;
       margin-bottom: 8px;
@@ -83,7 +89,10 @@
       font-weight: 700;
       line-height: 1.4;
     }
-    .contact-form-card .row { --bs-gutter-y: 20px; }
+    .contact-form-card .row {
+      --bs-gutter-y: 24px;
+      --bs-gutter-x: 24px;
+    }
     .contact-form-card .ink-input,
     .contact-form-card .ink-select,
     .contact-form-card .ink-textarea {
@@ -94,7 +103,7 @@
       border: 1px solid var(--border);
       font-size: 0.9375rem;
       border-radius: var(--radius-sm);
-      padding: 10px 14px;
+      padding: 11px 16px;
       transition: border-color var(--trans-fast), box-shadow var(--trans-fast);
     }
     .contact-form-card .ink-input:focus,
@@ -146,8 +155,8 @@
     /* Form Action Buttons */
     .contact-form-card .form-actions {
       display: flex;
-      gap: 14px;
-      margin-top: 24px;
+      gap: 16px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
     .btn-submit-contact {
@@ -156,7 +165,7 @@
       color: #ffffff !important;
       font-weight: 700;
       font-size: 0.95rem;
-      padding: 12px 24px;
+      padding: 13px 26px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--primary);
       display: inline-flex;
@@ -178,7 +187,7 @@
       color: var(--heading) !important;
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 12px 22px;
+      padding: 13px 24px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       display: inline-flex;
@@ -194,25 +203,144 @@
     }
 
     /* Contact Info Card */
-    .contact-info-card { background: var(--primary); border-radius: var(--radius-xl); padding: 40px; color: rgba(255,255,255,0.95); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:40px; }
-    .contact-info-card h3 { font-family: var(--font-heading); font-weight: 700; color: #fff; font-size: 1.375rem; margin-bottom: 8px; }
-    .contact-info-card p { color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 0; }
-    .contact-info-card > h3, .contact-info-card > p { grid-column:1 / -1; }
-    .contact-info-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
-    .contact-info-card > .contact-info-item:nth-of-type(2) { margin-top:20px; }
-    .contact-info-item:last-child { border-bottom: none; }
-    .contact-info-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: #ffffff; }
-    .contact-info-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); margin-bottom: 4px; font-weight: 600; }
-    .contact-info-val { color: #fff; font-weight: 600; font-size: 0.9375rem; }
+    .contact-info-card {
+      background: linear-gradient(135deg, #5546D7 0%, #4338CA 100%);
+      border-radius: var(--radius-xl);
+      padding: 44px 48px;
+      color: rgba(255, 255, 255, 0.95);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 48px;
+      row-gap: 8px;
+      box-shadow: 0 10px 30px rgba(85, 70, 215, 0.2);
+      width: 100%;
+    }
+    .contact-info-card .info-heading-wrap {
+      grid-column: 1 / -1;
+      margin-bottom: 12px;
+    }
+    .contact-info-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .contact-info-card p {
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .contact-info-item:last-child,
+    .contact-info-item:nth-last-child(2) {
+      border-bottom: none;
+    }
+    .contact-info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+    .contact-info-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .contact-info-val {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .contact-info-val a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity var(--trans-fast);
+    }
+    .contact-info-val a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
 
-    /* FAQ */
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { padding: 16px 0; font-family: var(--font-heading); font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-a { padding-bottom: 16px; color: var(--body); line-height: 1.7; font-size: 0.925rem; }
-    .contact-faq-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-xl); padding:40px; }
+    /* FAQ Card */
+    .contact-faq-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+    }
+    .contact-faq-card .faq-heading-wrap {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .contact-faq-card .faq-heading-wrap h3 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--heading);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .contact-faq-card .faq-heading-wrap p {
+      color: var(--body);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      padding: 18px 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--heading);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.025rem;
+      user-select: none;
+      transition: color var(--trans-fast);
+    }
+    .faq-q:hover {
+      color: var(--primary);
+    }
+    .faq-a {
+      padding-bottom: 20px;
+      color: var(--body);
+      line-height: 1.7;
+      font-size: 0.9375rem;
+    }
 
     /* Locations Section */
-    .locations-section { margin-top: 64px; }
+    .locations-section {
+      margin-top: 72px;
+      padding-top: 64px;
+      border-top: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
     .section-header.centered {
       text-align: center;
       margin-bottom: 32px;
@@ -397,14 +525,47 @@
     }
 
     @media (max-width: 991px) {
+      .contact-layout { gap: 40px; }
+      .contact-info-card {
+        grid-template-columns: 1fr;
+        padding: 36px 32px;
+        gap: 0;
+      }
+      .contact-info-item:nth-last-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .contact-info-item:last-child {
+        border-bottom: none;
+      }
+      .contact-form-card,
+      .contact-faq-card {
+        padding: 36px 32px;
+      }
       .locations-grid { grid-template-columns: 1fr; }
       .location-map-wrap { height: 300px; }
+      .locations-section {
+        margin-top: 56px;
+        padding-top: 48px;
+      }
     }
     @media (max-width: 576px) {
-      .contact-layout { gap:24px; }
-      .contact-form-card, .contact-info-card, .contact-faq-card, .location-card { padding:24px; }
-      .contact-info-card { grid-template-columns:1fr; }
-      .btn-submit-contact, .btn-reset-contact { width: 100%; flex: 1 1 100%; }
+      .contact-layout { gap: 32px; }
+      .contact-form-card,
+      .contact-info-card,
+      .contact-faq-card,
+      .location-card {
+        padding: 24px 18px;
+      }
+      .contact-info-card { grid-template-columns: 1fr; }
+      .btn-submit-contact,
+      .btn-reset-contact {
+        width: 100%;
+        flex: 1 1 100%;
+      }
+      .locations-section {
+        margin-top: 48px;
+        padding-top: 40px;
+      }
     }
 
     /* Dark theme overrides */
@@ -413,6 +574,32 @@
     [data-theme="dark"] .location-card {
       background: var(--white);
       border-color: var(--border);
+    }
+    [data-theme="dark"] .contact-info-card {
+      background: linear-gradient(135deg, #1E1B4B 0%, #2A1B54 100%);
+      border: 1px solid rgba(141, 130, 240, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="dark"] .contact-info-card h3 {
+      color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .contact-info-card p {
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+    [data-theme="dark"] .contact-faq-card h3 {
+      color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .contact-faq-card .faq-heading-wrap p {
+      color: #D1D5DB !important;
+    }
+    [data-theme="dark"] .faq-q {
+      color: #F8F7FC !important;
+    }
+    [data-theme="dark"] .faq-a {
+      color: #D1D5DB !important;
+    }
+    [data-theme="dark"] .faq-item {
+      border-color: var(--border) !important;
     }
     [data-theme="dark"] .contact-form-card .form-heading-wrap h2 {
       color: #FFFFFF !important;
@@ -639,15 +826,15 @@
             </div>
           </form>
         </div>
-      </div>
 
-      <!-- Contact Info -->
-      <div class="contact-side">
+        <!-- 2. Direct Channels & Info Card -->
         <div class="contact-info-card">
-          <h3>We're Here to Help</h3>
-          <p>Reach out through the form, or use one of the direct channels below.</p>
+          <div class="info-heading-wrap">
+            <h3>We're Here to Help</h3>
+            <p>Reach out through the form above, or connect directly through any of our support channels below.</p>
+          </div>
 
-          <div class="contact-info-item" style="margin-top:20px">
+          <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
             <div>
               <div class="contact-info-label">Headquarters &amp; Studio</div>
@@ -658,21 +845,21 @@
             <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
             <div>
               <div class="contact-info-label">Phone &amp; Helpline</div>
-              <div class="contact-info-val"><a href="tel:+18005550199" style="color:#fff;text-decoration:none">+1 (800) 555-0199</a></div>
+              <div class="contact-info-val"><a href="tel:+18005550199">+1 (800) 555-0199</a></div>
             </div>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
             <div>
               <div class="contact-info-label">General Support</div>
-              <div class="contact-info-val">support@inkforge.com</div>
+              <div class="contact-info-val"><a href="mailto:support@inkforge.com">support@inkforge.com</a></div>
             </div>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-solid fa-palette"></i></div>
             <div>
               <div class="contact-info-label">Creator Support</div>
-              <div class="contact-info-val">creators@inkforge.com</div>
+              <div class="contact-info-val"><a href="mailto:creators@inkforge.com">creators@inkforge.com</a></div>
             </div>
           </div>
           <div class="contact-info-item">
@@ -686,14 +873,17 @@
             <div class="contact-info-icon"><i class="fa-solid fa-newspaper"></i></div>
             <div>
               <div class="contact-info-label">Press &amp; Partnerships</div>
-              <div class="contact-info-val">press@inkforge.com</div>
+              <div class="contact-info-val"><a href="mailto:press@inkforge.com">press@inkforge.com</a></div>
             </div>
           </div>
         </div>
 
-        <!-- FAQ -->
+        <!-- 3. Frequently Asked Questions (FAQ) Card -->
         <div class="contact-faq-card">
-          <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--heading);font-size:1.125rem;margin-bottom:16px">Common Questions</h3>
+          <div class="faq-heading-wrap">
+            <h3>Common Questions</h3>
+            <p>Quick answers to the questions shoppers and creators ask us most often.</p>
+          </div>
           <div class="faq-item">
             <div class="faq-q">Where is my order? <i class="fa-solid fa-chevron-down"></i></div>
             <div class="faq-a">Orders ship within 3–5 business days of placement. You will receive a tracking email once your order ships. Check your spam folder if you haven't received it.</div>
@@ -712,7 +902,6 @@
           </div>
         </div>
       </div>
-    </div>
 
     <!-- Locations & Production Hubs Section -->
     <div class="locations-section">

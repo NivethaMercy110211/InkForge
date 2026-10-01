@@ -312,6 +312,16 @@
   background: #15151C;
   border-color: var(--border);
 }
+[data-theme="dark"] .btn-buy-now {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+[data-theme="dark"] .btn-buy-now:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #fff;
+}
 [data-theme="dark"] .specs-label {
   background: #181820;
   color: var(--heading);
