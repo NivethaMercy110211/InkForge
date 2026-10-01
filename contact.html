@@ -24,39 +24,258 @@
   <link rel="stylesheet" href="css/rtl.css">
   <link rel="stylesheet" href="css/responsive.css">
   <style>
+    /* Centered Page Banner Heading */
+    .page-banner .ink-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-banner .page-banner-title {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-banner .page-banner-sub {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 640px;
+    }
+
     .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
     .contact-side { display: contents; }
 
-    .contact-form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 40px; }
+    /* Contact Form Card & Headings */
+    .contact-form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-form-card .form-heading-wrap {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .contact-form-card .form-heading-wrap h2 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--heading);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .contact-form-card .form-heading-wrap p {
+      color: var(--body);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
     .contact-form-card .ink-form-group { margin-bottom: 20px; }
     .contact-form-card .ink-label {
       display: block;
       margin-bottom: 8px;
       color: var(--heading);
       font-size: 0.875rem;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.4;
     }
     .contact-form-card .row { --bs-gutter-y: 20px; }
     .contact-form-card .ink-input,
     .contact-form-card .ink-select,
-    .contact-form-card .ink-textarea { display: block; width: 100%; }
-    .contact-info-card { background: var(--primary); border-radius: var(--radius-xl); padding: 40px; color: rgba(255,255,255,0.9); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:40px; }
+    .contact-form-card .ink-textarea {
+      display: block;
+      width: 100%;
+      background-color: var(--white);
+      color: var(--heading);
+      border: 1px solid var(--border);
+      font-size: 0.9375rem;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      transition: border-color var(--trans-fast), box-shadow var(--trans-fast);
+    }
+    .contact-form-card .ink-input:focus,
+    .contact-form-card .ink-select:focus,
+    .contact-form-card .ink-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(85, 70, 215, 0.2);
+      outline: none;
+    }
+    .contact-form-card .ink-input::placeholder,
+    .contact-form-card .ink-textarea::placeholder {
+      color: #6B7280;
+      opacity: 1;
+    }
+
+    /* Character counter */
+    .contact-char-count {
+      font-size: 0.8rem;
+      color: var(--body);
+      font-weight: 600;
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    /* File Attachment Input & Button */
+    .contact-form-card input[type="file"] {
+      padding: 8px 12px;
+      color: var(--heading);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .contact-form-card input[type="file"]::file-selector-button {
+      background: var(--primary-light, rgba(85, 70, 215, 0.1));
+      color: var(--primary);
+      border: 1px solid rgba(85, 70, 215, 0.35);
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-right: 12px;
+      transition: all var(--trans-fast);
+    }
+    .contact-form-card input[type="file"]::file-selector-button:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Form Action Buttons */
+    .contact-form-card .form-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-submit-contact {
+      flex: 1 1 240px;
+      background: var(--primary);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(85, 70, 215, 0.35);
+      transition: all var(--trans-fast);
+    }
+    .btn-submit-contact:hover {
+      background: var(--primary-hover);
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(85, 70, 215, 0.45);
+    }
+    .btn-reset-contact {
+      background: var(--soft);
+      color: var(--heading) !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all var(--trans-fast);
+    }
+    .btn-reset-contact:hover {
+      background: var(--border);
+      color: var(--heading) !important;
+    }
+
+    /* Contact Info Card */
+    .contact-info-card { background: var(--primary); border-radius: var(--radius-xl); padding: 40px; color: rgba(255,255,255,0.95); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:40px; }
     .contact-info-card h3 { font-family: var(--font-heading); font-weight: 700; color: #fff; font-size: 1.375rem; margin-bottom: 8px; }
-    .contact-info-card p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 0; }
+    .contact-info-card p { color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 0; }
     .contact-info-card > h3, .contact-info-card > p { grid-column:1 / -1; }
-    .contact-info-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .contact-info-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
     .contact-info-card > .contact-info-item:nth-of-type(2) { margin-top:20px; }
     .contact-info-item:last-child { border-bottom: none; }
-    .contact-info-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .contact-info-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .contact-info-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: #ffffff; }
+    .contact-info-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); margin-bottom: 4px; font-weight: 600; }
     .contact-info-val { color: #fff; font-weight: 600; font-size: 0.9375rem; }
+
+    /* FAQ */
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q { padding: 16px 0; font-family: var(--font-heading); font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .faq-a { padding-bottom: 16px; color: var(--body); line-height: 1.7; font-size: 0.925rem; }
     .contact-faq-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-xl); padding:40px; }
-    .locations-section { margin-top: 56px; }
-    .locations-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+
+    /* Locations Section */
+    .locations-section { margin-top: 64px; }
+    .section-header.centered {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .section-header.centered .section-label,
+    .section-header.centered .section-title,
+    .section-header.centered .section-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Location Map & Switcher */
+    .location-tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .location-nav-btn {
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--heading);
+      font-weight: 600;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all var(--trans-fast);
+    }
+    .location-nav-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .location-nav-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(85, 70, 215, 0.3);
+    }
+
+    .location-map-wrap {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      height: 380px;
+      background: var(--soft);
+      margin-bottom: 32px;
+    }
+    .location-map-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .locations-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
     .location-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -65,11 +284,21 @@
       transition: box-shadow var(--trans-base), transform var(--trans-base), border-color var(--trans-base);
       display: flex;
       flex-direction: column;
+      position: relative;
     }
-    .location-card:hover {
-      box-shadow: var(--shadow-md);
+    .location-card:hover,
+    .location-card.active-card {
+      box-shadow: var(--shadow-lg);
       transform: translateY(-3px);
       border-color: var(--primary);
+    }
+    .location-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     .location-badge {
       display: inline-flex;
@@ -83,13 +312,29 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 16px;
-      align-self: flex-start;
+    }
+    .location-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.12);
+      color: #059669;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .location-status-badge .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      display: inline-block;
     }
     .location-card h3 {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.2rem;
+      font-weight: 800;
+      font-size: 1.25rem;
       color: var(--heading);
       margin-bottom: 10px;
     }
@@ -108,9 +353,10 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--muted);
+      color: var(--body);
       font-size: 0.85rem;
       margin-bottom: 8px;
+      font-weight: 500;
     }
     .location-meta-item:last-child {
       margin-bottom: 0;
@@ -120,15 +366,105 @@
       width: 16px;
       text-align: center;
     }
+    .location-card-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    .btn-location-action {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--soft);
+      color: var(--heading);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--trans-fast);
+      cursor: pointer;
+    }
+    .btn-location-action:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
     @media (max-width: 991px) {
       .locations-grid { grid-template-columns: 1fr; }
+      .location-map-wrap { height: 300px; }
     }
     @media (max-width: 576px) {
       .contact-layout { gap:24px; }
       .contact-form-card, .contact-info-card, .contact-faq-card, .location-card { padding:24px; }
       .contact-info-card { grid-template-columns:1fr; }
+      .btn-submit-contact, .btn-reset-contact { width: 100%; flex: 1 1 100%; }
     }
-    [data-theme="dark"] .contact-form-card { background: var(--white); border-color: var(--border); }
+
+    /* Dark theme overrides */
+    [data-theme="dark"] .contact-form-card,
+    [data-theme="dark"] .contact-faq-card,
+    [data-theme="dark"] .location-card {
+      background: var(--white);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .contact-form-card .form-heading-wrap h2 {
+      color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .contact-form-card .form-heading-wrap p {
+      color: #D1D5DB !important;
+    }
+    [data-theme="dark"] .contact-form-card .ink-label {
+      color: #F8F7FC !important;
+    }
+    [data-theme="dark"] .contact-form-card .ink-input,
+    [data-theme="dark"] .contact-form-card .ink-textarea {
+      background-color: #25252D !important;
+      color: #F8F7FC !important;
+      border-color: #4A4A56 !important;
+    }
+    [data-theme="dark"] .contact-form-card .ink-input::placeholder,
+    [data-theme="dark"] .contact-form-card .ink-textarea::placeholder {
+      color: #9CA3AF !important;
+    }
+    [data-theme="dark"] .contact-char-count {
+      color: #9CA3AF !important;
+    }
+    [data-theme="dark"] .contact-form-card input[type="file"] {
+      background-color: #25252D !important;
+      color: #F8F7FC !important;
+      border-color: #4A4A56 !important;
+    }
+    [data-theme="dark"] .contact-form-card input[type="file"]::file-selector-button {
+      background: rgba(168, 85, 247, 0.2) !important;
+      color: #E9D5FF !important;
+      border-color: rgba(168, 85, 247, 0.45) !important;
+    }
+    [data-theme="dark"] .contact-form-card input[type="file"]::file-selector-button:hover {
+      background: var(--primary) !important;
+      color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .contact-form-card .btn-submit-contact {
+      background: var(--primary) !important;
+      color: #FFFFFF !important;
+      border-color: var(--primary) !important;
+    }
+    [data-theme="dark"] .contact-form-card .btn-reset-contact {
+      background: #25252D !important;
+      color: #F8F7FC !important;
+      border-color: #4A4A56 !important;
+    }
+    [data-theme="dark"] .contact-form-card .btn-reset-contact:hover {
+      background: #32323D !important;
+      color: #FFFFFF !important;
+      border-color: #6366F1 !important;
+    }
     [data-theme="dark"] .contact-form-card .ink-select {
       color-scheme: dark;
       background-color: #25252D !important;
@@ -146,6 +482,39 @@
     [data-theme="dark"] .contact-form-card .ink-select option:checked {
       background-color: #5546D7 !important;
       color: #FFFFFF !important;
+    }
+    [data-theme="dark"] .location-nav-btn {
+      background: #25252D;
+      border-color: var(--border);
+      color: #F8F7FC;
+    }
+    [data-theme="dark"] .location-nav-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .location-card h3 {
+      color: #FFFFFF;
+    }
+    [data-theme="dark"] .location-address {
+      color: #D1D5DB;
+    }
+    [data-theme="dark"] .location-meta-item {
+      color: #D1D5DB;
+    }
+    [data-theme="dark"] .location-status-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+    }
+    [data-theme="dark"] .btn-location-action {
+      background: #25252D;
+      border-color: #4A4A56;
+      color: #F8F7FC;
+    }
+    [data-theme="dark"] .btn-location-action:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
     }
   </style>
 </head>
@@ -216,51 +585,59 @@
   <div class="ink-container">
     <div class="contact-layout">
       <!-- Contact Form -->
-      <div>
         <div class="contact-form-card">
-          <h2 style="font-family:var(--font-heading);font-weight:700;font-size:1.375rem;color:var(--heading);margin-bottom:6px">Send Us a Message</h2>
-          <p style="color:var(--muted);margin-bottom:24px;font-size:0.9rem">We respond to all messages within 24 hours on business days.</p>
-
-          <!-- Inquiry Type -->
-          <div class="ink-form-group">
-            <label class="ink-label" for="inquiry-type">Inquiry Type</label>
-            <select class="ink-select" id="inquiry-type">
-              <option>I'm a Shopper — Order Support</option>
-              <option>I'm a Creator — Dashboard or Payout</option>
-              <option>I'm a Creator — Product or Upload Question</option>
-              <option>Press or Partnership Inquiry</option>
-              <option>Technical Issue or Bug Report</option>
-              <option>Other</option>
-            </select>
+          <div class="form-heading-wrap">
+            <h2>Send Us a Message</h2>
+            <p>We respond to all messages within 24 hours on business days.</p>
           </div>
 
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="ink-label" for="contact-name">Your Name</label>
-              <input type="text" class="ink-input" id="contact-name" placeholder="Full name" required>
+          <form id="contact-form" onsubmit="return false;">
+            <!-- Inquiry Type -->
+            <div class="ink-form-group">
+              <label class="ink-label" for="inquiry-type">Inquiry Type</label>
+              <select class="ink-select" id="inquiry-type">
+                <option>I'm a Shopper — Order Support</option>
+                <option>I'm a Creator — Dashboard or Payout</option>
+                <option>I'm a Creator — Product or Upload Question</option>
+                <option>Press or Partnership Inquiry</option>
+                <option>Technical Issue or Bug Report</option>
+                <option>Other</option>
+              </select>
             </div>
-            <div class="col-md-6">
-              <label class="ink-label" for="contact-email">Email Address</label>
-              <input type="email" class="ink-input" id="contact-email" placeholder="your@email.com" required>
-            </div>
-            <div class="col-12">
-              <label class="ink-label" for="contact-subject">Subject</label>
-              <input type="text" class="ink-input" id="contact-subject" placeholder="Brief subject line" required>
-            </div>
-            <div class="col-12">
-              <label class="ink-label" for="contact-message">Message</label>
-              <textarea class="ink-textarea" id="contact-message" rows="5" placeholder="Tell us how we can help..." required data-max-chars="1000" data-char-target="msg-count"></textarea>
-              <div style="font-size:0.78rem;color:var(--muted);text-align:right;margin-top:4px" id="msg-count">0/1000</div>
-            </div>
-            <div class="col-12">
-              <label class="ink-label" for="contact-attachment">Attachment (optional)</label>
-              <input type="file" class="ink-input" id="contact-attachment" style="padding:8px">
-            </div>
-          </div>
 
-          <button type="button" class="btn-ink btn-primary-ink btn-ink-lg w-100 justify-content-center mt-4" id="contact-submit">
-            <i class="fa-solid fa-paper-plane"></i> Send Message
-          </button>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="ink-label" for="contact-name">Your Name</label>
+                <input type="text" class="ink-input" id="contact-name" placeholder="Full name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="ink-label" for="contact-email">Email Address</label>
+                <input type="email" class="ink-input" id="contact-email" placeholder="your@email.com" required>
+              </div>
+              <div class="col-12">
+                <label class="ink-label" for="contact-subject">Subject</label>
+                <input type="text" class="ink-input" id="contact-subject" placeholder="Brief subject line" required>
+              </div>
+              <div class="col-12">
+                <label class="ink-label" for="contact-message">Message</label>
+                <textarea class="ink-textarea" id="contact-message" rows="5" placeholder="Tell us how we can help..." required data-max-chars="1000" data-char-target="msg-count"></textarea>
+                <div class="contact-char-count" id="msg-count">0/1000</div>
+              </div>
+              <div class="col-12">
+                <label class="ink-label" for="contact-attachment">Attachment (optional)</label>
+                <input type="file" class="ink-input" id="contact-attachment">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-submit-contact" id="contact-submit">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+              <button type="reset" class="btn-reset-contact" id="contact-reset">
+                <i class="fa-solid fa-rotate-left"></i> Clear Form
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -342,52 +719,105 @@
       <div class="section-header centered">
         <div class="section-label">Our Locations</div>
         <h2 class="section-title">Visit Us &amp; Global Hubs</h2>
-        <p class="section-subtitle">Our design headquarters, creator studios, and print-on-demand fulfillment centers.</p>
+        <p class="section-subtitle">Our design headquarters, creator studios, and print-on-demand fulfillment centers worldwide.</p>
+      </div>
+
+      <!-- Location Hub Switcher Tabs -->
+      <div class="location-tabs-nav" role="tablist">
+        <button type="button" class="location-nav-btn active" data-loc="sf" role="tab" aria-selected="true">
+          <i class="fa-solid fa-star" style="color:#EAB308"></i> San Francisco (Global HQ)
+        </button>
+        <button type="button" class="location-nav-btn" data-loc="columbus" role="tab" aria-selected="false">
+          <i class="fa-solid fa-box-open"></i> Columbus (US Fulfillment)
+        </button>
+        <button type="button" class="location-nav-btn" data-loc="london" role="tab" aria-selected="false">
+          <i class="fa-solid fa-earth-europe"></i> London (European Hub)
+        </button>
+      </div>
+
+      <!-- Embedded Interactive Map View -->
+      <div class="location-map-wrap">
+        <iframe id="location-map-frame"
+          src="https://maps.google.com/maps?q=742+Evergreen+Arts+District+San+Francisco+CA+94107&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          title="InkForge Location Map"
+          loading="lazy"
+          class="location-map-iframe">
+        </iframe>
       </div>
 
       <div class="locations-grid">
-        <div class="location-card">
-          <div class="location-badge"><i class="fa-solid fa-star"></i> Global HQ</div>
+        <div class="location-card active-card" id="card-sf">
+          <div class="location-card-header">
+            <span class="location-badge"><i class="fa-solid fa-star"></i> Global HQ</span>
+            <span class="location-status-badge"><span class="status-dot"></span> Open Today</span>
+          </div>
           <h3>San Francisco Studio</h3>
           <p class="location-address">
             742 Evergreen Arts District, Suite 400<br>
-            San Francisco, CA 94107<br>
-            United States
+            San Francisco, CA 94107, United States
           </p>
           <div class="location-meta">
             <div class="location-meta-item"><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</div>
-            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 9am – 6pm PST</div>
+            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 9:00 AM – 6:00 PM PST</div>
             <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> sf-studio@inkforge.com</div>
+          </div>
+          <div class="location-card-footer">
+            <a href="https://maps.google.com/?q=742+Evergreen+Arts+District+San+Francisco+CA+94107" target="_blank" rel="noopener" class="btn-location-action">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+            <button type="button" class="btn-location-action btn-show-map" data-loc="sf">
+              <i class="fa-solid fa-map-location-dot"></i> View on Map
+            </button>
           </div>
         </div>
 
-        <div class="location-card">
-          <div class="location-badge"><i class="fa-solid fa-box-open"></i> US Fulfillment</div>
+        <div class="location-card" id="card-columbus">
+          <div class="location-card-header">
+            <span class="location-badge"><i class="fa-solid fa-box-open"></i> US Fulfillment</span>
+            <span class="location-status-badge"><span class="status-dot"></span> 24/7 Operations</span>
+          </div>
           <h3>Columbus Print Hub</h3>
           <p class="location-address">
             1200 Logistics Parkway, Bay 4<br>
-            Columbus, OH 43217<br>
-            United States
+            Columbus, OH 43217, United States
           </p>
           <div class="location-meta">
             <div class="location-meta-item"><i class="fa-solid fa-truck-fast"></i> 24/7 Production &amp; Dispatch</div>
             <div class="location-meta-item"><i class="fa-solid fa-shield-check"></i> Certified Quality Control</div>
             <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> logistics@inkforge.com</div>
           </div>
+          <div class="location-card-footer">
+            <a href="https://maps.google.com/?q=1200+Logistics+Parkway+Columbus+OH+43217" target="_blank" rel="noopener" class="btn-location-action">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+            <button type="button" class="btn-location-action btn-show-map" data-loc="columbus">
+              <i class="fa-solid fa-map-location-dot"></i> View on Map
+            </button>
+          </div>
         </div>
 
-        <div class="location-card">
-          <div class="location-badge"><i class="fa-solid fa-earth-europe"></i> European Hub</div>
+        <div class="location-card" id="card-london">
+          <div class="location-card-header">
+            <span class="location-badge"><i class="fa-solid fa-earth-europe"></i> European Hub</span>
+            <span class="location-status-badge"><span class="status-dot"></span> Open Today</span>
+          </div>
           <h3>London Creator Lab</h3>
           <p class="location-address">
             45 Printmaker Lane, Shoreditch<br>
-            London EC2A 3AY<br>
-            United Kingdom
+            London EC2A 3AY, United Kingdom
           </p>
           <div class="location-meta">
             <div class="location-meta-item"><i class="fa-solid fa-phone"></i> +44 20 7946 0912</div>
-            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 8:30am – 5:30pm GMT</div>
+            <div class="location-meta-item"><i class="fa-solid fa-clock"></i> Mon–Fri: 8:30 AM – 5:30 PM GMT</div>
             <div class="location-meta-item"><i class="fa-solid fa-envelope"></i> uk-support@inkforge.com</div>
+          </div>
+          <div class="location-card-footer">
+            <a href="https://maps.google.com/?q=45+Printmaker+Lane+Shoreditch+London+EC2A+3AY" target="_blank" rel="noopener" class="btn-location-action">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+            <button type="button" class="btn-location-action btn-show-map" data-loc="london">
+              <i class="fa-solid fa-map-location-dot"></i> View on Map
+            </button>
           </div>
         </div>
       </div>
@@ -427,20 +857,105 @@
   });
 
   // Form submit
-  document.getElementById('contact-submit').addEventListener('click', function() {
-    this.classList.add('loading');
-    this.disabled = true;
-    setTimeout(() => {
-      this.classList.remove('loading');
-      this.disabled = false;
-      if (typeof showToast === 'function') showToast('Message sent! We\'ll reply within 24 hours.');
-    }, 1500);
-  });
+  const submitBtn = document.getElementById('contact-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function() {
+      const name = document.getElementById('contact-name');
+      const email = document.getElementById('contact-email');
+      const subject = document.getElementById('contact-subject');
+      const message = document.getElementById('contact-message');
+
+      if (!name.value.trim() || !email.value.trim() || !subject.value.trim() || !message.value.trim()) {
+        if (typeof showToast === 'function') {
+          showToast('Please fill in all required fields.', 'warning');
+        } else {
+          alert('Please fill in all required fields.');
+        }
+        return;
+      }
+
+      this.classList.add('loading');
+      this.disabled = true;
+      setTimeout(() => {
+        this.classList.remove('loading');
+        this.disabled = false;
+        document.getElementById('contact-form').reset();
+        document.getElementById('msg-count').textContent = '0/1000';
+        if (typeof showToast === 'function') {
+          showToast('Message sent! We\'ll reply within 24 hours.');
+        } else {
+          alert('Message sent! We\'ll reply within 24 hours.');
+        }
+      }, 1200);
+    });
+  }
+
+  // Form reset
+  const resetBtn = document.getElementById('contact-reset');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      setTimeout(() => {
+        document.getElementById('msg-count').textContent = '0/1000';
+      }, 50);
+    });
+  }
 
   // Char count
   const msg = document.getElementById('contact-message');
   const count = document.getElementById('msg-count');
-  msg.addEventListener('input', () => count.textContent = msg.value.length + '/1000');
+  if (msg && count) {
+    msg.addEventListener('input', () => count.textContent = msg.value.length + '/1000');
+  }
+
+  // Interactive Location Map Switcher
+  const mapFrame = document.getElementById('location-map-frame');
+  const locationMaps = {
+    sf: 'https://maps.google.com/maps?q=742+Evergreen+Arts+District+San+Francisco+CA+94107&t=&z=14&ie=UTF8&iwloc=&output=embed',
+    columbus: 'https://maps.google.com/maps?q=1200+Logistics+Parkway+Columbus+OH+43217&t=&z=14&ie=UTF8&iwloc=&output=embed',
+    london: 'https://maps.google.com/maps?q=45+Printmaker+Lane+Shoreditch+London+EC2A+3AY&t=&z=14&ie=UTF8&iwloc=&output=embed'
+  };
+
+  function selectLocation(locKey, scroll = false) {
+    if (!locationMaps[locKey] || !mapFrame) return;
+
+    // Update map src
+    mapFrame.src = locationMaps[locKey];
+
+    // Update nav buttons
+    document.querySelectorAll('.location-nav-btn').forEach(btn => {
+      const isActive = btn.dataset.loc === locKey;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update location cards
+    document.querySelectorAll('.location-card').forEach(card => {
+      card.classList.remove('active-card');
+    });
+    const targetCard = document.getElementById('card-' + locKey);
+    if (targetCard) {
+      targetCard.classList.add('active-card');
+    }
+
+    if (scroll) {
+      const mapWrap = document.querySelector('.location-map-wrap');
+      if (mapWrap) {
+        mapWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+
+  document.querySelectorAll('.location-nav-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      selectLocation(this.dataset.loc, false);
+    });
+  });
+
+  document.querySelectorAll('.btn-show-map').forEach(btn => {
+    btn.addEventListener('click', function() {
+      selectLocation(this.dataset.loc, true);
+    });
+  });
 </script>
 </body>
 </html>

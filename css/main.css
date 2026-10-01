@@ -471,9 +471,9 @@ p {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.50) 60%,
-    rgba(0, 0, 0, 0.30) 100%
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.75) 60%,
+    rgba(0, 0, 0, 0.55) 100%
   );
   pointer-events: none;
 }
@@ -632,10 +632,10 @@ p {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.68) 0%,
-    rgba(0, 0, 0, 0.42) 60%,
-    rgba(0, 0, 0, 0.25) 100%
+    to bottom,
+    rgba(0, 0, 0, 0.20) 0%,
+    rgba(0, 0, 0, 0.52) 50%,
+    rgba(0, 0, 0, 0.72) 100%
   );
   pointer-events: none;
 }
@@ -646,11 +646,16 @@ p {
   z-index: 1;
   color: #fff;
   width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-banner .ink-breadcrumb {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 0.85rem;
   color: rgba(255,255,255,0.7);
@@ -667,16 +672,20 @@ p {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 14px;
+  text-align: center;
   animation: textSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
 .page-banner p,
 .page-banner .page-banner-sub {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 1.125rem;
   max-width: 620px;
   line-height: 1.7;
   margin-bottom: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   animation: textSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
 

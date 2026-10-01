@@ -102,6 +102,28 @@
       </a>
       <button class="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">RTL</button>
       <button class="nav-icon-btn theme-toggle-btn" title="Toggle dark mode" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+
+      <!-- Profile Dropdown -->
+      <div class="dash-profile-menu" id="dash-profile-menu">
+        <button class="dash-profile-trigger" id="dash-profile-trigger" aria-haspopup="true" aria-expanded="false" aria-label="User profile menu">
+          <img src="assets/images/creators/creator-1.jpg" alt="Luna Patel" class="dash-profile-avatar">
+          <span class="dash-profile-name">Luna Patel</span>
+          <i class="fa-solid fa-chevron-down dash-profile-chevron"></i>
+        </button>
+        <div class="dash-profile-dropdown" id="dash-profile-dropdown" role="menu">
+          <div class="dash-profile-summary">
+            <strong>Luna Patel</strong>
+            <span>luna@inkforge.com</span>
+            <span class="dash-profile-role-badge">Creator</span>
+          </div>
+          <div class="dash-profile-divider"></div>
+          <a href="dashboard-profile.html" role="menuitem"><i class="fa-solid fa-user"></i> My Profile</a>
+          <a href="dashboard-settings.html" role="menuitem"><i class="fa-solid fa-gear"></i> Account Settings</a>
+          <a href="dashboard-earnings.html" role="menuitem"><i class="fa-solid fa-coins"></i> Earnings &amp; Payouts</a>
+          <div class="dash-profile-divider"></div>
+          <a href="seller-login.html" role="menuitem" class="dash-profile-logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+        </div>
+      </div>
     </div>
   </div>
 

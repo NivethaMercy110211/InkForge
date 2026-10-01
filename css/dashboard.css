@@ -457,7 +457,7 @@ body.dash-body {
   box-shadow: 0 0 0 3px var(--primary-light);
 }
 
-.dash-profile-avatar { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.dash-profile-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(99,102,241,0.25); }
 .dash-profile-chevron { color: var(--muted); font-size: 0.65rem; transition: transform var(--trans-fast); }
 .dash-profile-menu.open .dash-profile-chevron { transform: rotate(180deg); }
 
@@ -466,7 +466,7 @@ body.dash-body {
   top: calc(100% + 10px);
   right: 0;
   z-index: 220;
-  width: 230px;
+  width: 240px;
   padding: 8px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -479,13 +479,81 @@ body.dash-body {
 }
 
 .dash-profile-menu.open .dash-profile-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-.dash-profile-summary { display: flex; flex-direction: column; padding: 10px 11px 12px; }
-.dash-profile-summary strong { color: var(--heading); font-size: 0.88rem; }
-.dash-profile-summary span { color: var(--muted); font-size: 0.75rem; }
-.dash-profile-dropdown a { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border-radius: var(--radius-sm); color: var(--body); font-size: 0.83rem; }
+
+/* Profile summary header in dropdown */
+.dash-profile-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 3px;
+  background: var(--soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+}
+.dash-profile-summary strong {
+  color: var(--heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-family: var(--font-heading);
+}
+.dash-profile-summary > span:not(.dash-profile-role-badge) {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* Profile name in trigger button */
+.dash-profile-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+
+/* Role badge inside dropdown */
+.dash-profile-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--primary-light, rgba(85,70,215,0.12));
+  color: var(--primary);
+  border: 1px solid rgba(99,102,241,0.25);
+  width: fit-content;
+}
+
+/* Dropdown links */
+.dash-profile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--trans-fast), color var(--trans-fast);
+}
 .dash-profile-dropdown a:hover { background: var(--primary-light); color: var(--primary); }
-.dash-profile-dropdown a i { width: 16px; text-align: center; color: var(--primary); }
-.dash-profile-divider { height: 1px; margin: 6px 4px; background: var(--border); }
+.dash-profile-dropdown a i { width: 16px; text-align: center; color: var(--primary); flex-shrink: 0; font-size: 0.82rem; }
+
+/* Sign out link */
+.dash-profile-logout { color: var(--danger, #EF4444) !important; }
+.dash-profile-logout:hover { background: rgba(239,68,68,0.09) !important; color: var(--danger, #EF4444) !important; }
+.dash-profile-logout i { color: var(--danger, #EF4444) !important; }
+
+.dash-profile-divider { height: 1px; margin: 4px 0; background: var(--border); }
 
 .dash-mobile-toggle {
   display: none;

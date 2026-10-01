@@ -349,10 +349,41 @@
     });
   }
 
+  /* ----- Profile Dropdown Menu ----- */
+  function initProfileMenu() {
+    const menu = document.getElementById('dash-profile-menu');
+    const trigger = document.getElementById('dash-profile-trigger');
+    if (!menu || !trigger) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target)) {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
+  }
+
   /* ----- Dashboard init ----- */
   function init() {
     initSidebarCollapse();
     initMobileSidebar();
+    initProfileMenu();
     initSalesChart();
     initEarningsDonut();
     initEarningsBar();
