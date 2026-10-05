@@ -45,7 +45,8 @@
 }
 
 [dir="rtl"] .nav-controls {
-  direction: rtl;
+  /* Keep utility controls before the header CTAs in both LTR and RTL modes. */
+  direction: ltr;
 }
 
 [dir="rtl"] .nav-icon-btn .cart-count {

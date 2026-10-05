@@ -164,9 +164,9 @@
       const controls = $('.nav-controls', navbar);
       if (controls) {
         const ordered = [
-          $('.btn-seller-login', controls), $('.btn-dashboard', controls),
-          $('.nav-divider', controls), $('a[href="cart.html"]', controls),
-          $('.rtl-toggle-btn', controls), $('.theme-toggle-btn', controls)
+          $('a[href="cart.html"]', controls), $('.rtl-toggle-btn', controls),
+          $('.theme-toggle-btn', controls), $('.nav-divider', controls),
+          $('.btn-seller-login', controls), $('.btn-dashboard', controls)
         ];
         ordered.forEach(item => item && controls.appendChild(item));
       }
